@@ -36,6 +36,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/robin/Desktop/ProjCSingleAuthv2/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Agenda.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWdlbmRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/robin/Desktop/ProjCSingleAuthv2/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/robin/Desktop/ProjCSingleAuthv2/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,8 +52,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/robin/Desktop/ProjCSingleAuthv2/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/LoginView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5WaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/robin/Desktop/ProjCSingleAuthv2/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/robin/Desktop/ProjCSingleAuthv2/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Rooms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/robin/Desktop/ProjCSingleAuthv2/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/CaveroLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENhdmVyb0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/robin/Desktop/ProjCSingleAuthv2/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/_LoginPartial.cshtml]

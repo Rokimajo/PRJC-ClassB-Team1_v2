@@ -5,12 +5,28 @@
       "PackagePath": "staticwebassets\\CaveroApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\globals.css",
+      "PackagePath": "staticwebassets\\css\\globals.css"
+    },
+    {
       "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\styleguide.css",
+      "PackagePath": "staticwebassets\\css\\styleguide.css"
+    },
+    {
       "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\caverologowhite.png",
+      "PackagePath": "staticwebassets\\img\\caverologowhite.png"
     },
     {
       "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\site.js",
