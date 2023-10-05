@@ -283,3 +283,307 @@
   letter-spacing: 0;
   line-height: normal;
 }
+
+/*SIGNUP START*/
+.signup-page {
+  background-color: #803689;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 120%;
+}
+
+.signup-page .overlap-wrapper {
+  background-color: #803689;
+  width: 1440px;
+  height: 1024px;
+}
+
+.signup-page .overlap {
+  position: relative;
+  width: 1293px;
+  height: 920px;
+  top: 104px;
+  left: 43px;
+}
+
+.signup-page .sign-up-block {
+  position: absolute;
+  width: 1232px;
+  height: 816px;
+  top: 0;
+  left: 61px;
+  background-color: #ffffff;
+  border-radius: 40px;
+  overflow: hidden;
+  border: 5px solid;
+  border-color: #b1b3b4;
+}
+
+.signup-page .overlap-group {
+  position: absolute;
+  width: 300px;
+  height: 103px;
+  top: 33px;
+  left: 42px;
+}
+
+.signup-page .cavero-logo-full {
+  position: absolute;
+  width: 300px;
+  height: 84px;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.signup-page .text-wrapper {
+  position: absolute;
+  top: 84px;
+  left: 25px;
+  font-family: "Lato", Helvetica;
+  font-weight: 400;
+  color: #de3131;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .div {
+  position: absolute;
+  top: 91px;
+  left: 401px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #343f4b;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .p {
+  position: absolute;
+  top: 134px;
+  left: 401px;
+  font-family: "Lato", Helvetica;
+  font-weight: 500;
+  color: #343f4b;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .log-in-hyperlink {
+  position: absolute;
+  top: 134px;
+  left: 616px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #00a6ff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .text-wrapper-2 {
+  position: absolute;
+  top: 188px;
+  left: 401px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #343f4b;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .text-wrapper-3 {
+  position: absolute;
+  top: 188px;
+  left: 759px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #343f4b;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .text-wrapper-4 {
+  position: absolute;
+  width: 74px;
+  top: 327px;
+  left: 401px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #343f4b;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .text-wrapper-5 {
+  position: absolute;
+  top: 464px;
+  left: 401px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #343f4b;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .text-wrapper-6 {
+  position: absolute;
+  top: 464px;
+  left: 759px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #343f4b;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .create-account {
+  position: absolute;
+  width: 667px;
+  height: 62px;
+  top: 608px;
+  left: 401px;
+  background-color: #803689;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid;
+  border-color: #b1b3b4;
+}
+
+.signup-page .text-wrapper-7 {
+  position: absolute;
+  top: 14px;
+  left: 245px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.signup-page .arrow {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: 10px;
+  left: 432px;
+  object-fit: cover;
+}
+
+.signup-page .ellipse {
+  position: absolute;
+  width: 211px;
+  height: 219px;
+  top: 650px;
+  left: -79px;
+  background-color: #f9c8ff;
+  border-radius: 105.5px/109.5px;
+}
+
+.signup-page .password-repeat-form {
+  position: absolute;
+  width: 318px;
+  height: 46px;
+  top: 510px;
+  left: 759px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.signup-page .password-form {
+  position: absolute;
+  width: 318px;
+  height: 46px;
+  top: 510px;
+  left: 401px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.signup-page .last-name-form {
+  position: absolute;
+  width: 318px;
+  height: 46px;
+  top: 235px;
+  left: 759px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.signup-page .first-name-form {
+  position: absolute;
+  width: 318px;
+  height: 46px;
+  top: 235px;
+  left: 401px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.signup-page .email-form {
+  position: absolute;
+  width: 676px;
+  height: 46px;
+  top: 378px;
+  left: 401px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.signup-page .block-breakup {
+  position: absolute;
+  width: 253px;
+  height: 250px;
+  top: 670px;
+  left: 0;
+}
+
+.signup-page .overlap-2 {
+  position: relative;
+  height: 250px;
+}
+
+.signup-page .ellipse-2 {
+  position: absolute;
+  width: 169px;
+  height: 162px;
+  top: 0;
+  left: 0;
+  background-color: #803689;
+  border-radius: 84.5px/81px;
+}
+
+.signup-page .ellipse-3 {
+  position: absolute;
+  width: 169px;
+  height: 162px;
+  top: 88px;
+  left: 84px;
+  background-color: #803689;
+  border-radius: 84.5px/81px;
+}

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CaveroApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\dashboardmain.css",
+      "PackagePath": "staticwebassets\\css\\dashboardmain.css"
+    },
+    {
       "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\globals.css",
       "PackagePath": "staticwebassets\\css\\globals.css"
     },
@@ -25,8 +29,80 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\arrow.png",
+      "PackagePath": "staticwebassets\\img\\arrow.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\branding.png",
+      "PackagePath": "staticwebassets\\img\\branding.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\cavero-logo-full.png",
+      "PackagePath": "staticwebassets\\img\\cavero-logo-full.png"
+    },
+    {
       "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\caverologowhite.png",
       "PackagePath": "staticwebassets\\img\\caverologowhite.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\icon-arrow-right.svg",
+      "PackagePath": "staticwebassets\\img\\icon-arrow-right.svg"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-1.png",
+      "PackagePath": "staticwebassets\\img\\image-1.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-2.png",
+      "PackagePath": "staticwebassets\\img\\image-2.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-3-1.png",
+      "PackagePath": "staticwebassets\\img\\image-3-1.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-3.png",
+      "PackagePath": "staticwebassets\\img\\image-3.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-4.png",
+      "PackagePath": "staticwebassets\\img\\image-4.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-5.png",
+      "PackagePath": "staticwebassets\\img\\image-5.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-6.png",
+      "PackagePath": "staticwebassets\\img\\image-6.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-8-2.png",
+      "PackagePath": "staticwebassets\\img\\image-8-2.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-8-3.png",
+      "PackagePath": "staticwebassets\\img\\image-8-3.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\line-1.svg",
+      "PackagePath": "staticwebassets\\img\\line-1.svg"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\logohandtekening-1-1.png",
+      "PackagePath": "staticwebassets\\img\\logohandtekening-1-1.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\microsoft-outlook-macos-icon-12-1.png",
+      "PackagePath": "staticwebassets\\img\\microsoft-outlook-macos-icon-12-1.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\rectangle-1.png",
+      "PackagePath": "staticwebassets\\img\\rectangle-1.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\rectangle-3.svg",
+      "PackagePath": "staticwebassets\\img\\rectangle-3.svg"
     },
     {
       "Id": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\site.js",
