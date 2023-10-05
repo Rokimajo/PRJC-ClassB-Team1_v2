@@ -1,0 +1,34 @@
+# Ignore Mac / Windows system files
+.DS_store
+.idea
+
+
+# Ignore obj files
+obj/
+idea/
+bin/
+
+# Shared objects
+.dll
+.exe
+.cache
+.com
+DotSettings.user
+Folder.DotSettings.User
+
+# Ignore JetBrains + vscode settings
+.idea/
+.vscode/
+.vs/
+
+# Shared objects
+*.dll
+*.exe
+*.pdb
+
+# Ignore cache and user-specific files
+.cache/
+.com
+DotSettings.user
+Folder.DotSettings.User
+```
