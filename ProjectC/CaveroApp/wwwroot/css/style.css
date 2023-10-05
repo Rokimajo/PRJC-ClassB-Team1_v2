@@ -466,6 +466,17 @@
   overflow: hidden;
   border: 2px solid;
   border-color: #b1b3b4;
+  transition: 0.3s
+}
+
+.create-account:hover {
+  background-color: #993689;
+  box-shadow: 0px 4px 4px #00000040;
+  filter: brightness(110%)
+}
+
+.create-account:active {
+  transform: translateY(4px);
 }
 
 .signup-page .text-wrapper-7 {
@@ -507,8 +518,6 @@
   top: 510px;
   left: 759px;
   border-radius: 10px;
-  border: 1px solid;
-  border-color: #000000;
 }
 
 .signup-page .password-form {
@@ -518,8 +527,6 @@
   top: 510px;
   left: 401px;
   border-radius: 10px;
-  border: 1px solid;
-  border-color: #000000;
 }
 
 .signup-page .last-name-form {
@@ -529,8 +536,6 @@
   top: 235px;
   left: 759px;
   border-radius: 10px;
-  border: 1px solid;
-  border-color: #000000;
 }
 
 .signup-page .first-name-form {
@@ -540,8 +545,6 @@
   top: 235px;
   left: 401px;
   border-radius: 10px;
-  border: 1px solid;
-  border-color: #000000;
 }
 
 .signup-page .email-form {

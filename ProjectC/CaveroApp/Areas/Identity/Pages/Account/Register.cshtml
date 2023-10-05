@@ -3,42 +3,60 @@
 @{
     ViewData["Title"] = "Register";
 }
-
-<h1>@ViewData["Title"]</h1>
-
 <html>
 <body>
 <div class="signup-page">
   <div class="overlap-wrapper">
     <div class="overlap">
-      <div class="sign-up-block">
-        <div class="overlap-group">
-          <img class="cavero-logo-full" src="/img/cavero-logo-full.png"/>
-          <p class="text-wrapper">Velden met * zijn verplicht</p>
+        <div class="sign-up-block">
+            <div class="overlap-group">
+                <img class="cavero-logo-full" src="/img/cavero-logo-full.png"/>
+                <p class="text-wrapper">Velden met * zijn verplicht</p>
+            </div>
+            <div class="div">Creëer uw account</div>
+            <p class="p">Heeft u al een account?</p>
+            <div class="text-wrapper-2">Voornaam*</div>
+            <div class="text-wrapper-3">Achternaam*</div>
+            <div class="text-wrapper-4">Email*</div>
+            <div class="text-wrapper-5">Wachtwoord*</div>
+            <div class="text-wrapper-6">Wachtwoord herhalen*</div>
+        
+            <div class="col-md-4">
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <a class="log-in-hyperlink" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Log in</a>
+                    <div class="first-name-form">
+                        <input asp-for="Input.FirstName" class="form-control" aria-required="true" placeholder="..." />
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="last-name-form">
+                        <input asp-for="Input.LastName" class="form-control" aria-required="true" placeholder="..." />
+                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="email-form">
+                        <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@cavero.nl" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="password-form">
+                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="password-repeat-form">
+                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password repeat" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div >
+                        <button id="registerSubmit" type="submit" class="create-account">
+                            <div class="text-wrapper-7">Creeër account</div>
+                            <img class="arrow" src="/img/arrow.png"/>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="div">Creëer uw account</div>
-        <p class="p">Heeft u al een account?</p>
-        <div class="log-in-hyperlink">Log in</div>
-        <div class="text-wrapper-2">Voornaam*</div>
-        <div class="text-wrapper-3">Achternaam*</div>
-        <div class="text-wrapper-4">Email*</div>
-        <div class="text-wrapper-5">Wachtwoord*</div>
-        <div class="text-wrapper-6">Wachtwoord herhalen*</div>
-        <div class="create-account">
-          <div class="text-wrapper-7">Creëer account</div>
-          <img class="arrow" src="/img/arrow.png" />
-        </div>
-        <div class="ellipse"></div>
-        <div class="password-repeat-form"></div>
-        <div class="password-form"></div>
-        <div class="last-name-form"></div>
-        <div class="first-name-form"></div>
-        <div class="email-form">
-           <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@cavero.nl" /> 
-           <label asp-for="Input.Email"></label> 
-           <span asp-validation-for="Input.Email" class="text-danger"></span> 
-        </div>
-      </div>
+        
       <div class="block-breakup">
         <div class="overlap-2">
           <div class="ellipse-2"></div>
