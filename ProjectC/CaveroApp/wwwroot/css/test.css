@@ -1,0 +1,68 @@
+﻿*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--collection-1-cavero-paars)
+}
+
+.sign-up-block {
+    width: 1232px;
+    height: 816px;
+    background-color: #ffffff;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 5px solid #b1b3b4;
+}
+
+.title-block {
+    position: relative;
+}
+
+.title {
+    position: relative;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #343f4b;
+    font-size: 26px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.firstname {
+    left: 401px;
+}
+
+.lastname {
+    left: 759px;
+}
+
+.email {
+    top: 327px;
+    left: 401px;
+}
+
+.password {
+    top: 464px;
+    left: 401px;
+}
+
+.password-repeat {
+    top: 464px;
+    left: 759px;
+}
