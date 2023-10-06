@@ -1,0 +1,320 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 100%;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+}
+
+.login {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.login .div {
+    display: flex;
+    background-color: #ffffff;
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+}
+
+.login .purple-block {
+    display: flex;
+    width: 966px;
+    height: 1024px;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.login .overlap {
+    display: flex;
+    position: relative;
+    height: 1024px;
+}
+
+.login .frame {
+    display: flex;
+    position: absolute;
+    width: 872px;
+    height: 1024px;
+    top: 0;
+    left: 0;
+    background-color: #803689;
+}
+
+.login .sign-in-block {
+    display: flex;
+    width: 600px;
+    height: 530px;
+    top: 284px;
+    left: 169px;
+    background-color: #ffffff;
+    border-radius: 60px;
+    border: rgba(0, 0, 0, 0);
+    position: absolute;
+}
+
+.login .overlap-group {
+    position: absolute;
+    width: 161px;
+    height: 153px;
+    top: -51px;
+    left: 508px;
+    border: rgba(0, 0, 0, 0);
+}
+
+.login .pink-circle {
+    position: absolute;
+    width: 161px;
+    height: 145px;
+    top: 8px;
+    left: 6px;
+    background-color: #fbdbff;
+    border-radius: 80.5px/72.5px;
+}
+
+.login .purple-circle {
+    width: 140px;
+    height: 130px;
+    left: 23px;
+    background-color: #803689;
+    border-radius: 69px/61.5px;
+    position: absolute;
+    top: 0;
+}
+
+.login .text-wrapper {
+    top: 41px;
+    left: 225px;
+    color: #47525e;
+    font-size: 50px;
+    white-space: nowrap;
+    position: absolute;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .description {
+    position: absolute;
+    width: 388px;
+    top: 101px;
+    left: 106px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #8a9096;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .email-block {
+    position: absolute;
+    width: 320px;
+    height: 60px;
+    top: 197px;
+    left: 140px;
+}
+
+.login .div-wrapper {
+    position: relative;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #47525e;
+}
+
+.login .text-wrapper-2 {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #8a9096;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .password-block {
+    position: absolute;
+    width: 320px;
+    height: 60px;
+    top: 265px;
+    left: 140px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.login .password {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: var(--variable-collection-light-grey);
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .sign-in-button {
+    width: 320px;
+    height: 60px;
+    top: 365px;
+    left: 140px;
+    color: white;
+    background-color: #47525e;
+    border-radius: 15px;
+    border: 1px solid;
+    position: absolute;
+    overflow: hidden;
+    transition: 0.2s ease
+}
+
+.login .sign-in-button:hover {
+    box-shadow: 0px 4px 4px #00000040;
+    filter: brightness(109%);
+}
+
+.login .log-in-text {
+    position: absolute;
+    top: 15px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .text-wrapper-3 {
+    position: absolute;
+    top: 433px;
+    left: 233px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #00a6ff;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .cavero-logo-white {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 41px;
+    left: 376px;
+    object-fit: cover;
+}
+
+.login .ellipse {
+    position: absolute;
+    width: 188px;
+    height: 1024px;
+    top: 0;
+    left: 778px;
+    background-color: #803689;
+    border-radius: 94px/512px;
+}
+
+.login .sign-up-title {
+    position: absolute;
+    width: 280px;
+    top: 20px;
+    left: 990px;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #47525e;
+    font-size: 48px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .overlap-2 {
+    position: absolute;
+    width: 443px;
+    height: 312px;
+    top: 60px;
+    left: 925px;
+}
+
+.login .sign-up-text {
+    position: absolute;
+    width: 443px;
+    top: 50px;
+    left: 0;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    color: #47525e;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .sign-up-button {
+    position: absolute;
+    width: 317px;
+    height: 97px;
+    top: 215px;
+    left: 56px;
+    background-color: #803689;
+    border-radius: 50px;
+    border-color: lightgrey;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition-duration: 10ms;
+}
+
+.login .sign-up-button:hover {
+    filter: brightness(95%);
+}
+
+.login .text-wrapper-5 {
+    top: 18px;
+    left: 76px;
+    color: #ffffff;
+    font-size: 48px;
+    position: absolute;
+    font-family: "Lato", Helvetica;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .remember-me {
+    position: relative;
+    left: 219px;
+    top: 330px;
+}
+
+.login .forgot-password {
+    position: relative;
+    top: 420px;
+    left: 215px;
+}

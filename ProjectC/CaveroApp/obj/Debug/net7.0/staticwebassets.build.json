@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/DSxTSzMxuLfEKvrYG99akwkp5tQCR5U04iICUVTlgc=",
+  "Hash": "5tzsJCsp1NBGLPEfcIMo24tDUdDcKffFlqtzHe7REI4=",
   "Source": "CaveroApp",
   "BasePath": "_content/CaveroApp",
   "Mode": "Default",
@@ -1105,6 +1105,40 @@
       "OriginalItemSpec": "wwwroot\\css\\globals.css"
     },
     {
+      "Identity": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\login.css",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\register.css",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "css/register.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\register.css"
+    },
+    {
       "Identity": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\site.css",
       "SourceId": "CaveroApp",
       "SourceType": "Discovered",
@@ -1154,6 +1188,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\styleguide.css"
+    },
+    {
+      "Identity": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\test.css",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "css/test.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\test.css"
     },
     {
       "Identity": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\favicon.ico",
