@@ -3,78 +3,143 @@
 
 @{
     ViewData["Title"] = "Log in";
+    Layout = "_EmptyLayout";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/globals.css"/>
-    <link rel="stylesheet" href="css/styleguide.css"/>
+    <link rel="stylesheet" href="/css/globals.css"/>
+    <link rel="stylesheet" href="/css/styleguide.css"/>
     <link rel="stylesheet" href="/css/login.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="login">
-    <div class="div">
-        <div class="purple-block">
-            <div class="overlap">
-                <div class="frame">
-                    <img class="cavero-logo-white" src="/img/caverologowhite.png" alt="Cavero Logo"/>
-                    <div class="sign-in-block">
-                        <div class="overlap-group">
-                            @* <div class="pink-circle"></div> *@
-                            <div class="purple-circle"></div>
-                        </div>
-                        
-                        <div class="text-wrapper">Sign In</div>
-                        <p class="description">Log hier in met uw bestaande account, of maak er een aan met de knop links.</p>
-                        <div class="col-md-4">
-                            <form id="account" method="post">
-                                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                                <div class="email-block">
-                                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@cavero.nl"/>
-                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                                </div>
-                                <div class="password-block">
-                                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password"/>
-                                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                                </div>
-                                <div class="log-in-text">
-                                    <button id="login-submit" type="submit" class="sign-in-button"><strong>Log in</strong></button>
-                                </div>
-                                <div class="remember-me">
-                                    <label asp-for="Input.RememberMe" class="form-label">
-                                        <input class="form-check-input" asp-for="Input.RememberMe"/>
-                                        @Html.DisplayNameFor(m => m.Input.RememberMe)
-                                    </label>
-                                </div>
-                                
-                                <div class="forgot-password">
-                                    <p><a id="forgot-password" asp-page="./ForgotPassword">Wachtwoord vergeten?</a></p>
-                                    @* <p> *@
-                                    @*     <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a> *@
-                                    @* </p> *@
-                                </div>      
-                            </form>
-                            <div class="sign-up-title">Nieuw Hier?</div>
-                            <div class="overlap-2">
-                              <p class="sign-up-text">
-                                  Maak hier een account aan<br/>en maak je klaar om Cavero’s nieuwe sociale app<br/>te gebruiken!
-                              </p>
-                              <a class="sign-up-button" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">
-                                  <div class="text-wrapper-5" style="text-decoration: none">Sign Up</div>
-                              </a>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="ellipse"></div>
+<section id="registration-page">
+    <form id="registerForm" class="signup-form" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+        <!-- FORM HEADER -->
+        <div class="form-header">
+            <img src="/img/caverologowhite.png"/>
+            <h1>Sign In</h1>
+        </div>
+        <!-- FORM BODY -->
+        <div class="form-body">
+            <!-- First name & Last name -->
+            <div class="row">
+            </div>
+            <!-- Email -->
+            <div class="row">
+
+                <div class="input-group">
+                    <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@cavero.nl"/>
+                    <span asp-validation-for="Input.Email" class="text-danger" style="color: red; margin-top: 3px;"></span>
                 </div>
             </div>
+            <div class="row">
+                <div class="input-group">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
+                    <span asp-validation-for="Input.Password" class="text-danger" style="color: red; margin-top: 3px;"></span>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="remember-me-button">
+                    <label asp-for="Input.RememberMe" class="form-label">
+                        <input class="form-check-input" asp-for="Input.RememberMe"/>
+                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                    </label>
+                </div>
+            </div>
+            <!--  FORM FOOTER   -->
+            <div class="form-footer">
+                <button id="registerSubmit" class="btn" type="submit">Log In</button>
+            </div>
+            <div class="row">
+                <div class="password-reset">
+                    <a id="forgot-password" asp-page="./ForgotPassword">Wachtwoord vergeten?</a>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="form-footer">
+                <a class="btn account-create" style="text-decoration: none" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Maak nieuw account</a>
+            </div>
         </div>
-    </div>
-</div>
+    </form>
+</section>
 </body>
 </html>
+
+@* <html> *@
+@* <head> *@
+@*     <link rel="stylesheet" href="css/globals.css"/> *@
+@*     <link rel="stylesheet" href="css/styleguide.css"/> *@
+@*     <link rel="stylesheet" href="/css/login.css"/> *@
+@*     <meta name="viewport" content="width=device-width, initial-scale=1.0"> *@
+@* </head> *@
+@* <body> *@
+@* <div class="login"> *@
+@*     <div class="div"> *@
+@*         <div class="purple-block"> *@
+@*             <div class="overlap"> *@
+@*                 <div class="frame"> *@
+@*                     <img class="cavero-logo-white" src="/img/caverologowhite.png" alt="Cavero Logo"/> *@
+@*                     <div class="sign-in-block"> *@
+@*                         <div class="overlap-group"> *@
+@*                             $1$ <div class="pink-circle"></div> #1# *@
+@*                             <div class="purple-circle"></div> *@
+@*                         </div> *@
+@*                          *@
+@*                         <div class="text-wrapper">Sign In</div> *@
+@*                         <p class="description">Log hier in met uw bestaande account, of maak er een aan met de knop links.</p> *@
+@*                         <div class="col-md-4"> *@
+@*                             <form id="account" method="post"> *@
+@*                                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div> *@
+@*                                 <div class="email-block"> *@
+@*                                     <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@cavero.nl"/> *@
+@*                                     <span asp-validation-for="Input.Email" class="text-danger"></span> *@
+@*                                 </div> *@
+@*                                 <div class="password-block"> *@
+@*                                     <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password"/> *@
+@*                                     <span asp-validation-for="Input.Password" class="text-danger"></span> *@
+@*                                 </div> *@
+@*                                 <div class="log-in-text"> *@
+@*                                     <button id="login-submit" type="submit" class="sign-in-button"><strong>Log in</strong></button> *@
+@*                                 </div> *@
+@*                                 <div class="remember-me"> *@
+@*                                     <label asp-for="Input.RememberMe" class="form-label"> *@
+@*                                         <input class="form-check-input" asp-for="Input.RememberMe"/> *@
+@*                                         @Html.DisplayNameFor(m => m.Input.RememberMe) *@
+@*                                     </label> *@
+@*                                 </div> *@
+@*                                  *@
+@*                                 <div class="forgot-password"> *@
+@*                                     <p><a id="forgot-password" asp-page="./ForgotPassword">Wachtwoord vergeten?</a></p> *@
+@*                                     $1$ <p> #1# *@
+@*                                     $1$     <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a> #1# *@
+@*                                     $1$ </p> #1# *@
+@*                                 </div>       *@
+@*                             </form> *@
+@*                             <div class="sign-up-title">Nieuw Hier?</div> *@
+@*                             <div class="overlap-2"> *@
+@*                               <p class="sign-up-text"> *@
+@*                                   Maak hier een account aan<br/>en maak je klaar om Cavero’s nieuwe sociale app<br/>te gebruiken! *@
+@*                               </p> *@
+@*                               <a class="sign-up-button" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"> *@
+@*                                   <div class="text-wrapper-5" style="text-decoration: none">Sign Up</div> *@
+@*                               </a> *@
+@*                           </div> *@
+@*                         </div> *@
+@*                     </div> *@
+@*                     <div class="ellipse"></div> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+@* </body> *@
+@* </html> *@
 
 
 @* <div class="col-md-4"> *@

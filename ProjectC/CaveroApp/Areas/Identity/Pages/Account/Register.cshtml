@@ -19,39 +19,43 @@
         <!-- FORM HEADER -->
         <div class="form-header">
             <img src="/img/caverologowhite.png"/>
-            <h1>Creeër Account</h1>
+            <h1>Account Maken</h1>
+            <p>Fields met een * zijn required</p>
         </div>
         <!-- FORM BODY -->
         <div class="form-body">
+                <p class="log-in-link">Heeft u al een account?</p>
+                <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Log in</a>
             <!-- First name & Last name -->
             <div class="row">
                 <div class="input-group">
-                    <label>First Name</label>
+                    <label>First Name*</label>
                     <input asp-for="Input.FirstName" class="form-control" aria-required="true" placeholder="..."/>
                     <span asp-validation-for="Input.FirstName" class="text-danger" style="color: red; margin-top: 3px;"></span>
                 </div>
                 <div class="input-group">
-                    <label>Last Name</label>
+                    <label>Last Name*</label>
                     <input asp-for="Input.LastName" class="form-control" aria-required="true" placeholder="..."/>
                     <span asp-validation-for="Input.LastName" class="text-danger" style="color: red; margin-top: 3px;"></span>
                 </div>
             </div>
             <!-- Email -->
             <div class="row">
+
                 <div class="input-group">
-                    <label>Email</label>
+                    <label>Email*</label>
                     <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@cavero.nl"/>
                     <span asp-validation-for="Input.Email" class="text-danger" style="color: red; margin-top: 3px;"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="input-group">
-                    <label>Password </label>
+                    <label>Password*</label>
                     <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
                     <span asp-validation-for="Input.Password" class="text-danger" style="color: red; margin-top: 3px;"></span>
                 </div>
                 <div class="input-group">
-                    <label>Confirm Password</label>
+                    <label>Confirm Password*</label>
                     <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password repeat"/>
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger" style="color: red; margin-top: 3px;"></span>
                 </div>

@@ -1,4 +1,5 @@
-﻿
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 * {
     margin:0;
     box-sizing: border-box;
@@ -11,7 +12,7 @@ html, body {
 
 #registration-page {
     height:100%;
-    background: linear-gradient(to top right, var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
+    background: linear-gradient(135deg, var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
     display:flex;
     justify-content: center;
     align-items: center;
@@ -29,21 +30,30 @@ html, body {
 /* FORM HEADER */
 .form-header {
     padding:15px 0;
-    border-bottom:1px solid #cccccc;
     border-radius: 15px 15px 0 0;
-    background-color: var(--collection-1-cavero-gradient)
+    background-color: var(--collection-1-cavero-gradient);
+    box-shadow: 10px 10px 9px -3px rgba(0,0,0,0.46);
 }
 
 .form-header h1 {
-    font-family: "Lato", Helvetica, serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     font-size: 28px;
     text-align:center;
     color:#ffffff;
 }
 
+.form-header p {
+    font-size: 12px;
+    color: #ffffff;
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
 .form-header img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -54,6 +64,15 @@ html, body {
 .form-body {
     background:white;
     padding:5px 10px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 10px 10px 9px -3px rgba(0,0,0,0.46);
+}
+
+.form-body a {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 
@@ -102,6 +121,10 @@ html, body {
     padding:10px;
 }
 
+.log-in-link {
+    display: inline-block;
+}
+
 .btn {
     padding:10px 20px;
     background-color: var(--collection-1-cavero-paars);
@@ -111,6 +134,10 @@ html, body {
     color: white;
     cursor:pointer;
     transition: 0.3s;
+    width: 200px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .btn:hover {
@@ -134,8 +161,6 @@ label {
 input[type="text"],
 input[type="email"] ,
 input[type="password"],
-input[type="file"],
-input[type="number"],
 select,
 textarea  {
     width:100%;
@@ -150,7 +175,6 @@ textarea  {
     background: white;
     outline: none;
 }
-
 
 textarea {
     resize: none;
