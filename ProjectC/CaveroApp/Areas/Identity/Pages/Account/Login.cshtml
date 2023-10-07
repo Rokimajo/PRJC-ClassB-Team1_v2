@@ -26,12 +26,8 @@
         </div>
         <!-- FORM BODY -->
         <div class="form-body">
-            <!-- First name & Last name -->
-            <div class="row">
-            </div>
             <!-- Email -->
             <div class="row">
-
                 <div class="input-group">
                     <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@cavero.nl"/>
                     <span asp-validation-for="Input.Email" class="text-danger" style="color: red; margin-top: 3px;"></span>
@@ -47,7 +43,7 @@
             <div class="row">
                 <div class="remember-me-button">
                     <label asp-for="Input.RememberMe" class="form-label">
-                        <input class="form-check-input" asp-for="Input.RememberMe"/>
+                        <input class="form-check-input" style="user-select: none" asp-for="Input.RememberMe"/>
                         @Html.DisplayNameFor(m => m.Input.RememberMe)
                     </label>
                 </div>
