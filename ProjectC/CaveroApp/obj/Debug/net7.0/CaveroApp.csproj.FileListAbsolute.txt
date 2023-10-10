@@ -578,3 +578,5 @@ C:\ProjectC\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\obj\Debug\net7.0\refint\Cave
 C:\ProjectC\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\obj\Debug\net7.0\CaveroApp.pdb
 C:\ProjectC\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\obj\Debug\net7.0\CaveroApp.genruntimeconfig.cache
 C:\ProjectC\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\obj\Debug\net7.0\ref\CaveroApp.dll
+C:\ProjectC\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\Npgsql.dll
+C:\ProjectC\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
