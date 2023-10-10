@@ -24,6 +24,11 @@
     padding: 0 15px;
 }
 
+/*temp*/
+.header h1 {
+    margin-left: 30px;
+}
+
 .aside {
     grid-area: aside;
     display: flex;
@@ -90,6 +95,10 @@
     grid-area: card3;
 }
 
+.hamburger-menu {
+    display: none;
+}
+
 
 /*phone layout*/
 @media only screen and (max-width: 500px) {
@@ -138,13 +147,19 @@
     .hamburger-menu {
         position: fixed;
         display: flex;
-        top: 2px;
+        top: 17px;
         left: 8px;
         align-items: center;
         justify-content: center;
         z-index: 1;
         cursor: pointer;
         padding: 12px;
-        color: black;
+        color: red;
+        font-size: 20px;
+        user-select: none;
+    }
+    
+    .hamburger-menu:hover {
+        color: lime;
     }
 }
