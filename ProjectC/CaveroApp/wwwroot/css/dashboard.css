@@ -1,0 +1,150 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    /* make page fill the entire screen
+    instead of only filling it up so far as the main grid goes.
+     */
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 75px 1fr;
+    grid-template-areas: 
+    'aside header'
+    'aside main'
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    background-color: darkblue;
+    padding: 0 15px;
+}
+
+.aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+}
+
+.aside_list {
+    padding: 0;
+    margin-top: 80px;
+    list-style-type: none;
+}
+
+.aside_list_item {
+    padding: 20px 20px;
+    color: red;
+}
+
+.aside_list_item:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+.main {
+    grid-area: main;
+    background-color: var(--collection-1-cavero-lichtpaars);
+}
+
+.main-overview {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main-body {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 200px 300px;
+    grid-template-areas:
+    'card1 card2'
+    'card1 card3';
+    grid-gap: 10px;
+}
+
+
+.card {
+    padding: 40px;
+    border: 1px solid tomato;
+    border-radius: 4px;
+    color: tomato;
+}
+
+.one {
+    grid-area: card1;
+}
+
+.two {
+    grid-area: card2;
+}
+
+.three {
+    grid-area: card3;
+}
+
+
+/*phone layout*/
+@media only screen and (max-width: 500px) {
+    .grid-container {
+    /* make page fill the entire screen
+    instead of only filling it up so far as the main grid goes.
+     */
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 75px 1fr;
+    grid-template-areas:
+        'header'
+        'main'
+    }
+
+    .aside {
+        display: flex;
+        flex-direction: column;
+        background-color: lightblue;
+        height: 100vh;
+        width: 240px;
+        position: fixed;
+        overflow-y: auto;
+        z-index: 2;
+        /*put the side bar offscreen unless hamburger menu is pressed*/
+        transform: translateX(-245px);
+    }
+    
+    .aside.active {
+        transform: translateX(0);
+    }
+
+    .main-body {
+        margin: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 500px 200px 300px;
+        grid-template-areas:
+        'card1'
+        'card2'
+        'card3';
+        grid-gap: 10px;
+    }
+
+    .hamburger-menu {
+        position: fixed;
+        display: flex;
+        top: 2px;
+        left: 8px;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        cursor: pointer;
+        padding: 12px;
+        color: black;
+    }
+}
