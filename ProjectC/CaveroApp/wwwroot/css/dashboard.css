@@ -52,6 +52,10 @@
     cursor: pointer;
 }
 
+.aside-close-icon {
+    display: none;
+}
+
 .main {
     grid-area: main;
     background-color: var(--collection-1-cavero-lichtpaars);
@@ -100,6 +104,7 @@
 }
 
 
+
 /*phone layout*/
 @media only screen and (max-width: 500px) {
     .grid-container {
@@ -123,13 +128,29 @@
         width: 240px;
         position: fixed;
         overflow-y: auto;
+        /*make it overlay everything*/
         z-index: 2;
         /*put the side bar offscreen unless hamburger menu is pressed*/
+        transition: 0.35s;
         transform: translateX(-245px);
     }
     
     .aside.active {
         transform: translateX(0);
+    }
+    
+    .aside-close-icon {
+        position: fixed;
+        display: flex;
+        top: 20px;
+        right: 20px;
+        z-index: 1;
+        cursor: pointer;
+        padding: 12px;
+        color: red;
+        font-size: 35px;
+        font-weight: 600;
+        user-select: none;
     }
 
     .main-body {

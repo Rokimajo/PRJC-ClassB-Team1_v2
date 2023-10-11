@@ -16,6 +16,9 @@
         <h1 style="color: white">This is inside the header.</h1>
     </header>
     <aside class="aside">
+        <div class="aside-close-icon">
+            <strong>&times;</strong>
+        </div>
         <ul class="aside_list">
             <li class="aside_list_item">Item 1</li>
             <li class="aside_list_item">Item 2</li>
@@ -26,7 +29,6 @@
         </ul>
     </aside>
     <main class="main">
-
         <div class="main-body">
             @RenderBody()
             <div class="card one">aaa</div>
@@ -41,6 +43,25 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+
+<script>
+// script to open and close the sidebar menu on phone layouts.
+const hamburger_menu = document.querySelector(".hamburger-menu");
+const close_icon = document.querySelector(".aside-close-icon");
+const aside = document.querySelector(".aside");
+
+function toggle(elm, className) {
+    if (elm.classList.contains(className)) {
+        elm.classList.remove(className);
+        }
+    else {
+        elm.classList.add(className);
+        }
+    }
+    
+    hamburger_menu.addEventListener("click", function(){toggle(aside, "active")});
+    close_icon.addEventListener("click", function (){toggle(aside, "active")});
+</script>
  
 @await RenderSectionAsync("Scripts", required: false)
 </body>
