@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - CaveroApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/CaveroApp.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true"/>
 </head>
 <body>
 <header>
@@ -25,6 +25,18 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/LoginView">LoginView</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/SignupView">SignupView</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Agenda">Agenda</a>
+                    </li>
                 </ul>
                 <partial name="_LoginPartial"/>
             </div>
@@ -37,11 +49,11 @@
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2023 - CaveroApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
-    </div>
-</footer>
+@* <footer class="border-top footer text-muted"> *@
+@*     <div class="container"> *@
+@*         &copy; 2023 - CaveroApp - <a asp-area="" asp-page="/Privacy">Privacy</a> *@
+@*     </div> *@
+@* </footer> *@
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

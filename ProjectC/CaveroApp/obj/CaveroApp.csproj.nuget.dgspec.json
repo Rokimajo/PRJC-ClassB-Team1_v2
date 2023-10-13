@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\CaveroApp.csproj": {}
+    "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\CaveroApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\CaveroApp.csproj": {
+    "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\CaveroApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\CaveroApp.csproj",
+        "projectUniqueName": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\CaveroApp.csproj",
         "projectName": "CaveroApp",
-        "projectPath": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\CaveroApp.csproj",
+        "projectPath": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\CaveroApp.csproj",
         "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\robin\\Desktop\\ProjCSingleAuthv2\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\obj\\",
+        "outputPath": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.2, )"
@@ -52,6 +56,16 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.11, )"
@@ -61,12 +75,22 @@
               "version": "[7.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.11, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.11, )"
             }
           },
           "imports": [

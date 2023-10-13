@@ -70,6 +70,14 @@ namespace CaveroApp.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
+            [Required]
+            [Display(Name = "first name")]
+            public string FirstName { get; set; }
+            
+            [Required]
+            [Display(Name = "last name")]
+            public string LastName { get; set; }
+            
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -114,7 +122,8 @@ namespace CaveroApp.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                // Change username from email to first name + last name.
+                await _userStore.SetUserNameAsync(user, Input.FirstName + "_" + Input.LastName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
