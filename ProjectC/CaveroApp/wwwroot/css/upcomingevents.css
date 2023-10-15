@@ -1,0 +1,46 @@
+body,
+h1,
+p,
+a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: brown;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+a {
+    color: burlywood;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: chocolate;
+}
+
+.cavero-logo-full {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+}

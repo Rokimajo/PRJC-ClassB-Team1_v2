@@ -1,0 +1,91 @@
+@page
+@model CaveroApp.Areas.Identity.Pages.Account.UpcomingEventsModel
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>UpcomingEvents Page</title>
+</head>
+
+<body>
+    <img class="cavero-logo-full" src="/img/cavero-logo-full.png" alt="Cavero Logo" />
+    <script src="your-script.js"></script>
+    <div
+        style="width:300px; height:800px; border:1px solid #000; border-radius: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center">
+        <u style="border-bottom: 1px solid purple;">Komende Events</u>
+        <div style="text-align: right; padding-right: 20px;">
+            <ul style="list-style: none; padding: 0;">
+                <li>
+                    Vandaag - 6 Sept
+                    <div
+                        style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                        <div style="text-align: left; padding-right: 20px; color: white;">
+                            Kookavond in de Loods
+                        </div>
+                        <div style="text-align: left; color: white;">
+                            Keuken
+                            <br />
+                            17:00 - 18:30
+                        </div>
+                        @* <i class="fas fa-info-circle"
+                        style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i> *@
+                    </div>
+                </li>
+                <li>
+                    Vrijdag - 8 Sept
+                    <div
+                        style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                        <div style="text-align: left; padding-right: 20px; color: white;">
+                            Gameavond
+                        </div>
+                        <div style="text-align: left; color: white;">
+                            Kamer 2B
+                            <br />
+                            18:00 - 20:30
+                        </div>
+                        @* <i class="fas fa-info-circle"
+                        style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i> *@
+                    </div>
+                </li>
+                <li>
+                    Dinsdag - 12 Sept
+                    <div
+                        style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                        <div style="text-align: left; padding-right: 20px; color: white;">
+                            Testevenement 1
+                        </div>
+                        <div style="text-align: left; color: white;">
+                            Externe locatie
+                            <br />
+                            18:00 - 20:30
+                        </div>
+                        @* <i class="fas fa-info-circle"
+                        style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i> *@
+                    </div>
+                </li>
+                <li>
+                    Woensdag - 13 Sept
+                    <div
+                        style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                        <div style="text-align: left; padding-right: 20px; color: white;">
+                            Testevenement 2
+                        </div>
+                        <div style="text-align: left; color: white;">
+                            Externe locatie
+                            <br />
+                            17:00 - 18:30
+                        </div>
+                        @* <i class="fas fa-info-circle"
+                        style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i> *@
+                    </div>
+                </li>
+                @* hier kan ik later meer toevoegen *@
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
