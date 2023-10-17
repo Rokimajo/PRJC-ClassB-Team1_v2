@@ -8,10 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>UpcomingEvents Page</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .event {
+            width: 300px;
+            height: 80px;
+            border: 1px solid #000;
+            border-radius: 20px;
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .purple-box {
+            width: 100px;
+            height: 70px;
+            background-color: purple;
+            border-radius: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <img class="cavero-logo-full" src="/img/cavero-logo-full.png" alt="Cavero Logo" />
+    @* <img class="cavero-logo-full" src="/img/cavero-logo-full.png" alt="Cavero Logo" /> *@
     <script src="your-script.js"></script>
     <div
         style="width:300px; height:800px; border:1px solid #000; border-radius: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center">
@@ -27,7 +53,7 @@
                         </div>
                         <div style="text-align: left; color: white;">
                             Keuken
-                            <br />
+                            <br style="margin: 0; padding: 0;">
                             17:00 - 18:30
                         </div>
                         @* <i class="fas fa-info-circle"
