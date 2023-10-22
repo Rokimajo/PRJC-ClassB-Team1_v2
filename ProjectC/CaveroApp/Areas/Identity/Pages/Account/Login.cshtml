@@ -1,11 +1,14 @@
 ﻿
 @page
 @model LoginModel
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Log in";
     Layout = "_EmptyLayout";
 }
+
 
 <!DOCTYPE html>
 <html>
@@ -39,7 +42,7 @@
                     <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
                     <span asp-validation-for="Input.Password" class="text-danger" style="color: red; margin-top: 3px;"></span>
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="remember-me-button">
