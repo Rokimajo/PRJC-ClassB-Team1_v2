@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>@ViewData["Title"]</title>
@@ -9,31 +11,47 @@
 </head>
 <body>
 <div class="grid-container">
-    <div class="hamburger-menu">
-        <strong>&#9776</strong>
-    </div>
-    <header class="header">
-        <h1 style="color: white">This is inside the header.</h1>
+    <header class="header" id="header">
+        <div class="hamburger-menu">
+            <strong>&#9776</strong>
+        </div>
+        @await RenderSectionAsync("HeaderContent", required: false)
     </header>
     <aside class="aside">
+        <img src="/img/caverologowhite.png" class="aside-logo" alt="Cavero Logo"/>
         <div class="aside-close-icon">
             <strong>&times;</strong>
         </div>
         <ul class="aside_list">
-            <img src="/img/caverologowhite.png" alt="Cavero Logo"/>
-            <li class="aside_list_item">
-                <img class="list-image" src="img/image-1.png"/>
-                Dashboard
-            </li>
-            <li class="aside_list_item">
-                <img class="list-image" src="img/image-2.png"/>
-                Agenda
-            </li>
-            <li class="aside_list_item">
-                <img class="list-image" src="img/image-3-1.png"/>
-                Kamers
-            </li>
-            
+            <a class="button-link" asp-area="" asp-page="/Dashboard">
+                <li class="aside_list_item">
+                    <img class="list-image" src="img/image-1.png"/>
+                    <p>Dashboard</p>
+                </li>
+            </a>
+            <a class="button-link" asp-area="" asp-page="/Agenda">
+                <li class="aside_list_item">
+                    <img class="list-image" src="img/image-2.png"/>
+                    <p>Agenda</p>
+                </li>
+            </a>
+            <a class="button-link" asp-area="" asp-page="">
+                <li class="aside_list_item log-out-logo">
+                    <img class="list-image" src="img/image-4.png"/>
+                    <p>Settings</p>
+                </li>
+            </a>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <form class="button-link" id="LogoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                    @*create anti forgery token for logout for CSRF attacks when the form is submitted*@
+                    @Html.AntiForgeryToken()
+                    <li class="aside_list_item" id="LogoutButton">
+                         <img class="list-image" src="img/logouticon.png"/>
+                         <p>Logout</p>
+                     </li>
+                </form>
+            }
         </ul>
     </aside>
     <main class="main">
@@ -51,9 +69,8 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-
+@*script to open and close the sidebar menu on phone layouts.*@
 <script>
-// script to open and close the sidebar menu on phone layouts.
 const hamburger_menu = document.querySelector(".hamburger-menu");
 const close_icon = document.querySelector(".aside-close-icon");
 const aside = document.querySelector(".aside");
@@ -71,6 +88,16 @@ function toggle(elm, className) {
     close_icon.addEventListener("click", function (){toggle(aside, "active")});
 </script>
  
+@*Script to make a <li> element be able to submit a logout like a <button> element can.*@
+<script>
+function submit(){
+    const LogoutForm = document.querySelector("#LogoutForm");
+    LogoutForm.submit();
+ }
+const logoutButton = document.querySelector("#LogoutButton");
+logoutButton.addEventListener("click", function (){submit()});
+</script>
+
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

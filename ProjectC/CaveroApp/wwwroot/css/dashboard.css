@@ -60,13 +60,26 @@ body {
     list-style-type: none;
 }
 
+.button-link {
+    align-items: center;
+    user-select: none;
+    border-radius: 15px;
+    margin-bottom: 8px;
+}
+
 .aside_list_item {
     padding: 10px 10px;
     color: white;
     transition: 0.3s ease-in;
     display: flex; 
     align-items: center;
-    margin-bottom: 5px;
+    border-radius: 15px;
+    user-select: none;
+}
+
+.aside_list_item p {
+    user-select: none;
+    font-weight: 500;
 }
 
 .aside_list_item .list-image {
@@ -78,15 +91,25 @@ body {
 
 .aside_list_item:hover {
     background-color: var(--collection-1-cavero-lichtpaars);
-    border-radius: 10px;
-    color: black;
+    color: var(--collection-1-cavero-blackish-grey);
+    box-shadow: 0px 4px 4px #00000040;
     cursor: pointer;
     transition: 0.5s;
 }
 
 .aside_list_item:hover img {
     filter: brightness(30%);
+    user-select: none;
     transition: 0.5s;
+}
+
+
+.aside_list_item:hover p {
+    font-weight: 700;
+}
+
+.aside_list_item:active {
+    transform: translateY(5px);
 }
 
 .aside_list img {
@@ -97,6 +120,18 @@ body {
 }
 .aside-close-icon {
     display: none;
+}
+
+.aside-logo {
+    width: 100px; 
+    height: 100px;
+    margin-left: 20%;
+    margin-top: 10%;
+    user-select: none;
+}
+
+.log-out-logo {
+    
 }
 
 .main {
@@ -147,7 +182,6 @@ body {
 }
 
 
-
 /*phone layout*/
 @media only screen and (max-width: 500px) {
     .grid-container {
@@ -166,9 +200,10 @@ body {
     .aside {
         display: flex;
         flex-direction: column;
-        background-color: #1a1e21;
-        height: 100vh;
-        width: 240px;
+        background-color: var(--collection-1-cavero-paars);
+        border: 3px solid var(--collection-1-cavero-gradient);
+        height: 97vh;
+        width: 200px;
         position: fixed;
         overflow-y: auto;
         /*make it overlay everything*/
@@ -183,6 +218,10 @@ body {
         height: 90px;
     }
     
+    .aside_list_item:hover {
+        background-color: white;
+    }
+    
     .aside.active {
         transform: translateX(0);
     }
@@ -194,11 +233,16 @@ body {
         right: 20px;
         z-index: 1;
         cursor: pointer;
-        padding: 12px;
+        padding: 5px;
         color: white;
         font-size: 35px;
         font-weight: 500;
         user-select: none;
+        transition: 0.4s;
+    }
+    
+    .aside-close-icon:hover {
+        color: red;
     }
     
 
@@ -215,21 +259,22 @@ body {
     }
 
     .hamburger-menu {
-        position: fixed;
         display: flex;
-        top: 19px;
-        left: 10px;
         align-items: center;
         justify-content: center;
         z-index: 1;
         cursor: pointer;
-        padding: 12px;
-        color: white;
-        font-size: 20px;
+        padding: 5px;
+        font-size: 23px;
         user-select: none;
+        border-radius: 25px;
+        transition: 0.3s;
+        color: white;
     }
     
     .hamburger-menu:hover {
-        color: lime;
+        background-color: white;
+        font-weight: 700;
+        color: var(--collection-1-cavero-paars)
     }
 }
