@@ -880,3 +880,11 @@ C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\obj\Deb
 C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\obj\Debug\net7.0\CaveroApp.pdb
 C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\obj\Debug\net7.0\CaveroApp.genruntimeconfig.cache
 C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\obj\Debug\net7.0\ref\CaveroApp.dll
+C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\AdvancedStringBuilder.dll
+C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\JavaScriptEngineSwitcher.Core.dll
+C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\JSPool.dll
+C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll
+C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\React.Core.dll
+C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\React.Web.dll
+C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\WebActivatorEx.dll
+C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\ru-RU\JavaScriptEngineSwitcher.Core.resources.dll

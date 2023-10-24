@@ -1,6 +1,7 @@
 ﻿@page
+@using CaveroApp.Areas.Identity.Data
 @model CaveroApp.Pages.Dashboard
-@inject SignInManager<IdentityUser> SignInManager
+@inject SignInManager<CaveroAppUser> SignInManager
 
 @{
     Layout = "Shared/CaveroLayoutResponsive";

@@ -91,6 +91,14 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.11, )"
+            },
+            "React.Core": {
+              "target": "Package",
+              "version": "[5.2.12, )"
+            },
+            "React.Web": {
+              "target": "Package",
+              "version": "[5.2.12, )"
             }
           },
           "imports": [

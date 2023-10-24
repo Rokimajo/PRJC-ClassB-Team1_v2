@@ -1,23 +1,35 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CaveroApp.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CaveroApp.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
 {
-         public DbSet<User> Users { get; set; }
-         public DbSet<Event> Events { get; set; }
-         public DbSet<Info> News { get; set; }
-         public DbSet<Attendance> Attendances { get; set; }
-         public DbSet<EventAttendance> EventAttendances { get; set; }
-         public DbSet<Review> Reviews { get; set; }
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    public CaveroAppContext(DbContextOptions<CaveroAppContext> options)
         : base(options)
     {
+        
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+        // Customize the ASP.NET Identity model and override the defaults if needed.
+        // For example, you can rename the ASP.NET Identity table names and more.
+        // Add your customizations after calling base.OnModelCreating(builder);
+        builder.Entity<CaveroAppUser>().ToTable("Users");
+        builder.Entity<CaveroAppUser>().Ignore(x => x.PhoneNumber);
+        builder.Entity<CaveroAppUser>().Ignore(x => x.PhoneNumberConfirmed);
+        builder.Entity<CaveroAppUser>().Ignore(x => x.LockoutEnd);
+        builder.Entity<CaveroAppUser>().Ignore(x => x.LockoutEnabled);
+        builder.Entity<CaveroAppUser>().Ignore(x => x.AccessFailedCount);
     }
     
+        
     // news is a tricky name because it can't be singular. That's why the news table is called Info,
     // so the actual postgres table can be called news.
     public class Info
@@ -26,24 +38,6 @@ public class ApplicationDbContext : IdentityDbContext
         public string title { get; set; }
         public string content { get; set; }
         public DateTime date { get; set; }
-    }
-    
-    public class User
-    {
-        [Key]
-        public int ID { get; set; }
-        [Required, Column(TypeName = "varchar(30)")]
-        public string first_name { get; set; }
-        [Required, Column(TypeName = "varchar(30)")]
-        public string last_name { get; set; }
-        
-        public string job_title { get; set; }
-        [Required]
-        public string email { get; set; }
-        //needs to be hashed
-        [Required]
-        public string password { get; set; }
-        public bool is_admin { get; set; }
     }
     
     public class Event
@@ -66,10 +60,6 @@ public class ApplicationDbContext : IdentityDbContext
         [ForeignKey ("ID")]
         public int user_id { get; set; }
         public DateTime date { get; set; }
-        
-        //relationship attribute, navigation property
-        [ForeignKey ("user_id")]
-        public User? User { get; set; }
     }
     
     public class EventAttendance
@@ -81,8 +71,6 @@ public class ApplicationDbContext : IdentityDbContext
         
         [ForeignKey ("event_id")]
         public Event? Event { get; set; }
-        [ForeignKey ("user_id")]
-        public User? User { get; set; }
     }
     
     public class Review
@@ -96,7 +84,5 @@ public class ApplicationDbContext : IdentityDbContext
         
         [ForeignKey ("event_id")]
         public Event? Event { get; set; }
-        [ForeignKey ("user_id")]
-        public User? User { get; set; }
     }
 }

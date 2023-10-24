@@ -1,8 +1,9 @@
 ﻿
 @page
+@using CaveroApp.Areas.Identity.Data
 @model LoginModel
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<CaveroAppUser> SignInManager
+@inject UserManager<CaveroAppUser> UserManager
 
 @{
     ViewData["Title"] = "Log in";

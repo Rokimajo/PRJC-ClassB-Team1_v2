@@ -1,6 +1,7 @@
 ﻿@page
+@using CaveroApp.Areas.Identity.Data
 @model CaveroApp.Pages.Agenda
-@inject SignInManager<IdentityUser> SignInManager
+@inject SignInManager<CaveroAppUser> SignInManager
 
 @{
     Layout = "Shared/CaveroLayoutResponsive";
@@ -17,10 +18,13 @@
 }
 <!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
-<div>
-</div>
-</body>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script src="/tempreact/src/index.js"></script>
+  </body>
 </html>
