@@ -9,6 +9,11 @@ namespace CaveroApp.Data;
 
 public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
 {
+    // public DbSet<Event> Events { get; set; }
+    // public DbSet<Info> News { get; set; }
+    // public DbSet<Attendance> Attendances { get; set; }
+    // public DbSet<EventAttendance> EventAttendances { get; set; }
+    // public DbSet<Review> Reviews { get; set; }
     public CaveroAppContext(DbContextOptions<CaveroAppContext> options)
         : base(options)
     {
