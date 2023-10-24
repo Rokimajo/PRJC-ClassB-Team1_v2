@@ -33,6 +33,31 @@
             background-color: purple;
             border-radius: 20px;
         }
+
+        .scroll-container {
+            height: 800px;
+            overflow-y: scroll;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .scroll-container::-webkit-scrollbar-button {
+            display: none;
+        }
     </style>
 </head>
 
@@ -41,75 +66,211 @@
     <script src="your-script.js"></script>
     <div
         style="width:300px; height:800px; border:1px solid #000; border-radius: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center">
-        <u style="border-bottom: 1px solid purple;">Komende Events</u>
-        <div style="text-align: right; padding-right: 20px;">
-            <ul style="list-style: none; padding: 0;">
-                <li>
-                    Vandaag - 6 Sept
-                    <div
-                        style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
-                        <div style="text-align: left; padding-right: 20px; color: white;">
-                            Kookavond in de Loods
+        <div class="scroll-container">
+            <u style="border-bottom: 1px solid purple;">Komende Events</u>
+            <div style="text-align: right; padding-right: 20px;">
+                <ul style="list-style: none; padding: 0;">
+                    <li>
+                        Vandaag - 6 Sept
+                        <div
+                            style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                            <div style="text-align: left; padding-right: 20px; color: white;">
+                                Kookavond in de Loods
+                            </div>
+                            <div style="text-align: left; color: white;">
+                                Keuken
+                                <br style="margin: 0; padding: 0;">
+                                17:00 - 18:30
+                                @* <span
+                                style="text-align: right; position: absolute; top: 10px; right: 10px; font-size:
+                                24px; color: white;"
+                                &#9432;></span> *@
+                                &#9432;
+                            </div>
+                            @* <i class="fas fa-info-circle"
+                            style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i>
+                            *@
                         </div>
-                        <div style="text-align: left; color: white;">
-                            Keuken
-                            <br style="margin: 0; padding: 0;">
-                            17:00 - 18:30
+                    </li>
+                    <li>
+                        Vrijdag - 8 Sept
+                        <div
+                            style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                            <div style="text-align: left; padding-right: 20px; color: white;">
+                                Gameavond
+                            </div>
+                            <div style="text-align: left; color: white;">
+                                Kamer 2B
+                                <br />
+                                18:00 - 20:30
+                                @* <span
+                                style="text-align: right; position: absolute; top: 10px; right: 10px; font-size:
+                                24px; color: white;"
+                                &#9432;></span> *@
+                                &#9432;
+                            </div>
+                            @* <i class="fas fa-info-circle"
+                            style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i>
+                            *@
                         </div>
-                        @* <i class="fas fa-info-circle"
-                        style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i> *@
-                    </div>
-                </li>
-                <li>
-                    Vrijdag - 8 Sept
-                    <div
-                        style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
-                        <div style="text-align: left; padding-right: 20px; color: white;">
-                            Gameavond
+                    </li>
+                    <li>
+                        Dinsdag - 12 Sept
+                        <div
+                            style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                            <div style="text-align: left; padding-right: 20px; color: white;">
+                                Testevenement 1
+                            </div>
+                            <div style="text-align: left; color: white;">
+                                Externe locatie
+                                <br />
+                                18:00 - 20:30
+                                @* <span
+                                style="text-align: right; position: absolute; top: 10px; right: 10px; font-size:
+                                24px; color: white;"
+                                &#9432;></span> *@
+                                &#9432;
+                            </div>
+                            @* <i class="fas fa-info-circle"
+                            style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i>
+                            *@
                         </div>
-                        <div style="text-align: left; color: white;">
-                            Kamer 2B
-                            <br />
-                            18:00 - 20:30
+                    </li>
+                    <li>
+                        Woensdag - 13 Sept
+                        <div
+                            style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                            <div style="text-align: left; padding-right: 20px; color: white;">
+                                Testevenement 2
+                            </div>
+                            <div style="text-align: left; color: white;">
+                                Externe locatie
+                                <br />
+                                17:00 - 18:30
+                                @* <span
+                                style="text-align: right; position: absolute; top: 10px; right: 10px; font-size:
+                                24px; color: white;"
+                                &#9432;></span> *@
+                                &#9432;
+                            </div>
+                            @* <i class="fas fa-info-circle"
+                            style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i>
+                            *@
                         </div>
-                        @* <i class="fas fa-info-circle"
-                        style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i> *@
-                    </div>
-                </li>
-                <li>
-                    Dinsdag - 12 Sept
-                    <div
-                        style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
-                        <div style="text-align: left; padding-right: 20px; color: white;">
-                            Testevenement 1
+                    </li>
+                    <li>
+                        Maandag - 19 Sept
+                        <div
+                            style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                            <div style="text-align: left; padding-right: 20px; color: white;">
+                                Testevenement 3
+                            </div>
+                            <div style="text-align: left; color: white;">
+                                Externe locatie
+                                <br />
+                                10:00 - 14:00
+                                @* <span
+                                style="text-align: right; position: absolute; top: 10px; right: 10px; font-size:
+                                24px; color: white;"
+                                &#9432;></span> *@
+                                &#9432;
+                            </div>
+                            @* <i class="fas fa-info-circle"
+                            style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i>
+                            *@
                         </div>
-                        <div style="text-align: left; color: white;">
-                            Externe locatie
-                            <br />
-                            18:00 - 20:30
+                    </li>
+                    <li>
+                        Woensdag - 21 Sept
+                        <div
+                            style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                            <div style="text-align: left; padding-right: 20px; color: white;">
+                                Testevenement 4
+                            </div>
+                            <div style="text-align: left; color: white;">
+                                Externe locatie
+                                <br />
+                                15:00 - 16:30
+                                @* <span
+                                style="text-align: right; position: absolute; top: 10px; right: 10px; font-size:
+                                24px; color: white;"
+                                &#9432;></span> *@
+                                &#9432;
+                            </div>
+                            @* <i class="fas fa-info-circle"
+                            style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i>
+                            *@
                         </div>
-                        @* <i class="fas fa-info-circle"
-                        style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i> *@
-                    </div>
-                </li>
-                <li>
-                    Woensdag - 13 Sept
-                    <div
-                        style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
-                        <div style="text-align: left; padding-right: 20px; color: white;">
-                            Testevenement 2
+                    </li>
+                    <li>
+                        Donderdag - 22 Sept
+                        <div
+                            style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                            <div style="text-align: left; padding-right: 20px; color: white;">
+                                Testevenement 5
+                            </div>
+                            <div style="text-align: left; color: white;">
+                                Externe locatie
+                                <br />
+                                12:00 - 13:30
+                                @* <span
+                                style="text-align: right; position: absolute; top: 10px; right: 10px; font-size:
+                                24px; color: white;"
+                                &#9432;></span> *@
+                                &#9432;
+                            </div>
+                            @* <i class="fas fa-info-circle"
+                            style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i>
+                            *@
                         </div>
-                        <div style="text-align: left; color: white;">
-                            Externe locatie
-                            <br />
-                            17:00 - 18:30
+                    </li>
+                    <li>
+                        Vrijdag - 23 Sept
+                        <div
+                            style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                            <div style="text-align: left; padding-right: 20px; color: white;">
+                                Testevenement 5
+                            </div>
+                            <div style="text-align: left; color: white;">
+                                Externe locatie
+                                <br />
+                                17:00 - 18:30
+                                @* <span
+                                style="text-align: right; position: absolute; top: 10px; right: 10px; font-size:
+                                24px; color: white;"
+                                &#9432;></span> *@
+                                &#9432;
+                            </div>
+                            @* <i class="fas fa-info-circle"
+                            style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i>
+                            *@
                         </div>
-                        @* <i class="fas fa-info-circle"
-                        style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i> *@
-                    </div>
-                </li>
-                @* hier kan ik later meer toevoegen *@
-            </ul>
+                    </li>
+                    <li>
+                        Maandag - 1 Okt
+                        <div
+                            style="width: 255px; height: 70px; background-color: purple; margin-left: auto; border-radius: 20px;">
+                            <div style="text-align: left; padding-right: 20px; color: white;">
+                                Testevenement 6
+                            </div>
+                            <div style="text-align: left; color: white;">
+                                Externe locatie
+                                <br />
+                                09:00 - 10:30
+                                @* <span
+                                style="text-align: right; position: absolute; top: 10px; right: 10px; font-size:
+                                24px; color: white;"
+                                &#9432;></span> *@
+                                &#9432;
+                            </div>
+                            @* <i class="fas fa-info-circle"
+                            style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: white;"></i>
+                            *@
+                        </div>
+                    </li>
+                    @* hier kan ik later meer toevoegen *@
+                </ul>
+            </div>
         </div>
     </div>
 </body>
