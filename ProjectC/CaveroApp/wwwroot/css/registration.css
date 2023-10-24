@@ -122,6 +122,7 @@ html, body {
 .form-footer {
     display:flex;
     justify-content: flex-end;
+    align-items: center;
     padding:10px;
 }
 
@@ -130,6 +131,9 @@ html, body {
 }
 
 .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding:10px 20px;
     background-color: var(--collection-1-cavero-paars);
     font-size:17px;
@@ -147,11 +151,24 @@ html, body {
 .btn:hover {
     background-color: #993689;
     box-shadow: 0px 4px 4px #00000040;
-    filter: brightness(105%)
+    filter: brightness(105%);
 }
+
+.btn img {
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover img {
+    transform: translateX(5px);
+}
+
 
 .btn:active {
     transform: translateY(2px);
+}
+
+.btn img {
+    padding-left: 5px;
 }
 
 /* INPUT*/

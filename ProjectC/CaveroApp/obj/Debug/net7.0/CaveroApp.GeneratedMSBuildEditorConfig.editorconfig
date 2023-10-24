@@ -84,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENhdmVyb0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/robin/Desktop/Project_C/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/CaveroLayoutResponsive.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENhdmVyb0xheW91dFJlc3BvbnNpdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/robin/Desktop/Project_C/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/_EmptyLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9FbXB0eUxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -98,6 +102,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/robin/Desktop/Project_C/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/SignupView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbnVwVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/robin/Desktop/Project_C/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/TestPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/robin/Desktop/Project_C/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/_ViewImports.cshtml]

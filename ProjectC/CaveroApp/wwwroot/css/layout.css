@@ -1,0 +1,280 @@
+﻿    * {
+}
+
+body {
+    font-family: "Lato", Helvetica, serif;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    /* make page fill the entire screen
+    instead of only filling it up so far as the main grid goes.
+     */
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    grid-template-rows: 75px 1fr;
+    grid-template-areas: 
+    'aside header'
+    'aside main'
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    background-color: var(--collection-1-cavero-paars);
+    padding: 0 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    border-radius: 15px;
+}
+
+
+.header h1 {
+    margin-left: 30px;
+}
+
+.aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--collection-1-cavero-paars);
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+.aside_list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    text-align: center;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 15px;
+    list-style-type: none;
+}
+
+.button-link {
+    align-items: center;
+    user-select: none;
+    border-radius: 15px;
+    margin-bottom: 8px;
+}
+
+.aside_list_item {
+    padding: 10px 10px;
+    color: white;
+    transition: 0.3s ease-in;
+    display: flex; 
+    align-items: center;
+    border-radius: 15px;
+    user-select: none;
+}
+
+.aside_list_item p {
+    user-select: none;
+    font-weight: 500;
+}
+
+.aside_list_item .list-image {
+    width: 30px; 
+    height: 30px; 
+    margin-top: 5px; 
+    margin-right: 5px;
+}
+
+.aside_list_item:hover {
+    background-color: var(--collection-1-cavero-lichtpaars);
+    color: var(--collection-1-cavero-blackish-grey);
+    box-shadow: 0px 4px 4px #00000040;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.aside_list_item:hover img {
+    filter: brightness(30%);
+    user-select: none;
+    transition: 0.5s;
+}
+
+
+.aside_list_item:hover p {
+    font-weight: 700;
+}
+
+.aside_list_item:active {
+    transform: translateY(5px);
+}
+
+.aside_list img {
+    position: relative;
+    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+}
+.aside-close-icon {
+    display: none;
+}
+
+.aside-logo {
+    width: 100px; 
+    height: 100px;
+    margin-left: 20%;
+    margin-top: 10%;
+    user-select: none;
+}
+
+.log-out-logo {
+    
+}
+
+.main {
+    grid-area: main;
+}
+
+.main-overview {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main-body {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 200px 300px;
+    grid-template-areas:
+    'card1 card2'
+    'card1 card3';
+    grid-gap: 10px;
+}
+
+
+.card {
+    padding: 40px;
+    border: 1px solid tomato;
+    border-radius: 4px;
+    color: tomato;
+}
+
+.one {
+    grid-area: card1;
+}
+
+.two {
+    grid-area: card2;
+}
+
+.three {
+    grid-area: card3;
+    wrap-option: wrap;
+}
+
+.hamburger-menu {
+    display: none;
+}
+
+
+/*phone layout*/
+@media only screen and (max-width: 500px) {
+    .grid-container {
+    /* make page fill the entire screen
+    instead of only filling it up so far as the main grid goes.
+     */
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 75px 1fr;
+    grid-template-areas:
+        'header'
+        'main'
+    }
+
+    .aside {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--collection-1-cavero-paars);
+        border: 3px solid var(--collection-1-cavero-gradient);
+        height: 97vh;
+        width: 200px;
+        position: fixed;
+        overflow-y: auto;
+        /*make it overlay everything*/
+        z-index: 2;
+        /*put the side bar offscreen unless hamburger menu is pressed*/
+        transition: 0.35s;
+        transform: translateX(-265px);
+    }
+    
+    .aside_list img {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .aside_list_item:hover {
+        background-color: white;
+    }
+    
+    .aside.active {
+        transform: translateX(0);
+    }
+    
+    .aside-close-icon {
+        position: fixed;
+        display: flex;
+        top: 20px;
+        right: 20px;
+        z-index: 1;
+        cursor: pointer;
+        padding: 5px;
+        color: white;
+        font-size: 35px;
+        font-weight: 500;
+        user-select: none;
+        transition: 0.4s;
+    }
+    
+    .aside-close-icon:hover {
+        color: red;
+    }
+    
+
+    .main-body {
+        margin: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 500px 200px 300px;
+        grid-template-areas:
+        'card1'
+        'card2'
+        'card3';
+        grid-gap: 10px;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        cursor: pointer;
+        padding: 5px;
+        font-size: 23px;
+        user-select: none;
+        border-radius: 25px;
+        transition: 0.3s;
+        color: white;
+    }
+    
+    .hamburger-menu:hover {
+        background-color: white;
+        font-weight: 700;
+        color: var(--collection-1-cavero-paars)
+    }
+}

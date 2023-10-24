@@ -1,84 +1,29 @@
 ﻿@page
 @model CaveroApp.Pages.Dashboard
+@inject SignInManager<IdentityUser> SignInManager
 
 @{
-    Layout = "Shared/CaveroLayout";
-    ViewData["Title"] = "Dashboard";
+    Layout = "Shared/CaveroLayoutResponsive";
+    <link rel="stylesheet" href="css/layout.css" />
 }
+
+@section HeaderContent
+{
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h1>Hello @User.Identity?.Name!</h1>
+    }
+}
+
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/globals.css"/>
-    <link rel="stylesheet" href="css/styleguide.css"/>
-    <link rel="stylesheet" href="css/dashboardmain.css"/>
 </head>
 <body>
-
-@*buttons on sidebar start*@
-<button class="current-page-block dashboard" onclick="location.href='/Dashboard'">
-    <div class="dashboard-text">Dashboard</div>
-    <img class="image" src="img/image-1.png"/>
-</button>
-
-<button class="other-page-block agenda" onclick="location.href='/Agenda'">
-    <div class="agenda-text">Agenda</div>
-    <img class="img" src="img/image-2.png"/>
-</button>
-
-<button class="other-page-block rooms" onclick="location.href='/Rooms'">
-    <div class="rooms-text">Kamers</div>
-    <img class="img" src="img/image-3-1.png"/>
-</button>
-
-<div class="overlap-wrapper">
-    <div class="overlap">
-        <div class="group-5">
-            <div class="group-6">
-                <div class="text-wrapper-3">Instellingen</div>
-            </div>
-            <img class="image-2" src="img/image-3.png"/>
-        </div>
-        <img class="img" src="img/image-4.png"/>
+<div class="main-body">
+            <div class="card one">aaa</div>
+            <div class="card two">aaa</div>
+    <div class="card three">aaa</div>
     </div>
-</div>
-@*buttons on sidebar end*@
-
-<div class="text-wrapper-4">Welkom terug, Name!</div>
-<div class="afwezig-bar">
-    <div class="overlap-group-wrapper">
-        <div class="overlap-group-2">
-            <p class="p">U bent afwezig op het kantoor vandaag</p>
-            <img class="image-3" src="img/image-5.png"/>
-        </div>
-    </div>
-</div>
-<div class="aanwezige-caverianen">
-    <div class="aanwezige-info">
-        <div class="rectangle"></div>
-        <div class="aanwezige-caverianen-2">Aanwezige caverianen <br/>vandaag</div>
-        <img class="image-4" src="img/image-8-2.png"/>
-        <div class="text-wrapper-6">23</div>
-    </div>
-</div>
-<div class="events-info">
-    <div class="events-info-2">
-        <div class="rectangle"></div>
-        <div class="aanwezige-caverianen-3">Aantal events deze week</div>
-        <img class="image-4" src="img/image-8-3.png"/>
-        <div class="element">3</div>
-    </div>
-</div>
-<div class="aanwezig-knop">
-    <div class="aanwezig-button">
-        <div class="text-wrapper-7">Zet uzelf aanwezig</div>
-        <img class="image-5" src="img/image-6.png"/>
-    </div>
-</div>
-<div class="komende-events">
-    <div class="overlap-3">
-        <div class="text-wrapper-8">Komende Events</div>
-        <img class="line" src="img/line-1.svg"/>
-    </div>
-</div>
 </body>
 </html>
