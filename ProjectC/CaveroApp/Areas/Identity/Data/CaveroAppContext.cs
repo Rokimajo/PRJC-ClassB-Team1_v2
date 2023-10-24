@@ -9,11 +9,11 @@ namespace CaveroApp.Data;
 
 public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
 {
-    // public DbSet<Event> Events { get; set; }
-    // public DbSet<Info> News { get; set; }
-    // public DbSet<Attendance> Attendances { get; set; }
-    // public DbSet<EventAttendance> EventAttendances { get; set; }
-    // public DbSet<Review> Reviews { get; set; }
+    public DbSet<Event> Events { get; set; }
+    public DbSet<Info> News { get; set; }
+    public DbSet<Attendance> Attendances { get; set; }
+    public DbSet<EventAttendance> EventAttendances { get; set; }
+    public DbSet<Review> Reviews { get; set; }
     public CaveroAppContext(DbContextOptions<CaveroAppContext> options)
         : base(options)
     {
@@ -63,8 +63,11 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
         [Key]
         public int ID { get; set; }
         [ForeignKey ("ID")]
-        public int user_id { get; set; }
+        public string user_id { get; set; }
         public DateTime date { get; set; }
+        
+        [ForeignKey ("user_id")]
+        public CaveroAppUser? User { get; set; }
     }
     
     public class EventAttendance
@@ -72,22 +75,26 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
         [Key]
         public int ID { get; set; }
         public int event_id { get; set; }
-        public int user_id { get; set; }
+        public string user_id { get; set; }
         
         [ForeignKey ("event_id")]
         public Event? Event { get; set; }
+        [ForeignKey ("user_id")]
+        public CaveroAppUser? User { get; set; }
     }
     
     public class Review
     {
         [Key]
         public int ID { get; set; }
-        public int user_id { get; set; }
+        public string user_id { get; set; }
         public int event_id { get; set; }
         public int rating { get; set; }
         public string feedback { get; set; }
         
         [ForeignKey ("event_id")]
         public Event? Event { get; set; }
+        [ForeignKey ("user_id")]
+        public CaveroAppUser? User { get; set; }
     }
 }
