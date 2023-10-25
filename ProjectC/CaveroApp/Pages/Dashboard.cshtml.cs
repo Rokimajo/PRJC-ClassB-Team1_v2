@@ -32,7 +32,7 @@ public class Dashboard : PageModel
 
         var event_count = (from u in Context.Events
             let weekFromNow = DateTime.UtcNow.AddDays(7).Date
-            where u.date.Date >= DateTime.UtcNow.Date && u.date.Date <= weekFromNow
+            where u.date.Date >= DateTime.UtcNow.Date && u.date.Date <= weekFromNow && u.admin_approval != false
             select u).ToList().Distinct().Count();
         
         EmployeeCount = emp_count;
