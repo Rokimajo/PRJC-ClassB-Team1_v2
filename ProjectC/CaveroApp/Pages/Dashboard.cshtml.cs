@@ -19,7 +19,11 @@ public class Dashboard : PageModel
         Context = context;
     }
     
-    //todo: write what it does
+    //<summary>
+    //    This function grabs stats from the database, namely how many users are present today,
+    //    and how many events are taking place this week.
+    //    It populates the fields EmployeeCount and EventCount with the results.
+    //</summary>
     public void GetTodayStats()
     {
         var emp_count = (from a in Context.Attendances
