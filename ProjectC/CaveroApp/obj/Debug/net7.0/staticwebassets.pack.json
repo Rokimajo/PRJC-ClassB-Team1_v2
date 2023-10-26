@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\globals.css"
     },
     {
+      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\layout.css",
+      "PackagePath": "staticwebassets\\css\\layout.css"
+    },
+    {
       "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
@@ -61,6 +65,10 @@
       "PackagePath": "staticwebassets\\img\\caverologowhite.png"
     },
     {
+      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\hamburgericon.png",
+      "PackagePath": "staticwebassets\\img\\hamburgericon.png"
+    },
+    {
       "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\icon-arrow-right.svg",
       "PackagePath": "staticwebassets\\img\\icon-arrow-right.svg"
     },
@@ -107,6 +115,10 @@
     {
       "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\logohandtekening-1-1.png",
       "PackagePath": "staticwebassets\\img\\logohandtekening-1-1.png"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\logouticon.png",
+      "PackagePath": "staticwebassets\\img\\logouticon.png"
     },
     {
       "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\microsoft-outlook-macos-icon-12-1.png",

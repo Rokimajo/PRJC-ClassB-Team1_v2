@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "remjPQfaMfewebuD2g98pqIuQV0dLf6vRWTisdkK7Hg=",
+  "Hash": "Nr0WUONJDVug7gkM1QfdfXzm7j9OHENEhIfnXIQlyRg=",
   "Source": "CaveroApp",
   "BasePath": "_content/CaveroApp",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\css\\globals.css"
     },
     {
+      "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\layout.css",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "css/layout.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\layout.css"
+    },
+    {
       "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\login.css",
       "SourceId": "CaveroApp",
       "SourceType": "Discovered",
@@ -1309,6 +1326,23 @@
       "OriginalItemSpec": "wwwroot\\img\\caverologowhite.png"
     },
     {
+      "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\hamburgericon.png",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "img/hamburgericon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\hamburgericon.png"
+    },
+    {
       "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\icon-arrow-right.svg",
       "SourceId": "CaveroApp",
       "SourceType": "Discovered",
@@ -1511,6 +1545,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logohandtekening-1-1.png"
+    },
+    {
+      "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\logouticon.png",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "img/logouticon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logouticon.png"
     },
     {
       "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\microsoft-outlook-macos-icon-12-1.png",

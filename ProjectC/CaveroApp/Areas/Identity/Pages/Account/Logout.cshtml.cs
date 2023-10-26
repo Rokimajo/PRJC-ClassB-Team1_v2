@@ -4,6 +4,7 @@
 
 using System;
 using System.Threading.Tasks;
+using CaveroApp.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,17 +13,19 @@ using Microsoft.Extensions.Logging;
 
 namespace CaveroApp.Areas.Identity.Pages.Account
 {
+    // Validate logout token here, to protect against CSRF attacks.
+    [ValidateAntiForgeryToken]
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<CaveroAppUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<IdentityUser> signInManager, ILogger<LogoutModel> logger)
+        public LogoutModel(SignInManager<CaveroAppUser> signInManager, ILogger<LogoutModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
         }
-
+        
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();

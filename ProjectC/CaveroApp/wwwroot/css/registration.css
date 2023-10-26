@@ -8,11 +8,72 @@
 html, body {
     height:100%;
     font-family: "Lato", Helvetica, serif;
+    background: linear-gradient(var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+section .air{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+    background-size: 1000px 100px
+}
+section .air.air1{
+    animation: wave 30s linear infinite;
+    z-index: 3;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+section .air.air2{
+    animation: wave2 15s linear infinite;
+    z-index: 2;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+section .air.air3{
+    animation: wave 30s linear infinite;
+    z-index: 1;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+section .air.air4{
+    animation: wave2 5s linear infinite;
+    z-index: 0;
+    opacity: 0.7;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+@keyframes wave{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}
+@keyframes wave2{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: -1000px;
+    }
 }
 
 #registration-page {
     height:100%;
-    background: linear-gradient(135deg, var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
     display:flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +82,7 @@ html, body {
 
 .signup-form  {
     flex:1;
+    z-index: 5;
     max-width:700px;
     border-radius: 10px;
     margin-top: auto;
@@ -122,6 +184,7 @@ html, body {
 .form-footer {
     display:flex;
     justify-content: flex-end;
+    align-items: center;
     padding:10px;
 }
 
@@ -130,6 +193,9 @@ html, body {
 }
 
 .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding:10px 20px;
     background-color: var(--collection-1-cavero-paars);
     font-size:17px;
@@ -147,11 +213,24 @@ html, body {
 .btn:hover {
     background-color: #993689;
     box-shadow: 0px 4px 4px #00000040;
-    filter: brightness(105%)
+    filter: brightness(105%);
 }
+
+.btn img {
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover img {
+    transform: translateX(5px);
+}
+
 
 .btn:active {
     transform: translateY(2px);
+}
+
+.btn img {
+    padding-left: 5px;
 }
 
 /* INPUT*/
