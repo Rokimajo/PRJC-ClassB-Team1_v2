@@ -2,6 +2,7 @@ using CaveroApp.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CaveroApp.Data;
+using CaveroApp.Seeder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,15 @@ builder.Services.AddDefaultIdentity<CaveroAppUser>(options => options.SignIn.Req
     .AddEntityFrameworkStores<CaveroAppContext>();
 builder.Services.AddRazorPages();
 var app = builder.Build();
+
+//seeding optional here
+IServiceProvider serviceProvider = app.Services;
+using (var scope = serviceProvider.CreateScope())
+{
+    // var seeder = new Seeder(scope.ServiceProvider);
+    // seeder.Seed();
+}
+
 
 //Automatically go to login screen on app run
 app.MapGet("/", () =>

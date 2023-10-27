@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cKu9gGHk1a5u3RueEh3YQhEO8SPPRnQ9aUXDs0mnlLk=",
+  "Hash": "od9h3wQZo7RfTd4FO94bLnVJdfrQhGtr+ScvHCmh3CE=",
   "Source": "CaveroApp",
   "BasePath": "_content/CaveroApp",
   "Mode": "Default",
@@ -1241,6 +1241,23 @@
       "OriginalItemSpec": "wwwroot\\css\\test.css"
     },
     {
+      "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\TOBEREMOVED.css",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "css/TOBEREMOVED.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\TOBEREMOVED.css"
+    },
+    {
       "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\favicon.ico",
       "SourceId": "CaveroApp",
       "SourceType": "Discovered",
@@ -1613,6 +1630,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\rectangle-3.svg"
+    },
+    {
+      "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\user-check-icon.png",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "img/user-check-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\user-check-icon.png"
     },
     {
       "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\site.js",
