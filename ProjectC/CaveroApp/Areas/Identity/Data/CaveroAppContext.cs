@@ -39,6 +39,9 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
     // so the actual postgres table can be called news.
     public class Info
     {
+        [Key]
+        // Make the ID autoincrement instead of doing it manually.
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string title { get; set; }
         public string content { get; set; }
@@ -47,6 +50,8 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
     
     public class Event
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string title { get; set; }
         public string description { get; set; }
@@ -61,6 +66,7 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
     public class Attendance
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         [ForeignKey ("ID")]
         public string user_id { get; set; }
@@ -73,6 +79,7 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
     public class EventAttendance
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public int event_id { get; set; }
         public string user_id { get; set; }
@@ -86,6 +93,7 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
     public class Review
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string user_id { get; set; }
         public int event_id { get; set; }

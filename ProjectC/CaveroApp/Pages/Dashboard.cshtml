@@ -6,6 +6,7 @@
 @{
     Layout = "Shared/CaveroLayoutResponsive";
     <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
 }
 
 @section HeaderContent
@@ -22,9 +23,30 @@
 </head>
 <body>
 <div class="main-body">
+<<<<<<< HEAD
     <div class="card one">aaa</div>
     <div class="card two">aaa</div>
     <div class="card three">aaa</div>
+=======
+    <div class="card one">
+        <div class="present-box">
+            <p>Aanwezige caverianen vandaag</p>
+            <div class="box-info">
+                <img src="img/image-8-2.png" alt="Person Icon"/>
+                <h1>@Model.EmployeeCount</h1>
+            </div>
+        </div>
+        <div class="present-box">
+            <p>Aantal events deze week</p>
+            <div class="box-info">
+                <img src="img/image-8-3.png" alt="Event Icon"/>
+                <h1>@Model.EventCount</h1>
+            </div>
+        </div>
+>>>>>>> main
     </div>
+    <div class="card two">aaa</div>
+    <div class="card three">aaa</div>
+</div>
 </body>
 </html>
