@@ -1,0 +1,100 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+
+body {
+}
+
+.week-container {
+    height: 85vh;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, min-content);
+    grid-auto-flow: dense;
+    grid-template-areas:
+            "monday tuesday wednesday thursday friday";
+    grid-gap: 10px;
+    margin: 10px;
+}
+
+.day-wrapper {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.day {
+    text-align: center;
+    clear: both;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.day > h1 {
+    float: left;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.day > h2 {
+    float: right;
+    padding: 5px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    max-height: 100vh;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid var(--collection-1-cavero-paars);
+    text-align: center;
+}
+
+.mon {
+    grid-area: monday;
+}
+
+.tue {
+    grid-area: tuesday;
+}
+
+.wed {
+    grid-area: wednesday;
+}
+
+.thu {
+    grid-area: thursday;
+}
+
+.fri {
+    grid-area: friday;
+}
+
+@media only screen and (max-width: 768px) {
+    .week-container {
+        height: auto;
+        display: inline-grid;
+        align-items: center;
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, minmax(0, auto));
+        grid-template-areas:
+                "monday"
+                "tuesday"
+                "wednesday"
+                "thursday"
+                "friday";
+    }
+    
+    .item {
+        height: 100%;
+        flex-grow: 1;
+        align-self: center;
+    }
+}
