@@ -2,8 +2,24 @@ using CaveroApp.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CaveroApp.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using YourNamespace.Services;
+// using SendingEmails;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// builder.Services.AddTransient<SendingEmails.IEmailSender, EmailSender>();
+
+// var emailService = new EmailService();
+// emailService.SendEmail();
+
+EmailService emailService = new EmailService();
+
+string senderEmail = "your_email@gmail.com"; // Replace with your email
+string senderPassword = "your_password"; // Replace with your email password
+string recipientEmail = "recipient@example.com"; // Replace with recipient's email address
+
+emailService.SendEmail(senderEmail, senderPassword, recipientEmail);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
