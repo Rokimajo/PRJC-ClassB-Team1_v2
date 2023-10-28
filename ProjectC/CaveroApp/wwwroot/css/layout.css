@@ -43,8 +43,8 @@ body {
     flex-direction: column;
     background-color: var(--collection-1-cavero-paars);
     margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 10px;
-    margin-bottom: 50px;
     border-radius: 15px;
 }
 

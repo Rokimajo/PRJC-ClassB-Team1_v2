@@ -5,30 +5,39 @@
 
 @{
     Layout = "Shared/CaveroLayoutResponsive";
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/layout.css"/>
-    <link rel="stylesheet" href="css/dashboard.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
+    <link rel="preload" as="style" href="css/eventheader.css">
+    <link rel="stylesheet" href="css/eventheader.css"/>   
     <link rel="stylesheet" href="css/events.css"/>
-    <link rel="stylesheet" href="css/TOBEREMOVED.css" />
+    <link rel="stylesheet" href="css/layout.css"/> 
 }
-
-@*Style for header content only.*@
-<style>
-    .header-text {
-        color:  white;
-        font-size: 25px;
-        font-weight:  500;
-        font-family: 'Montserrat', sans-serif;
-
-    }
-</style>
 
 @section HeaderContent
 {
-    <div style="display: flex; align-content: space-between; flex-grow: 1;">
-    <h1 class="header-text">
-        @($"{@Model.Week.Item1.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)} - " +
-          $"{@Model.Week.Item2.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)}")</h1>
+    <div class="wrapper">
+        <form method="post" asp-page="Events" asp-page-handler="WeekBackward">
+            <button class="header-text tooltip" style="font-size: 30px;" type="submit">
+                <p><</p>
+                <div class="bottom">
+                    <p>Vorige week</p>
+                    <i></i>
+                </div>
+            </button>
+        </form>
+        <form method="post" asp-page="Events" asp-page-handler="WeekForward">
+            <button class="header-text tooltip" style="font-size: 30px;" type="submit">
+                <p>></p>
+                <div class="bottom">
+                    <p>Volgende week</p>
+                    <i></i>
+                </div>
+            </button>
+        </form> 
+        <h1 class="header-text" style="text-shadow: 2px 2px 2px var(--collection-1-cavero-blackish-grey);">
+            @($"{@Model.Week.Item1.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)} - " +
+              $"{@Model.Week.Item2.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)}")
+        </h1>
+        <button class="button sign-up" style="margin-left: 15px;"><p>CREËER EVENT</p></button>
     </div>
 }
 
@@ -41,189 +50,107 @@
 <body>
 <div class="main">
     <div class="week-container">
-        <div class="day-wrapper">
-            <div class="day">
-                <h1>Mon</h1>
-                <h2>24</h2>
+        @foreach (var evArr in @Model.GetWeekEvents())
+        {
+            <div class="day-wrapper">
+                <div class="day">
+                    <h1>@evArr.Date.ToString("ddd")</h1>
+                    <h2>@evArr.Date.Day</h2>
+                </div>
+                 <div class="item @(evArr.Date.ToString("ddd", CultureInfo.InvariantCulture))" id="@(evArr.Date.ToString("dddd", CultureInfo.InvariantCulture))">
+            @foreach (var ev in evArr.allEvents)
+            {
+                        <div class="event-card" style="background: linear-gradient(@(Model.GetRandGradient())deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);">
+                            <h1>@(ev.title)</h1>
+                            <p>@(ev.time.ToString(@"hh\:mm"))</p>
+                            <p>@(ev.location)</p>
+                            <div class="event-card-footer">
+                                <div style="display: inline-flex; align-items: center;">
+                                    <img src="img/user-check-icon.png"/>
+                                    <p style="margin-left: 10px;">@Model.GetEventParticipants(ev)</p>
+                                </div>
+                                <button class="button info">
+                                    <p>INFO</p></button>
+                                @if (!@Model.JoinedEvent(ev.ID))
+                                {
+                                    <form method="post" asp-page="Events" asp-page-handler="EventSignUp" asp-route-eventID="@ev.ID">
+                                    <button class="button sign-up">
+                                        <p>AANMELDEN</p></button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form method="post" asp-page="Events" asp-page-handler="EventSignOut" asp-route-eventID="@ev.ID">
+                                    <button class="button sign-out">
+                                        <p>AFMELDEN</p></button>
+                                    </form>
+                                }
+                            </div>
+                        </div>
+                    
+            }
             </div>
-            <div class="item mon" id="monday">
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
             </div>
-        </div>
-        <div class="day-wrapper">
-            <div class="day">
-                <h1>Tue</h1>
-                <h2>25</h2>
-            </div>
-            <div class="item tue">
-            </div>
-        </div>
-        <div class="day-wrapper">
-            <div class="day">
-                <h1>Wed</h1>
-                <h2>26</h2>
-            </div>
-            <div class="item wed">
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="day-wrapper">
-            <div class="day">
-                <h1>Thu</h1>
-                <h2>27</h2>
-            </div>
-            <div class="item thu">
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="day-wrapper">
-            <div class="day">
-                <h1>Fri</h1>
-                <h2>28</h2>
-            </div>
-            <div class="item fri">
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <h1>Kookavond in de Loods</h1>
-                    <p>16:00 - 18:00</p>
-                    <p>Extern</p>
-                    <div class="event-card-footer">
-                        <div style="display: inline-flex; align-items: center;">
-                            <img src="img/user-check-icon.png"/>
-                            <p style="margin-left: 10px;">5</p> 
-                        </div>
-                        <div class="button info">INFO</div>
-                        <div class="button sign-up">AANMELDEN</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        }
+    @*     <div class="day-wrapper"> *@
+    @*         <div class="day"> *@
+    @*             <h1>Mon</h1> *@
+    @*             <h2>24</h2> *@
+    @*         </div> *@
+    @*         <div class="item mon" id="monday"> *@
+    @*             <div class="event-card"> *@
+    @*                 <h1>Kookavond in de Loods</h1> *@
+    @*                 <p>16:00 - 18:00</p> *@
+    @*                 <p>Extern</p> *@
+    @*                 <div class="event-card-footer"> *@
+    @*                     <div style="display: inline-flex; align-items: center;"> *@
+    @*                         <img src="img/user-check-icon.png"/> *@
+    @*                         <p style="margin-left: 10px;">5</p> *@
+    @*                     </div> *@
+    @*                     <button class="button info"> *@
+    @*                         <p>INFO</p></button> *@
+    @*                     <button class="button sign-up"> *@
+    @*                         <p>AANMELDEN</p></button> *@
+    @*                 </div> *@
+    @*             </div> *@
+    @*         </div> *@
+    @*     </div> *@
+    @*     <div class="day-wrapper"> *@
+    @*         <div class="day"> *@
+    @*             <h1>Tue</h1> *@
+    @*             <h2>25</h2> *@
+    @*         </div> *@
+    @*         <div class="item tue"> *@
+    @* *@
+    @*         </div> *@
+    @*     </div> *@
+    @*     <div class="day-wrapper"> *@
+    @*         <div class="day"> *@
+    @*             <h1>Wed</h1> *@
+    @*             <h2>26</h2> *@
+    @*         </div> *@
+    @*         <div class="item wed"> *@
+    @* *@
+    @*         </div> *@
+    @*     </div> *@
+    @*     <div class="day-wrapper"> *@
+    @*         <div class="day"> *@
+    @*             <h1>Thu</h1> *@
+    @*             <h2>27</h2> *@
+    @*         </div> *@
+    @*         <div class="item thu"> *@
+    @* *@
+    @*         </div> *@
+    @*     </div> *@
+    @*     <div class="day-wrapper"> *@
+    @*         <div class="day"> *@
+    @*             <h1>Fri</h1> *@
+    @*             <h2>28</h2> *@
+    @*         </div> *@
+    @*         <div class="item fri"> *@
+    @* *@
+    @*         </div> *@
+        @* </div> *@
     </div>
 </div>
 </body>

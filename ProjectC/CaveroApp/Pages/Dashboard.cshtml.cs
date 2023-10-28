@@ -30,6 +30,7 @@ public class Dashboard : PageModel
             join u in Context.Users on a.user_id equals u.Id
             where DateTime.UtcNow.Date.Equals(a.date.Date) select u).ToList().Distinct().Count();
 
+        // todo: fout, maak opnieuw
         var event_count = (from u in Context.Events
             let weekFromNow = DateTime.UtcNow.AddDays(7).Date
             where u.date.Date >= DateTime.UtcNow.Date && u.date.Date <= weekFromNow && u.admin_approval != false
@@ -41,6 +42,8 @@ public class Dashboard : PageModel
     
     public void OnGet()
     {
+        // Remove eventsinitialset if it was created in events, so the information is not stored between pages.
+        HttpContext.Session.Remove("EventsInitialSet");
         // Call this function to populate the fields with how many employees are present today,
         // and how many events are happening this week.
         GetTodayStats();
