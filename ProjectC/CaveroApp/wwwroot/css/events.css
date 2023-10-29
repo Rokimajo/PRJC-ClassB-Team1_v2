@@ -1,9 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-
-body {
-}
-
 .week-container {
     height: 85.5vh;
     display: grid;
@@ -106,7 +102,6 @@ div.event-card > * {
     margin: 10px;
     padding: 10px 20px 10px 20px;
     width: 100%;
-    max-width: fit-content;
     border-radius: 15px;
     background: var(--collection-1-cavero-blackish-grey);
     display: flex;
@@ -120,7 +115,8 @@ div.event-card > * {
     background: linear-gradient(153deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 }
 
-.event-card h1 {
+.event-card > h1 {
+    width: 100%;
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 8px;
@@ -129,10 +125,17 @@ div.event-card > * {
     box-shadow: 3px 3px 3px 3px #00000040 inset;
     text-shadow: 2px 2px 2px var(--collection-1-cavero-blackish-grey);
     text-align: center;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.event-card p {
+.event-card > p {
+    width: 100%;
     font-weight: 500;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .event-card:hover {
@@ -142,8 +145,9 @@ div.event-card > * {
 
 .event-card-footer {
     margin-top: 20px;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
+    max-width: 100%;
     transition: flex-direction 0.3s linear;
 }
 
@@ -159,17 +163,32 @@ div.event-card > * {
     font-size: 28px;
 }
 
+.event-card-attendance {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.event-card-attendance > p {
+    margin-left: 5px;
+}
+
+.form-button {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
 .button {
+    display: flex;
+    max-width: 100%;
     font-family: 'Montserrat', sans-serif;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 10px;
-    max-width: fit-content;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
     user-select: none;
     transition: 0.3s ease;
     color: white;
@@ -193,6 +212,9 @@ div.event-card > * {
 .button p {
     font-size: 16px;
     font-weight: 700;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .info {

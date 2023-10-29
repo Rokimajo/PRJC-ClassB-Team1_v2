@@ -7,19 +7,24 @@ namespace CaveroApp.Pages;
 
 public class Events : PageModel
 {
+    // Database context
     public CaveroAppContext Context { get; }
     // Monday - Friday
     // First item is monday, last item is friday in dates.
     public (DateTime, DateTime) Week { get; set; }
     
+    // The day that the user has chosen to view events for
     public static DateTime ChosenDay { get; set; }
-
-    public int saved = 0;
+    
     public Events(CaveroAppContext context)
     {
         Context = context;
     }
 
+    /// <summary>
+    ///     Gets the current week's dates based on the chosen day parameter.
+    ///     It fills the Week tuple with the first item being monday and the last item being friday in dates.
+    /// </summary>
     public void GetCurrentWeek()
     {
         DateTime toUse = DateTime.SpecifyKind(ChosenDay, DateTimeKind.Utc);
@@ -30,6 +35,10 @@ public class Events : PageModel
         Week = week;
     }
     
+    /// <summary>
+    /// This function gets all the events for the current week, based on the dates listed in the Week Tuple.
+    /// It returns a list of WeekInfo objects, which contain the date and all the events for that date.
+    /// </summary>
     public List<WeekInfo> GetWeekEvents()
     {
         var week = new List<WeekInfo>();
@@ -50,7 +59,14 @@ public class Events : PageModel
         }
         return week;
     }
-
+    
+/// <summary>
+///    This function gets the number of participants for a given event.
+///     It returns the count of how many participants that event has.
+/// </summary>
+/// <param name="ev">
+///     The event to get the participants for.
+/// </param>
     public int GetEventParticipants(CaveroAppContext.Event ev)
     {
         return (from e in Context.Events
@@ -60,9 +76,13 @@ public class Events : PageModel
     }
     
     
+/// <summary>
+///     The Get() function has a bool that checks if the action has already been performed.
+///     This is used so that we only set ChosenDay once, and not every time the page is refreshed.
+///     This makes switching weeks possible.
+/// </summary>
     public void OnGet()
     {
-        
         bool actionAlreadyPerformed = bool.TryParse(HttpContext.Session.GetString("EventsInitialSet"), out var result);
 
         if (!actionAlreadyPerformed)
@@ -74,30 +94,67 @@ public class Events : PageModel
         GetCurrentWeek();
     }
 
+    /// <summary>
+    ///     This function is called when the user clicks the "Next Week" button.
+    ///     It adds 7 Days to the ChosenDay variable, which means the next Get() call will get the events for that week.
+    /// </summary>
+    /// <returns>
+    ///     A RedirectToPageResult, which redirects to the same page,
+    ///     without keeping a post form blocking the user from refreshing the page.
+    /// </returns>
     public IActionResult OnPostWeekForward()
     {
         ChosenDay = ChosenDay.AddDays(7);
         return RedirectToPage();
     }
 
+    /// <summary>
+    ///     This function is called when the user clicks the "Last Week" button.
+    ///     It adds -7 Days to the ChosenDay variable, which means the next Get() call will get the events for that week.
+    /// </summary>
+    /// <returns>
+    ///     A RedirectToPageResult, which redirects to the same page,
+    ///     without keeping a post form blocking the user from refreshing the page.
+    /// </returns>
     public IActionResult OnPostWeekBackward()
     {
         ChosenDay = ChosenDay.AddDays(-7);
         return RedirectToPage();
     }
 
+    /// <summary>
+    ///     This function creates a random integer so that the gradients in Events.cshtml are different for each event.
+    /// </summary>
     public int GetRandGradient()
     {
         var rand = new Random();
         return rand.Next(-45, 160);
     }
 
+    /// <summary>
+    ///     This function checks if the user has already joined a event.
+    ///     Returns a boolean, true if the user has already joined an event, false if they haven't.
+    /// </summary>
+    /// <param name="eventID">
+    ///     The ID of the event passed along from the frontend to check if the currently logged in user has joined.
+    /// </param>
     public bool JoinedEvent(int eventID)
     {
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         return Context.EventAttendances.Any(x => x.user_id == userId && x.event_id == eventID);
     }
 
+    /// <summary>
+    /// This function is called when the currently logged in user clicks on the 'Join' button for an event.
+    /// It adds an EventAttendance object to the database, with the passed along eventID and the currently logged in user's ID.
+    /// </summary>
+    /// <param name="eventID">
+    ///     The ID of the event passed along from the frontend to make an EventAttendance object with.
+    /// </param>
+    /// <returns>
+    ///     A RedirectToPageResult, which redirects to the same page,
+    ///     without keeping a post form blocking the user from refreshing the page.
+    /// </returns>
     public IActionResult OnPostEventSignUp(int eventID)
     {
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -107,6 +164,17 @@ public class Events : PageModel
         return RedirectToPage();
     }
     
+    /// <summary>
+    /// This function is called when the currently logged in user clicks on the 'Leave' button for an event.
+    /// It removes an EventAttendance object to the database, with the passed along eventID and the currently logged in user's ID.
+    /// </summary>
+    /// <param name="eventID">
+    ///     The ID of the event passed along from the frontend to search the EventAttendance to remove from the database.
+    /// </param>
+    /// <returns>
+    ///     A RedirectToPageResult, which redirects to the same page,
+    ///     without keeping a post form blocking the user from refreshing the page.
+    /// </returns>
     public IActionResult OnPostEventSignOut(int eventID)
     {
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -135,6 +203,10 @@ public enum DaysTillMonday
     Sunday = 6
 }
 
+/// <summary>
+///     This class is used to store the date and all the events for that date.
+///     It is used to display the events for each day in the frontend.
+/// </summary>
 public class WeekInfo
 {
     public DateTime Date { get; set; }
