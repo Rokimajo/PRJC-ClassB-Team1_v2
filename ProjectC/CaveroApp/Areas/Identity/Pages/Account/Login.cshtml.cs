@@ -116,7 +116,7 @@ namespace CaveroApp.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return RedirectToPage("/Privacy");
+                    return RedirectToPage("/Dashboard");
                 }
                 if (result.RequiresTwoFactor)
                 {

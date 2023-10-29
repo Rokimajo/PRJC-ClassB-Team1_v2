@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using CaveroApp.Areas.Identity.Data;
 using CaveroApp.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -67,14 +68,21 @@ public class Events : PageModel
 /// <param name="ev">
 ///     The event to get the participants for.
 /// </param>
-    public int GetEventParticipants(CaveroAppContext.Event ev)
+    public int GetEventParticipantsCount(CaveroAppContext.Event ev)
     {
         return (from e in Context.Events
             join ea in Context.EventAttendances on e.ID equals ea.event_id
             where e.Equals(ev)
             select ea).Count();
     }
-    
+
+public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
+{
+    return (from ea in Context.EventAttendances
+        join u in Context.Users on ea.user_id equals u.Id
+        where ea.event_id.Equals(ev.ID)
+        select u).ToList();
+}
     
 /// <summary>
 ///     The Get() function has a bool that checks if the action has already been performed.
@@ -128,7 +136,7 @@ public class Events : PageModel
     public int GetRandGradient()
     {
         var rand = new Random();
-        return rand.Next(-45, 160);
+        return rand.Next(-80, 210);
     }
 
     /// <summary>

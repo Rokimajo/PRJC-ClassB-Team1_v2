@@ -10,6 +10,9 @@ public class Dashboard : PageModel
 {
     private CaveroAppContext Context { get; }
     
+    // Monday - Friday
+    // First item is monday, last item is friday in dates.
+    public (DateTime, DateTime) Week { get; set; }
     public int EmployeeCount { get; set; }
     public int EventCount { get; set; }
 
@@ -30,15 +33,28 @@ public class Dashboard : PageModel
             join u in Context.Users on a.user_id equals u.Id
             where DateTime.UtcNow.Date.Equals(a.date.Date) select u).ToList().Distinct().Count();
 
-        // todo: fout, maak opnieuw
+        GetCurrentWeek();
         var event_count = (from u in Context.Events
-            let weekFromNow = DateTime.UtcNow.AddDays(7).Date
-            where u.date.Date >= DateTime.UtcNow.Date && u.date.Date <= weekFromNow && u.admin_approval != false
-            select u).ToList().Distinct().Count();
+            where u.date.Date >= Week.Item1.Date && u.date.Date <= Week.Item2.Date && u.admin_approval != false
+            select u).Count();
         
         EmployeeCount = emp_count;
         EventCount = event_count;
     }
+    
+    /// <summary>
+    ///     Gets the current week's dates based on the chosen day parameter.
+    ///     It fills the Week tuple with the first item being monday and the last item being friday in dates.
+    /// </summary>
+    public void GetCurrentWeek()
+    {
+        var week = new ValueTuple<DateTime, DateTime>();
+        var success = DaysTillMonday.TryParse<DaysTillMonday>(DateTime.UtcNow.DayOfWeek.ToString(), out var day);
+        week.Item1 = DateTime.UtcNow.Date.AddDays(-(int)day).Date;
+        week.Item2 = week.Item1.AddDays(4).Date;
+        Week = week;
+    }
+
     
     public void OnGet()
     {
