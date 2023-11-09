@@ -25,7 +25,7 @@ public class Seeder
                 description = "ev",
                 alt_info = "notnull",
                 date = DateTime.UtcNow,
-                time = new TimeSpan(0, 16, 0, 0 ),
+                start_time = new TimeSpan(0, 16, 0, 0 ),
                 location = "somewhere",
                 admin_approval = true
             },
@@ -35,7 +35,7 @@ public class Seeder
                 description = "ev",
                 alt_info = "notnull",
                 date = DateTime.UtcNow.AddDays(1),
-                time = new TimeSpan(0, 16, 0, 0 ),
+                start_time = new TimeSpan(0, 16, 0, 0 ),
                 location = "somewhere",
                 admin_approval = true
             },
@@ -45,7 +45,7 @@ public class Seeder
                 description = "ev",
                 alt_info = "notnull",
                 date = DateTime.UtcNow.AddDays(3),
-                time = new TimeSpan(0, 16, 0, 0 ),
+                start_time = new TimeSpan(0, 16, 0, 0 ),
                 location = "somewhere",
                 admin_approval = true
             },
@@ -55,7 +55,7 @@ public class Seeder
                 description = "ev",
                 alt_info = "notnull",
                 date = DateTime.UtcNow.AddDays(7),
-                time = new TimeSpan(0, 16, 0, 0 ),
+                start_time = new TimeSpan(0, 16, 0, 0 ),
                 location = "somewhere",
                 admin_approval = true
             },
@@ -65,7 +65,7 @@ public class Seeder
                 description = "ev",
                 alt_info = "notnull",
                 date = DateTime.UtcNow.AddDays(9),
-                time = new TimeSpan(0, 16, 0, 0 ),
+                start_time = new TimeSpan(0, 16, 0, 0 ),
                 location = "somewhere",
                 admin_approval = true
             },
@@ -75,7 +75,7 @@ public class Seeder
                 description = "ev",
                 alt_info = "notnull",
                 date = DateTime.UtcNow.AddDays(8),
-                time = new TimeSpan(0, 16, 0, 0 ),
+                start_time = new TimeSpan(0, 16, 0, 0 ),
                 location = "somewhere",
                 admin_approval = true
             },
@@ -85,7 +85,7 @@ new()
                 description = "ev",
                 alt_info = "notnull",
                 date = DateTime.UtcNow.AddDays(2),
-                time = new TimeSpan(0, 16, 0, 0 ),
+                start_time = new TimeSpan(0, 16, 0, 0 ),
                 location = "somewhere",
                 admin_approval = true
             },
@@ -95,7 +95,7 @@ new()
                 description = "ev",
                 alt_info = "notnull",
                 date = DateTime.UtcNow.AddDays(2),
-                time = new TimeSpan(0, 16, 0, 0 ),
+                start_time = new TimeSpan(0, 16, 0, 0 ),
                 location = "somewhere",
                 admin_approval = true
             },
@@ -105,7 +105,7 @@ new()
                 description = "ev",
                 alt_info = "notnull",
                 date = DateTime.UtcNow.AddDays(2),
-                time = new TimeSpan(0, 16, 0, 0 ),
+                start_time = new TimeSpan(0, 16, 0, 0 ),
                 location = "somewhere",
                 admin_approval = true
             },

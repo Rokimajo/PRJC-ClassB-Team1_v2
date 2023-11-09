@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yl3/+351ec8xFgt9XeuQQxhnGarMk6cDRf0KUgRMxL4=",
+  "Hash": "Zp6oz4vCtqpO4GCaGAb8TTlujtUv9XoqMzSvfbn5abs=",
   "Source": "CaveroApp",
   "BasePath": "_content/CaveroApp",
   "Mode": "Default",
@@ -1647,6 +1647,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\user-check-icon.png"
+    },
+    {
+      "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\create-event-validation.js",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "js/create-event-validation.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\create-event-validation.js"
     },
     {
       "Identity": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\site.js",

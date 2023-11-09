@@ -27,11 +27,9 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
         builder.Entity<CaveroAppUser>().ToTable("Users");
-        builder.Entity<CaveroAppUser>().Ignore(x => x.PhoneNumber);
-        builder.Entity<CaveroAppUser>().Ignore(x => x.PhoneNumberConfirmed);
-        builder.Entity<CaveroAppUser>().Ignore(x => x.LockoutEnd);
-        builder.Entity<CaveroAppUser>().Ignore(x => x.LockoutEnabled);
-        builder.Entity<CaveroAppUser>().Ignore(x => x.AccessFailedCount);
+        builder.Entity<CaveroAppUser>().Ignore(x => x.PhoneNumber)
+            .Ignore(x => x.PhoneNumberConfirmed).Ignore(x => x.LockoutEnd)
+            .Ignore(x => x.LockoutEnabled).Ignore(x => x.AccessFailedCount);
     }
     
         
@@ -58,7 +56,10 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
         // may be removed
         public string alt_info { get; set; }
         public DateTime date { get; set; }
-        public TimeSpan time { get; set; }
+        
+        public TimeSpan start_time { get; set; }
+        
+        public TimeSpan end_time { get; set; }
         public string location { get; set; }
         public bool admin_approval { get; set; }
     }

@@ -141,6 +141,10 @@
       "PackagePath": "staticwebassets\\img\\user-check-icon.png"
     },
     {
+      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\create-event-validation.js",
+      "PackagePath": "staticwebassets\\js\\create-event-validation.js"
+    },
+    {
       "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

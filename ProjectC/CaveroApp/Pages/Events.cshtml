@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/eventheader.css"/>
     <link rel="stylesheet" href="css/events.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
+    <script src="js/create-event-validation.js"></script>
 }
 
 @section HeaderContent
@@ -38,7 +39,7 @@
             @($"{@Model.Week.Item1.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)} - " +
               $"{@Model.Week.Item2.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)}")
         </h1>
-        <button class="button sign-up" style="margin-left: 15px;">
+        <button id="createEventButton" class="button create-event" style="margin-left: 15px;">
             <p>CREËER EVENT</p>
         </button>
     </div>
@@ -57,7 +58,7 @@
         {
             <div class="day-wrapper">
                 <div class="day">
-                    
+
                     <h1>@evArr.Date.ToString("ddd")</h1>
                     @if (@evArr.Date.Equals(DateTime.UtcNow.Date))
                     {
@@ -74,7 +75,7 @@
                         <!-- Event Card -->
                         <div class="event-card" style="background: linear-gradient(@(Model.GetRandGradient())deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);">
                             <h1>@(ev.title)</h1>
-                            <p>Tijd: @(ev.time.ToString(@"hh\:mm"))</p>
+                            <p>Tijd: @(ev.start_time.ToString(@"hh\:mm"))</p>
                             <p>Locatie: @(ev.location)</p>
                             <div class="event-card-footer">
                                 <div class="event-card-attendance">
@@ -103,7 +104,7 @@
                             </div>
                         </div>
                         <!-- Event Card -->
-                        
+
                         <!-- Modal Content -->
                         <!-- Has to be loaded here so it gets filled up with the unique information for each card. -->
                         <div class="event-modal modal-card-@ev.ID">
@@ -123,21 +124,24 @@
                                         <p>
                                             <strong>Locatie</strong>: @ev.location<br/>
                                             <strong>Datum</strong>: @ev.date.Date.ToString("dd/MM/yyyy")<br/>
-                                            <strong>Tijd</strong>: @ev.time<br/>
+                                            <strong>Tijd</strong>: @ev.start_time<br/>
                                         </p>
                                     </div>
                                     <div class="event-modal-row">
                                         @{ var eventParticipants = @Model.GetEventParticipants(ev); }
                                         <h1>Deelnemers (@eventParticipants.Count())</h1>
-                                        <ul class="event-modal-attendance">
-                                            @foreach (var participant in @eventParticipants)
-                                            {
-                                                <li>
-                                                    <img src="img/image-8-2.png"/>
-                                                    <p>@participant.FirstName @participant.LastName</p>
-                                                </li>
-                                            }
-                                        </ul>
+                                        @if (@eventParticipants.Count() != 0)
+                                        {
+                                            <ul class="event-modal-attendance">
+                                                @foreach (var participant in @eventParticipants)
+                                                {
+                                                    <li>
+                                                        <img src="img/image-8-2.png"/>
+                                                        <p>@participant.FirstName @participant.LastName</p>
+                                                    </li>
+                                                }
+                                            </ul>  
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -148,6 +152,56 @@
             </div>
         }
     </div>
+    <!-- Event Create Modal -->
+    <div id="createEventModal" class="event-modal">
+        <div class="event-modal-content">
+            <div class="event-modal-header">
+                <h1 style="justify-content: flex-start">Creeër een evenement</h1>
+                <span id="closeEvent" class="close" style="justify-content: flex-start">&times;</span>
+            </div>
+            <div class="line"></div>
+            <!-- -->
+            <form id="createEventForm" asp-page-handler="CreateEvent" method="post">
+                <div class="event-modal-create">
+                    <div class="event-modal-row">
+                        <h1>Titel (max 20 karakters)</h1>
+                        <input id="eventTitle" placeholder="..." asp-for="EventModel.Title" required pattern=".{1,20}" oninput="validateTitle()" onblur="validateTitle()"/>
+                        <span class="error-message" id="titleError"></span>
+                    </div>
+                    <div class="event-modal-row">
+                        <h1>Beschrijving (max 150 karakters)</h1>
+                        <textarea id="eventDescription" rows="6" cols="50" placeholder="..."  asp-for="EventModel.Description" required 
+                            pattern=".{1,150}" oninput="validateDesc()" onblur="validateDesc()"></textarea>
+                        <span class="error-message" id="descError"></span>
+                    </div>
+                    <div class="event-modal-row">
+                        <h1>Locatie (max 20 karakters)</h1>
+                        <input id="eventLocation" placeholder="..." asp-for="EventModel.Location" required
+                               pattern=".{1,20}" oninput="validateLoc()" onblur="validateLoc()"/>
+                        <span class="error-message" id="locError"></span>
+                    </div>
+                    <div class="event-modal-row">
+                        <h1>Datum</h1>
+                        <input id="eventDate" placeholder="dd-mm-yyyy" type="date"/>
+                    </div>
+                    <div class="event-modal-row">
+                        <h1>Starttijd</h1>
+                        <input class="timepicker" type="time"/>
+                    </div>
+                    <div class="event-modal-row">
+                        <h1>Eindtijd</h1>
+                        <input class="timepicker"/>
+                    </div>
+                    <div class="event-modal-row">
+                        <button id="createEventButtonModal" class="button create-event" type="submit">
+                            <p>CREËER EVENT</p>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Event Create Modal -->
 </div>
 
 </body>
@@ -177,6 +231,40 @@ infoButtons.forEach(function (button) {
         modal.style.display = "flex";
     });
 });
-</script>
 
+var createButton = document.querySelector("#createEventButton");
+createButton.addEventListener("click", function () {
+    var modal = document.querySelector("#createEventModal");
+    var span = document.querySelector("#closeEvent");
+    
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    // window.onclick = function(event) {
+    //   if (event.target == modal) {
+    //     modal.style.display = "none";
+    //   }
+    // }
+
+    // Open the modal.
+    modal.style.display = "flex";
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('createEventForm');
+    const createEventButton = document.getElementById('createEventButtonModal');
+
+   createEventButton.addEventListener('click', function (event) {
+        buttonClicked();
+        if (!form.checkValidity()) {
+            // Prevent form submission if there are validation errors
+            event.preventDefault();
+        }
+    });
+});
+</script>
 </html>
+
+                

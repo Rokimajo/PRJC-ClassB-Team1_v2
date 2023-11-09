@@ -230,6 +230,12 @@ div.event-card > * {
     background-color: rgba(252,70,107,1);
 }
 
+.create-event {
+    background-color: dodgerblue;
+    text-align: center;
+    justify-content: center;
+}
+
 @media only screen and (max-width: 900px) {
     .week-container {
         height: auto;
@@ -377,6 +383,21 @@ div.event-modal-row br {
     margin-right: 5px;
 }
 
+.event-modal-create {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#eventDescription {
+    max-width: 80vw; /* Set the maximum width to 80% of the viewport width */
+    max-height: 40vh; /* Set the maximum height to 40% of the viewport height */
+    width: 100%; /* Make sure it expands to 100% of its container width */
+}
+
 .close {
     color: var(--collection-1-cavero-blackish-grey);
     font-size: 38px;
@@ -399,6 +420,15 @@ div.event-modal-row br {
     border-color: var(--collection-1-cavero-blackish-grey);
     filter: opacity(20%);
 }
+
+.error-message {
+    color: #dc3545;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/*MODAL CONTENT END*/
+
 
 
 

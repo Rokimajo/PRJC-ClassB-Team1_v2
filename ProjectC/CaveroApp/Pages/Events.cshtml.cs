@@ -1,7 +1,9 @@
-﻿using System.Security.Claims;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 using CaveroApp.Areas.Identity.Data;
 using CaveroApp.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CaveroApp.Pages;
@@ -10,6 +12,10 @@ public class Events : PageModel
 {
     // Database context
     public CaveroAppContext Context { get; }
+    
+    [BindProperty]
+    public CreateEventModel EventModel { get; set; }
+    
     // Monday - Friday
     // First item is monday, last item is friday in dates.
     public (DateTime, DateTime) Week { get; set; }
@@ -20,6 +26,26 @@ public class Events : PageModel
     public Events(CaveroAppContext context)
     {
         Context = context;
+    }
+
+    public class CreateEventModel
+    {
+        [Required]
+        [StringLength(20, ErrorMessage = "Titel kan niet langer zijn dan 20 karakters.")]
+        public string Title { get; set; }
+        
+        [Required]
+        [StringLength(100, ErrorMessage = "Beschrijving kan niet langer zijn dan 100 karakters.")]
+        public string Description { get; set; }
+        
+        [Required]
+        public string Location { get; set; }
+        
+        public DateTime Date { get; set; }
+        
+        public TimeSpan StartTime { get; set; }
+        
+        public TimeSpan EndTime { get; set; }
     }
 
     /// <summary>
@@ -91,6 +117,9 @@ public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
 /// </summary>
     public void OnGet()
     {
+        // This variable is used to set the event date to the current date, so the user starts at the current week instead of a random date.
+        // This is set to true to signify that it shouldn't happen again unless the page is completely refreshed,
+        // so the user doesn't keep going back to the initial start date when trying to switch the week view.
         bool actionAlreadyPerformed = bool.TryParse(HttpContext.Session.GetString("EventsInitialSet"), out var result);
 
         if (!actionAlreadyPerformed)
@@ -101,6 +130,16 @@ public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
         }
         GetCurrentWeek();
     }
+
+public IActionResult OnPostCreateEvent()
+{
+    if (!ModelState.IsValid)
+    {
+        return RedirectToPage();
+    }
+    
+    return RedirectToPage("/Events");
+}
 
     /// <summary>
     ///     This function is called when the user clicks the "Next Week" button.
