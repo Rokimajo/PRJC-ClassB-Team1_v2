@@ -192,13 +192,13 @@
                     </div>
                     <div class="event-modal-row">
                         <h1>Starttijd</h1>
-                        <input id="eventStartTime" class="timepicker" type="text" asp-for="EventModel.StartTime" required
+                        <input id="eventStartTime" placeholder="Kies een starttijd.." class="timepicker" type="text" asp-for="EventModel.StartTime" required
                                oninput="validateStartTime()" onblur="validateStartTime()"/>
                         <span class="error-message" id="startTimeError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Eindtijd</h1>
-                        <input id="eventEndTime" class="timepicker" type="text" asp-for="EventModel.EndTime" required
+                        <input id="eventEndTime" placeholder="Kies een eindtijd.." class="timepicker" type="text" asp-for="EventModel.EndTime" required
                                oninput="validateEndTime()" onblur="validateEndTime()"/>
                         <span class="error-message" id="endTimeError"></span>
                     </div>
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function () {
    flatpickr("#eventDate", {
        enableTime: false,
        dateFormat: "d-m-Y",
-       minDate: "today",
+       minDate: "today",  
        disable: [
            function (date) {
                // Disable weekends (Saturday and Sunday)

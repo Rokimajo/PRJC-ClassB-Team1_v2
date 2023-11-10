@@ -150,7 +150,6 @@ function validateEndTime(event) {
 }
 
 function buttonClicked(event) {
-    console.log("Button Clicked");
     validateTitle(); // Trigger validation when the button is clicked
     validateDesc(event);
     validateLoc();
