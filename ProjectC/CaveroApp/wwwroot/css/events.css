@@ -427,6 +427,13 @@ div.event-modal-row br {
     font-weight: 500;
 }
 
+.flatpickr-calendar {
+    border: 2px solid var(--collection-1-cavero-paars) !important;
+}
+
+.flatpickr-time ::selection {
+    background: lightblue;
+}
 /*MODAL CONTENT END*/
 
 

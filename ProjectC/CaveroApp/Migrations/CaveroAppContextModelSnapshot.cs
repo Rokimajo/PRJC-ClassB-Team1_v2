@@ -116,10 +116,6 @@ namespace CaveroApp.Migrations
                     b.Property<bool>("admin_approval")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("alt_info")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("date")
                         .HasColumnType("timestamp with time zone");
 

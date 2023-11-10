@@ -8,10 +8,13 @@
     Layout = "Shared/CaveroLayoutResponsive";
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="preload" as="style" href="css/eventheader.css">
-    <link rel="stylesheet" href="css/eventheader.css"/>
+    <link rel="stylesheet" href="css/eventheader.css"/>    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="css/events.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
     <script src="js/create-event-validation.js"></script>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 }
 
 @section HeaderContent
@@ -75,8 +78,8 @@
                         <!-- Event Card -->
                         <div class="event-card" style="background: linear-gradient(@(Model.GetRandGradient())deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);">
                             <h1>@(ev.title)</h1>
-                            <p>Tijd: @(ev.start_time.ToString(@"hh\:mm"))</p>
                             <p>Locatie: @(ev.location)</p>
+                            <p>Tijd: @ev.start_time.ToString(@"hh\:mm") - @ev.end_time.ToString(@"hh\:mm")</p>
                             <div class="event-card-footer">
                                 <div class="event-card-attendance">
                                     <img src="img/user-check-icon.png"/>
@@ -124,7 +127,7 @@
                                         <p>
                                             <strong>Locatie</strong>: @ev.location<br/>
                                             <strong>Datum</strong>: @ev.date.Date.ToString("dd/MM/yyyy")<br/>
-                                            <strong>Tijd</strong>: @ev.start_time<br/>
+                                            <strong>Tijd</strong>: @ev.start_time.ToString(@"hh\:mm") - @ev.end_time.ToString(@"hh\:mm")<br/>
                                         </p>
                                     </div>
                                     <div class="event-modal-row">
@@ -165,13 +168,14 @@
                 <div class="event-modal-create">
                     <div class="event-modal-row">
                         <h1>Titel (max 20 karakters)</h1>
-                        <input id="eventTitle" placeholder="..." asp-for="EventModel.Title" required pattern=".{1,20}" oninput="validateTitle()" onblur="validateTitle()"/>
+                        <input id="eventTitle" placeholder="..." asp-for="EventModel.Title" required 
+                               pattern=".{1,20}" oninput="validateTitle()" onblur="validateTitle()"/>
                         <span class="error-message" id="titleError"></span>
                     </div>
                     <div class="event-modal-row">
-                        <h1>Beschrijving (max 150 karakters)</h1>
+                        <h1>Beschrijving (max 250 karakters)</h1>
                         <textarea id="eventDescription" rows="6" cols="50" placeholder="..."  asp-for="EventModel.Description" required 
-                            pattern=".{1,150}" oninput="validateDesc()" onblur="validateDesc()"></textarea>
+                           oninput="validateDesc()" onblur="validateDesc()"></textarea>
                         <span class="error-message" id="descError"></span>
                     </div>
                     <div class="event-modal-row">
@@ -182,15 +186,21 @@
                     </div>
                     <div class="event-modal-row">
                         <h1>Datum</h1>
-                        <input id="eventDate" placeholder="dd-mm-yyyy" type="date"/>
+                        <input id="eventDate" placeholder="Kies een datum.." type="text" asp-for="EventModel.Date" required
+                               oninput="validateDate()" onblur="validateDate()"/>
+                        <span class="error-message" id="dateError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Starttijd</h1>
-                        <input class="timepicker" type="time"/>
+                        <input id="eventStartTime" class="timepicker" type="text" asp-for="EventModel.StartTime" required
+                               oninput="validateStartTime()" onblur="validateStartTime()"/>
+                        <span class="error-message" id="startTimeError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Eindtijd</h1>
-                        <input class="timepicker"/>
+                        <input id="eventEndTime" class="timepicker" type="text" asp-for="EventModel.EndTime" required
+                               oninput="validateEndTime()" onblur="validateEndTime()"/>
+                        <span class="error-message" id="endTimeError"></span>
                     </div>
                     <div class="event-modal-row">
                         <button id="createEventButtonModal" class="button create-event" type="submit">
@@ -257,12 +267,39 @@ document.addEventListener('DOMContentLoaded', function () {
     const createEventButton = document.getElementById('createEventButtonModal');
 
    createEventButton.addEventListener('click', function (event) {
-        buttonClicked();
+        buttonClicked(event);
         if (!form.checkValidity()) {
             // Prevent form submission if there are validation errors
             event.preventDefault();
         }
     });
+   
+   flatpickr("#eventDate", {
+       enableTime: false,
+       dateFormat: "d-m-Y",
+       minDate: "today",
+       disable: [
+           function (date) {
+               // Disable weekends (Saturday and Sunday)
+               return (date.getDay() === 0 || date.getDay() === 6);
+           }
+       ],
+   });
+   
+    flatpickr("#eventStartTime", {
+              enableTime: true,
+              noCalendar: true,
+              dateFormat: "H:i",
+              time_24hr: true
+    });
+  
+    flatpickr("#eventEndTime", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true
+    });
+    
 });
 </script>
 </html>

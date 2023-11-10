@@ -53,8 +53,6 @@ public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
         public int ID { get; set; }
         public string title { get; set; }
         public string description { get; set; }
-        // may be removed
-        public string alt_info { get; set; }
         public DateTime date { get; set; }
         
         public TimeSpan start_time { get; set; }

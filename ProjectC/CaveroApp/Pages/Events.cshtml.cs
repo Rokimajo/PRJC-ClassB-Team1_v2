@@ -5,6 +5,7 @@ using CaveroApp.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace CaveroApp.Pages;
 
@@ -30,22 +31,17 @@ public class Events : PageModel
 
     public class CreateEventModel
     {
-        [Required]
-        [StringLength(20, ErrorMessage = "Titel kan niet langer zijn dan 20 karakters.")]
         public string Title { get; set; }
         
-        [Required]
-        [StringLength(100, ErrorMessage = "Beschrijving kan niet langer zijn dan 100 karakters.")]
         public string Description { get; set; }
         
-        [Required]
         public string Location { get; set; }
         
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         
-        public TimeSpan StartTime { get; set; }
+        public string StartTime { get; set; }
         
-        public TimeSpan EndTime { get; set; }
+        public string EndTime { get; set; }
     }
 
     /// <summary>
@@ -133,11 +129,24 @@ public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
 
 public IActionResult OnPostCreateEvent()
 {
-    if (!ModelState.IsValid)
+    // if this method goes trough, the javascript validation checker found no issues.
+    // so there's no need for backend validation checking here.
+    var splitDate = EventModel.Date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
+    var startTime = EventModel.StartTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
+    var endTime = EventModel.EndTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
+    var newEvent = new CaveroAppContext.Event()
     {
-        return RedirectToPage();
-    }
-    
+        title = EventModel.Title,
+        description = EventModel.Description,
+        location = EventModel.Location,
+        date = DateTime.SpecifyKind(new DateTime(splitDate[2], splitDate[1], splitDate[0]), DateTimeKind.Utc),
+        start_time = new TimeSpan(startTime[0], startTime[1], 0),
+        end_time = new TimeSpan(endTime[0], endTime[1], 0),
+        // change this to false once admin works
+        admin_approval = true
+    };
+    Context.Add(newEvent);
+    Context.SaveChanges();
     return RedirectToPage("/Events");
 }
 
