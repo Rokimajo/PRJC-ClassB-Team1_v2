@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NBUBmY9tjlMea/53MTF81h1IvDBx9c9eSHeM4ZKaUXk=",
+  "Hash": "ltV7Y3WtmS4Um3eel9nvzuriH4sIvzUfZyY88sTx0QU=",
   "Source": "CaveroApp",
   "BasePath": "_content/CaveroApp",
   "Mode": "Default",
@@ -1071,12 +1071,12 @@
       "OriginalItemSpec": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CaveroApp.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\dashboardmain.css",
+      "Identity": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\dashboard.css",
       "SourceId": "CaveroApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
       "BasePath": "_content/CaveroApp",
-      "RelativePath": "css/dashboardmain.css",
+      "RelativePath": "css/dashboard.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1085,7 +1085,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\dashboardmain.css"
+      "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
     },
     {
       "Identity": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\globals.css",
@@ -1137,23 +1137,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
-    },
-    {
-      "Identity": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\register.css",
-      "SourceId": "CaveroApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
-      "BasePath": "_content/CaveroApp",
-      "RelativePath": "css/register.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\register.css"
     },
     {
       "Identity": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\registration.css",

@@ -5,8 +5,8 @@
       "PackagePath": "staticwebassets\\CaveroApp.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\dashboardmain.css",
-      "PackagePath": "staticwebassets\\css\\dashboardmain.css"
+      "Id": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
     },
     {
       "Id": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\globals.css",
@@ -19,10 +19,6 @@
     {
       "Id": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
-    },
-    {
-      "Id": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\register.css",
-      "PackagePath": "staticwebassets\\css\\register.css"
     },
     {
       "Id": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\registration.css",

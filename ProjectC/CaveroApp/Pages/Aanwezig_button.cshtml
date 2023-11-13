@@ -10,7 +10,21 @@
 </head>
 <body>
 <div>
-    <button type="submit" onclick=@Model.ChangeStatus()>@Model.ButtonText</button>
+    <form method="post">
+        <button id="submitButton" type="submit" asp-page-handler="@Model.ChangeStatus()" disabled>@Model.ButtonText</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Disable the button on page load
+            document.getElementById("submitButton").disabled = true;
+
+            // Enable the button after a delay (e.g., 3000 milliseconds or 3 seconds)
+            setTimeout(function () {
+                document.getElementById("submitButton").disabled = false;
+            }, 3000);
+        });
+    </script>
 </div>
 </body>
 </html>
