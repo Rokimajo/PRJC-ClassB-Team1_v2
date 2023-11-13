@@ -183,7 +183,7 @@
 
                         <!-- Admin Edit Event Modal -->
                         <div class="event-modal modal-card-edit-@ev.ID">
-                            <div class="event-modal-content">
+                            <div class="event-modal-content" style="max-width: 500px;">
                                 <div class="event-modal-header">
                                     <h1 style="justify-content: flex-start">Aanpassen event: @ev.title</h1>
                                     <span class="close close-edit-@ev.ID" style="justify-content: flex-start">&times;</span>
@@ -202,7 +202,7 @@
                                             <h1>Beschrijving (max 250 karakters)</h1>
                                             @* Do not use ASP-FOR here, because it will omit the default value. Instead use a name attribute.
                                                 The event edit post method can then call this attribute to get the changed value.*@
-                                            <textarea id="eventDescriptionEdit-@ev.ID" rows="6" cols="75" required  name="Description"
+                                            <textarea id="eventDescriptionEdit-@ev.ID" rows="6" cols="50" required  name="Description"
                                                 oninput="validateDesc('Edit-@ev.ID')" onblur="validateDesc('Edit-@ev.ID')">@ev.description</textarea>
                                             <span class="error-message" id="descErrorEdit-@ev.ID"></span>
                                         </div>
