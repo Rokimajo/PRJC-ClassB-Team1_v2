@@ -15,7 +15,7 @@ public class Events : PageModel
     public CaveroAppContext Context { get; }
     
     [BindProperty]
-    public CreateEventModel EventModel { get; set; }
+    public EventModel eventModel { get; set; }
     
     // Monday - Friday
     // First item is monday, last item is friday in dates.
@@ -29,7 +29,7 @@ public class Events : PageModel
         Context = context;
     }
 
-    public class CreateEventModel
+    public class EventModel
     {
         public string Title { get; set; }
         
@@ -47,6 +47,8 @@ public class Events : PageModel
     /// <summary>
     ///     Gets the current week's dates based on the chosen day parameter.
     ///     It fills the Week tuple with the first item being monday and the last item being friday in dates.
+    ///     Function is made to be maintainable and flexible, if you add 6 days to week.Item2 instead of 4,
+    ///     you can easily and quickly change the event tab from mon-fri to mon-sun.
     /// </summary>
     public void GetCurrentWeek()
     {
@@ -73,7 +75,7 @@ public class Events : PageModel
                 {
                     Date = StartDay,
                     allEvents = (from x in Context.Events where
-                                x.date.Date.Equals(StartDay.Date) && x.admin_approval == true
+                                x.date.Date.Equals(StartDay.Date.Date) && x.admin_approval == true
                                 select x).ToList()
                 };
             week.Add(events);
@@ -131,14 +133,14 @@ public IActionResult OnPostCreateEvent()
 {
     // if this method goes trough, the javascript validation checker found no issues.
     // so there's no need for backend validation checking here.
-    var splitDate = EventModel.Date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
-    var startTime = EventModel.StartTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
-    var endTime = EventModel.EndTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
+    var splitDate = eventModel.Date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
+    var startTime = eventModel.StartTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
+    var endTime = eventModel.EndTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
     var newEvent = new CaveroAppContext.Event()
     {
-        title = EventModel.Title,
-        description = EventModel.Description,
-        location = EventModel.Location,
+        title = eventModel.Title,
+        description = eventModel.Description,
+        location = eventModel.Location,
         date = DateTime.SpecifyKind(new DateTime(splitDate[2], splitDate[1], splitDate[0]), DateTimeKind.Utc),
         start_time = new TimeSpan(startTime[0], startTime[1], 0),
         end_time = new TimeSpan(endTime[0], endTime[1], 0),
@@ -184,7 +186,7 @@ public IActionResult OnPostCreateEvent()
     public int GetRandGradient()
     {
         var rand = new Random();
-        return rand.Next(-80, 210);
+        return rand.Next(-360, 360);
     }
 
     /// <summary>
@@ -213,10 +215,15 @@ public IActionResult OnPostCreateEvent()
     /// </returns>
     public IActionResult OnPostEventSignUp(int eventID)
     {
-        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        var evAtt = new CaveroAppContext.EventAttendance() { event_id = eventID, user_id = userId };
-        Context.Add(evAtt);
-        Context.SaveChanges();
+        if (Context.Events.First(x => x.ID == eventID).date.Date >= DateTime.UtcNow.Date)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var evAtt = new CaveroAppContext.EventAttendance() { event_id = eventID, user_id = userId };
+            Context.Add(evAtt);
+            Context.SaveChanges();
+            return RedirectToPage();
+        }
+
         return RedirectToPage();
     }
     
@@ -238,6 +245,30 @@ public IActionResult OnPostCreateEvent()
             where ea.event_id.Equals(eventID) && ea.user_id.Equals(userId)
                 select ea).First();
         Context.Remove(evAtt);
+        Context.SaveChanges();
+        return RedirectToPage();
+    }
+
+    public IActionResult OnPostDeleteEvent(int eventID)
+    {
+        var evtoDelete = Context.Events.First(x => x.ID == eventID);
+        Context.Remove(evtoDelete);
+        Context.SaveChanges();
+        return RedirectToPage();
+    }
+    
+    public IActionResult OnPostEditEvent(int eventID)
+    {
+        var evtoChange = Context.Events.First(x => x.ID == eventID);
+        var splitDate = eventModel.Date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
+        var startTime = eventModel.StartTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
+        var endTime = eventModel.EndTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
+        evtoChange.title = eventModel.Title;
+        evtoChange.description = Request.Form["Description"]!;
+        evtoChange.location = eventModel.Location;
+        evtoChange.date = DateTime.SpecifyKind(new DateTime(splitDate[2], splitDate[1], splitDate[0]), DateTimeKind.Utc);
+        evtoChange.start_time = new TimeSpan(startTime[0], startTime[1], 0);
+        evtoChange.end_time = new TimeSpan(endTime[0], endTime[1], 0);
         Context.SaveChanges();
         return RedirectToPage();
     }

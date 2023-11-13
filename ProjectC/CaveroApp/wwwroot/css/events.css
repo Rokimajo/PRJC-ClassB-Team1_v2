@@ -236,6 +236,33 @@ div.event-card > * {
     justify-content: center;
 }
 
+.edit-event {
+    background-color: #20c997;
+    text-align: center;
+    justify-content: center;
+}
+
+.delete {
+    background-color: #bb2d3b;
+}
+
+.edit {
+    background-color: #0c63e4;
+}
+
+.admin-divider {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-width: 1px;
+    border-style: solid;
+    color: white;
+    filter: opacity(20%);
+}
+
+.admin-buttons {
+    display: inline;
+}
+
 @media only screen and (max-width: 900px) {
     .week-container {
         height: auto;
@@ -398,6 +425,12 @@ div.event-modal-row br {
     width: 100%; /* Make sure it expands to 100% of its container width */
 }
 
+#eventDescriptionEdit {
+    max-width: 70vw; /* Set the maximum width to 80% of the viewport width */
+    max-height: 30vh; /* Set the maximum height to 40% of the viewport height */
+    width: 100%; /* Make sure it expands to 100% of its container width */
+}
+
 .close {
     color: var(--collection-1-cavero-blackish-grey);
     font-size: 38px;
@@ -425,6 +458,7 @@ div.event-modal-row br {
     color: #dc3545;
     margin-top: 5px;
     font-weight: 500;
+    text-align: start;
 }
 
 .flatpickr-calendar {

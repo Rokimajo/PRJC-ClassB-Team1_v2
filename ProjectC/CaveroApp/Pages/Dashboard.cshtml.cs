@@ -79,7 +79,6 @@ public class Dashboard : PageModel
     // get method api endpoint for javascript validator
     public JsonResult OnGetCheckDate(string date)
     {
-        Console.WriteLine("GETCHECKDATE CALLED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         var dateSplit = date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
         var parsedDate = DateTime.SpecifyKind(new DateTime(dateSplit[2], dateSplit[1], dateSplit[0]), DateTimeKind.Utc);
         var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

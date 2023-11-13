@@ -1,8 +1,8 @@
 ﻿
 
-function validateTitle() {
-    const titleInput = document.getElementById('eventTitle');
-    const titleError = document.getElementById('titleError');
+function validateTitle(isEdit) {
+    const titleInput = document.getElementById('eventTitle' + isEdit);
+    const titleError = document.getElementById('titleError' + isEdit);
         if (!titleInput.validity.valid) {
             if (titleInput.validity.valueMissing) {
                 titleError.textContent = 'Titel is vereist.';
@@ -17,9 +17,9 @@ function validateTitle() {
         }
 }
 
-function validateDesc(event) {
-    const descInput = document.getElementById('eventDescription');
-    const descError = document.getElementById('descError');
+function validateDesc(event, isEdit) {
+    const descInput = document.getElementById('eventDescription' + isEdit);
+    const descError = document.getElementById('descError' + isEdit);
     // HTML <textarea> doesn't support patterns, so the length checking must be done manually.
     if (!descInput.validity.valid) {
         if (descInput.validity.valueMissing) {
@@ -41,9 +41,9 @@ function validateDesc(event) {
     }
 }
 
-function validateLoc() {
-    const locInput = document.getElementById('eventLocation');
-    const locError = document.getElementById('locError');
+function validateLoc(isEdit) {
+    const locInput = document.getElementById('eventLocation' + isEdit);
+    const locError = document.getElementById('locError' + isEdit);
     if (!locInput.validity.valid) {
         if (locInput.validity.valueMissing) {
             locError.textContent = 'Locatie is vereist.';
@@ -58,9 +58,9 @@ function validateLoc() {
     }
 }
 
-function validateDate(event) {
-    const dateInput = document.getElementById('eventDate');
-    const dateError = document.getElementById('dateError');
+function validateDate(event, isEdit) {
+    const dateInput = document.getElementById('eventDate' + isEdit);
+    const dateError = document.getElementById('dateError' + isEdit);
     
     if (dateInput.value === '') {
         dateError.textContent = 'Datum is vereist.';
@@ -74,10 +74,10 @@ function validateDate(event) {
     }
 }
 
-function validateStartTime(event) {
-    const startTimeInput = document.getElementById('eventStartTime');
-    const startTimeError = document.getElementById('startTimeError');
-    const endTimeInput = document.getElementById('eventEndTime');
+function validateStartTime(event, isEdit) {
+    const startTimeInput = document.getElementById('eventStartTime' + isEdit);
+    const startTimeError = document.getElementById('startTimeError' + isEdit);
+    const endTimeInput = document.getElementById('eventEndTime' + isEdit);
     if (startTimeInput.value === '') {
         startTimeError.textContent = 'Starttijd is vereist.';
         startTimeError.style.display = 'inline'; // Show the error message
@@ -111,10 +111,10 @@ function validateStartTime(event) {
     }
 }
 
-function validateEndTime(event) {
-    const endTimeInput = document.getElementById('eventEndTime');
-    const endTimeError = document.getElementById('endTimeError');
-    const startTimeInput = document.getElementById('eventStartTime');
+function validateEndTime(event, isEdit) {
+    const endTimeInput = document.getElementById('eventEndTime' + isEdit);
+    const endTimeError = document.getElementById('endTimeError' + isEdit);
+    const startTimeInput = document.getElementById('eventStartTime' + isEdit);
     
     if (endTimeInput.value === '') {
         endTimeError.textContent = 'Eindtijd is vereist.';
@@ -149,11 +149,11 @@ function validateEndTime(event) {
     }
 }
 
-function buttonClicked(event) {
-    validateTitle(); // Trigger validation when the button is clicked
-    validateDesc(event);
-    validateLoc();
-    validateDate(event);
-    validateStartTime(event);
-    validateEndTime(event);
+function buttonClicked(event, isEdit) {
+    validateTitle(isEdit); // Trigger validation when the button is clicked
+    validateDesc(event, isEdit);
+    validateLoc(isEdit);
+    validateDate(event, isEdit);
+    validateStartTime(event, isEdit);
+    validateEndTime(event, isEdit);
 }

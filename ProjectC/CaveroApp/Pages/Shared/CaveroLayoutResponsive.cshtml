@@ -5,13 +5,19 @@
 <html>
 <head>
     <title>@ViewData["Title"]</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="css/globals.css" />
-        <link rel="stylesheet" href="css/styleguide.css" />
-        <link rel="stylesheet" href="css/layout.css" />
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/styleguide.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    @if (User.IsInRole("Admin"))
+    {
+        <style>
+        .header {background-color: #423A8E !important;}
+        .aside {background-color: #423A8E !important;}
+    </style>
+    }
+</head>    
 <body>
-
 <div class="grid-container">
     <header class="header" id="header">
         <div class="hamburger-menu">

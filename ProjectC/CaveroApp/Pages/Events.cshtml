@@ -5,10 +5,11 @@
 @model CaveroApp.Pages.Events
 
 @{
+    ViewData["Title"] = "Events";
     Layout = "Shared/CaveroLayoutResponsive";
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="preload" as="style" href="css/eventheader.css">
-    <link rel="stylesheet" href="css/eventheader.css"/>    
+    <link rel="stylesheet" href="css/eventheader.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="css/events.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
@@ -63,7 +64,7 @@
                 <div class="day">
 
                     <h1>@evArr.Date.ToString("ddd")</h1>
-                    @if (@evArr.Date.Equals(DateTime.UtcNow.Date))
+                    @if (@evArr.Date.Date.Equals(DateTime.UtcNow.Date))
                     {
                         <h2 style="color: var(--collection-1-cavero-paars); text-shadow: 1px 1px 1px grey;">@evArr.Date.Day</h2>
                     }
@@ -73,7 +74,7 @@
                     }
                 </div>
                 <div class="item @(evArr.Date.ToString("ddd", CultureInfo.InvariantCulture))" id="@(evArr.Date.ToString("dddd", CultureInfo.InvariantCulture))">
-                    @foreach (var ev in evArr.allEvents)
+                    @foreach (var ev in evArr.allEvents.OrderBy(x => x.start_time))
                     {
                         <!-- Event Card -->
                         <div class="event-card" style="background: linear-gradient(@(Model.GetRandGradient())deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);">
@@ -103,6 +104,17 @@
                                             <p>AFMELDEN</p>
                                         </button>
                                     </form>
+                                }
+                                @*Give admin users more buttons like edit and delete.*@
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <div class="admin-divider"></div>
+                                    <button class="button edit" style="justify-content: center;" data-card-id="@ev.ID">
+                                        <p>EDIT</p>
+                                    </button>
+                                    <button class="button delete" style="justify-content: center;" data-card-id="@ev.ID">
+                                        <p>DELETE</p>
+                                    </button>
                                 }
                             </div>
                         </div>
@@ -143,13 +155,91 @@
                                                         <p>@participant.FirstName @participant.LastName</p>
                                                     </li>
                                                 }
-                                            </ul>  
+                                            </ul>
                                         }
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Modal Content -->
+                        <!-- Admin Delete Event Modal -->
+                        <div class="event-modal modal-card-delete-@ev.ID">
+                            <div class="event-modal-content">
+                                <div class="event-modal-header">
+                                    <h1 style="justify-content: flex-start; color: #bb2d3b">Delete @ev.title</h1>
+                                    <span class="close close-delete-@ev.ID" style="justify-content: flex-start">&times;</span>
+                                </div>
+                                <p style="padding: 10px;">Weet u zeker dat u @ev.title wilt verwijderen?</p>
+                                <div class="line"></div>
+                                <div class="event-modal-row">
+                                    <form class="form-button" method="post" asp-page="Events" asp-page-handler="DeleteEvent" asp-route-eventID="@ev.ID">
+                                        <button class="button delete" style="color: #bb2d3b">
+                                            <p style="color: white;">DELETE</p>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Admin Delete Event Modal -->
+
+                        <!-- Admin Edit Event Modal -->
+                        <div class="event-modal modal-card-edit-@ev.ID">
+                            <div class="event-modal-content">
+                                <div class="event-modal-header">
+                                    <h1 style="justify-content: flex-start">Aanpassen event: @ev.title</h1>
+                                    <span class="close close-edit-@ev.ID" style="justify-content: flex-start">&times;</span>
+                                </div>
+                                <div class="line"></div>
+                                <!--Give all information as variables to the post method. -->
+                                <form id="editEventForm-@ev.ID" asp-page-handler="EditEvent" method="post" asp-route-eventID="@ev.ID">
+                                    <div class="event-modal-create">
+                                        <div class="event-modal-row">
+                                            <h1>Titel (max 20 karakters)</h1>
+                                            <input id="eventTitleEdit-@ev.ID" value="@ev.title" required asp-for="eventModel.Title"
+                                                   pattern=".{1,20}" oninput="validateTitle('Edit-@ev.ID')" onblur="validateTitle('Edit-@ev.ID')"/>
+                                            <span class="error-message" id="titleErrorEdit-@ev.ID"></span>
+                                        </div>
+                                        <div class="event-modal-row">
+                                            <h1>Beschrijving (max 250 karakters)</h1>
+                                            @* Do not use ASP-FOR here, because it will omit the default value. Instead use a name attribute.
+                                                The event edit post method can then call this attribute to get the changed value.*@
+                                            <textarea id="eventDescriptionEdit-@ev.ID" rows="6" cols="75" required  name="Description"
+                                                oninput="validateDesc('Edit-@ev.ID')" onblur="validateDesc('Edit-@ev.ID')">@ev.description</textarea>
+                                            <span class="error-message" id="descErrorEdit-@ev.ID"></span>
+                                        </div>
+                                        <div class="event-modal-row">
+                                            <h1>Locatie (max 20 karakters)</h1>
+                                            <input id="eventLocationEdit-@ev.ID" value="@ev.location" required asp-for="eventModel.Location"
+                                                   pattern=".{1,20}" oninput="validateLoc('Edit-@ev.ID')" onblur="validateLoc('Edit-@ev.ID')"/>
+                                            <span class="error-message" id="locErrorEdit-@ev.ID"></span>
+                                        </div>
+                                        <div class="event-modal-row">
+                                            <h1>Datum</h1>
+                                            <input id="eventDateEdit-@ev.ID" value="@ev.date.Date.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)" type="text" required
+                                                   asp-for="eventModel.Date" oninput="validateDate('Edit-@ev.ID')" onblur="validateDate('Edit-@ev.ID')"/>
+                                            <span class="error-message" id="dateErrorEdit-@ev.ID"></span>
+                                        </div>
+                                        <div class="event-modal-row">
+                                            <h1>Starttijd</h1>
+                                            <input id="eventStartTimeEdit-@ev.ID" value="@ev.start_time.ToString(@"hh\:mm")" class="timepicker" type="text" required
+                                                   asp-for="eventModel.StartTime" oninput="validateStartTime('Edit-@ev.ID')" onblur="validateStartTime('Edit-@ev.ID')"/>
+                                            <span class="error-message" id="startTimeErrorEdit-@ev.ID"></span>
+                                        </div>
+                                        <div class="event-modal-row">
+                                            <h1>Eindtijd</h1>
+                                            <input id="eventEndTimeEdit-@ev.ID" value="@ev.end_time.ToString(@"hh\:mm")" class="timepicker" type="text" required
+                                                   asp-for="eventModel.EndTime" oninput="validateEndTime('Edit-@ev.ID')" onblur="validateEndTime('Edit-@ev.ID')"/>
+                                            <span class="error-message" id="endTimeErrorEdit-@ev.ID"></span>
+                                        </div>
+                                        <div class="event-modal-row">
+                                            <button id="editEventButtonModal" class="button edit-event" type="submit" event-id-data="@ev.ID">
+                                                <p>EDIT EVENT</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Admin Edit Event Modal -->
                     }
                 </div>
             </div>
@@ -168,37 +258,37 @@
                 <div class="event-modal-create">
                     <div class="event-modal-row">
                         <h1>Titel (max 20 karakters)</h1>
-                        <input id="eventTitle" placeholder="..." asp-for="EventModel.Title" required 
+                        <input id="eventTitle" placeholder="..." asp-for="eventModel.Title" required
                                pattern=".{1,20}" oninput="validateTitle()" onblur="validateTitle()"/>
                         <span class="error-message" id="titleError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Beschrijving (max 250 karakters)</h1>
-                        <textarea id="eventDescription" rows="6" cols="50" placeholder="..."  asp-for="EventModel.Description" required 
+                        <textarea id="eventDescription" rows="6" cols="50" placeholder="..."  asp-for="eventModel.Description" required 
                            oninput="validateDesc()" onblur="validateDesc()"></textarea>
                         <span class="error-message" id="descError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Locatie (max 20 karakters)</h1>
-                        <input id="eventLocation" placeholder="..." asp-for="EventModel.Location" required
+                        <input id="eventLocation" placeholder="..." asp-for="eventModel.Location" required
                                pattern=".{1,20}" oninput="validateLoc()" onblur="validateLoc()"/>
                         <span class="error-message" id="locError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Datum</h1>
-                        <input id="eventDate" placeholder="Kies een datum.." type="text" asp-for="EventModel.Date" required
+                        <input id="eventDate" placeholder="Kies een datum.." type="text" asp-for="eventModel.Date" required
                                oninput="validateDate()" onblur="validateDate()"/>
                         <span class="error-message" id="dateError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Starttijd</h1>
-                        <input id="eventStartTime" placeholder="Kies een starttijd.." class="timepicker" type="text" asp-for="EventModel.StartTime" required
+                        <input id="eventStartTime" placeholder="Kies een starttijd.." class="timepicker" type="text" asp-for="eventModel.StartTime" required
                                oninput="validateStartTime()" onblur="validateStartTime()"/>
                         <span class="error-message" id="startTimeError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Eindtijd</h1>
-                        <input id="eventEndTime" placeholder="Kies een eindtijd.." class="timepicker" type="text" asp-for="EventModel.EndTime" required
+                        <input id="eventEndTime" placeholder="Kies een eindtijd.." class="timepicker" type="text" asp-for="eventModel.EndTime" required
                                oninput="validateEndTime()" onblur="validateEndTime()"/>
                         <span class="error-message" id="endTimeError"></span>
                     </div>
@@ -215,93 +305,5 @@
 </div>
 
 </body>
-
-<script>
-var infoButtons = document.querySelectorAll(".button.info");
-
-infoButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-        // Find the corresponding modal based on data attribute or class.
-        var cardId = button.getAttribute("data-card-id");
-        var modal = document.querySelector(".modal-card-" + cardId);
-        var span = document.getElementsByClassName("close-" + cardId)[0];
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-        
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
-
-        // Open the modal.
-        modal.style.display = "flex";
-    });
-});
-
-var createButton = document.querySelector("#createEventButton");
-createButton.addEventListener("click", function () {
-    var modal = document.querySelector("#createEventModal");
-    var span = document.querySelector("#closeEvent");
-    
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-    
-    // When the user clicks anywhere outside of the modal, close it
-    // window.onclick = function(event) {
-    //   if (event.target == modal) {
-    //     modal.style.display = "none";
-    //   }
-    // }
-
-    // Open the modal.
-    modal.style.display = "flex";
-})
-
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('createEventForm');
-    const createEventButton = document.getElementById('createEventButtonModal');
-
-   createEventButton.addEventListener('click', function (event) {
-        buttonClicked(event);
-        if (!form.checkValidity()) {
-            // Prevent form submission if there are validation errors
-            event.preventDefault();
-        }
-    });
-   
-   flatpickr("#eventDate", {
-       enableTime: false,
-       dateFormat: "d-m-Y",
-       minDate: "today",  
-       disable: [
-           function (date) {
-               // Disable weekends (Saturday and Sunday)
-               return (date.getDay() === 0 || date.getDay() === 6);
-           }
-       ],
-   });
-   
-    flatpickr("#eventStartTime", {
-              enableTime: true,
-              noCalendar: true,
-              dateFormat: "H:i",
-              time_24hr: true
-    });
-  
-    flatpickr("#eventEndTime", {
-            enableTime: true,
-            noCalendar: true,
-            dateFormat: "H:i",
-            time_24hr: true
-    });
-    
-});
-</script>
+<script src="js/event-dashboard-scripts.js"></script>
 </html>
-
-                

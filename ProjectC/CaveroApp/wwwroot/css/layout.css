@@ -58,6 +58,7 @@ body {
     margin-top: 30px;
     margin-left: 15px;
     list-style-type: none;
+    overflow-y: auto;
 }
 
 .button-link {
@@ -162,7 +163,6 @@ body {
     .aside {
         display: flex;
         flex-direction: column;
-        background-color: var(--collection-1-cavero-paars);
         border: 3px solid var(--collection-1-cavero-gradient);
         height: 97vh;
         width: 200px;

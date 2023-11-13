@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CaveroApp.Areas.Identity.Data;
 
-// Add profile data for application users by adding properties to the CaveroAppUser class
+
 public class CaveroAppUser : IdentityUser
 {
     public string FirstName { get; set; }

@@ -1,9 +1,12 @@
 ﻿@page
 @using CaveroApp.Areas.Identity.Data
+@using System.Security.Claims
 @model CaveroApp.Pages.Dashboard
 @inject SignInManager<CaveroAppUser> SignInManager
+@inject CaveroAppContext Context
 
 @{
+    ViewData["Title"] = "Dashboard";
     Layout = "Shared/CaveroLayoutResponsive";
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/layout.css" />
@@ -17,7 +20,9 @@
 {
     @if (SignInManager.IsSignedIn(User))
     {
-        <h1>Hello @User.Identity?.Name!</h1>
+        var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var username = Context.Users.Where(x => x.Id == userID).Select(y => y.FirstName).First();
+        <h1 style="color: white; font-size: 28px; font-weight:  600; font-family: 'Montserrat', sans-serif;">Welkom terug, @username!</h1>
     }
 }
 
