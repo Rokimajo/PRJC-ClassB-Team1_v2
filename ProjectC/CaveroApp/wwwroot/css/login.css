@@ -73,12 +73,24 @@ section .air.air4{
     }
 }
 
+@keyframes gradient-body {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 #registration-page {
     height:100%;
     display:flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .signup-form  {
@@ -265,11 +277,12 @@ textarea  {
     padding-right: 10px;
     color: #666;
     border: 1px solid #d6d6d6;
-    border-radius: 4px;
+    border-radius: 8px;
     background: white;
     outline-color: #00000070;
     outline-offset: 2px;
     box-shadow: 2px 2px #00000040;
+    
 }
 
 textarea {
