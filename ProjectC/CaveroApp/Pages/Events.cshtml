@@ -203,7 +203,7 @@
                                             @* Do not use ASP-FOR here, because it will omit the default value. Instead use a name attribute.
                                                 The event edit post method can then call this attribute to get the changed value.*@
                                             <textarea id="eventDescriptionEdit-@ev.ID" rows="6" cols="50" required  name="Description"
-                                                oninput="validateDesc('Edit-@ev.ID')" onblur="validateDesc('Edit-@ev.ID')">@ev.description</textarea>
+                                                oninput="validateDesc(undefined, 'Edit-@ev.ID')" onblur="validateDesc(undefined, 'Edit-@ev.ID')">@ev.description</textarea>
                                             <span class="error-message" id="descErrorEdit-@ev.ID"></span>
                                         </div>
                                         <div class="event-modal-row">
@@ -215,19 +215,19 @@
                                         <div class="event-modal-row">
                                             <h1>Datum</h1>
                                             <input id="eventDateEdit-@ev.ID" value="@ev.date.Date.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)" type="text" required
-                                                   asp-for="eventModel.Date" oninput="validateDate('Edit-@ev.ID')" onblur="validateDate('Edit-@ev.ID')"/>
+                                                   asp-for="eventModel.Date" oninput="validateDate(undefined, 'Edit-@ev.ID')" onblur="validateDate(undefined, 'Edit-@ev.ID')"/>
                                             <span class="error-message" id="dateErrorEdit-@ev.ID"></span>
                                         </div>
                                         <div class="event-modal-row">
                                             <h1>Starttijd</h1>
                                             <input id="eventStartTimeEdit-@ev.ID" value="@ev.start_time.ToString(@"hh\:mm")" class="timepicker" type="text" required
-                                                   asp-for="eventModel.StartTime" oninput="validateStartTime('Edit-@ev.ID')" onblur="validateStartTime('Edit-@ev.ID')"/>
+                                                   asp-for="eventModel.StartTime" oninput="validateStartTime(undefined, 'Edit-@ev.ID')" onblur="validateStartTime(undefined, 'Edit-@ev.ID')"/>
                                             <span class="error-message" id="startTimeErrorEdit-@ev.ID"></span>
                                         </div>
                                         <div class="event-modal-row">
                                             <h1>Eindtijd</h1>
                                             <input id="eventEndTimeEdit-@ev.ID" value="@ev.end_time.ToString(@"hh\:mm")" class="timepicker" type="text" required
-                                                   asp-for="eventModel.EndTime" oninput="validateEndTime('Edit-@ev.ID')" onblur="validateEndTime('Edit-@ev.ID')"/>
+                                                   asp-for="eventModel.EndTime" oninput="validateEndTime(undefined, 'Edit-@ev.ID')" onblur="validateEndTime(undefined, 'Edit-@ev.ID')"/>
                                             <span class="error-message" id="endTimeErrorEdit-@ev.ID"></span>
                                         </div>
                                         <div class="event-modal-row">
