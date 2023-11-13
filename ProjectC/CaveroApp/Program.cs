@@ -64,7 +64,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
 app.UseSession();
 
 using (var scope = app.Services.CreateScope())
