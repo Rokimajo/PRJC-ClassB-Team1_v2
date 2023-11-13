@@ -1,5 +1,11 @@
 @page
 @model CaveroApp.Areas.Identity.Pages.Account.UpcomingEventsModel
+@{
+    var today = DateTime.Now.Date;
+    var validEvents = Model.EventInfo.Where(e => e.date.Date >= today).OrderBy(e => e.date);
+    var groupedEvents = validEvents.GroupBy(e => e.date.Date).OrderBy(g => g.Key);
+}
+
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +32,6 @@
             background: #888;
             border-radius:
                 20px;
-
         }
 
         .scroll-container::-webkit-scrollbar-thumb:hover {
@@ -41,6 +46,10 @@
             border-bottom: 1px;
             display: inline;
         }
+
+        .day-group {
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
@@ -53,25 +62,32 @@
             <u class="purple-underline;">Komende Events</u>
             <div style="text-align: right; padding-right: 20px;">
                 <ul style="list-style: none; padding: 0;">
-                    @foreach (var eventItem in Model.EventInfo)
+                    @foreach (var group in groupedEvents)
                     {
-                        <li>
-                            @eventItem.date.ToShortDateString() - @eventItem.date.AddDays(2).ToShortDateString()
-                            <div style="width: 255px; height: 85px; background-color: purple; margin-left: auto; border-radius:
-                        15px; display: flex; flex-direction: column; justify-content: center;">
-                                <div
-                                    style="text-align: left; padding-right: 20px; color: white; padding: 6px; font-weight: bold">
-                                    @eventItem.title
-                                </div>
-                                <div style="text-align: left; color: white; padding: 6px;">
-                                    @eventItem.location
-                                    <br />
-                                    @eventItem.date.ToString("HH:mm") -
-                                    @eventItem.date.Add(eventItem.start_time).ToString("HH:mm")
-                                    <span
-                                        style="position: static; top: 10px; right: 10px; font-size: 18px; color: white;">&#9432;</span>
-                                </div>
-                            </div>
+                        <li class="day-group">
+                            @group.Key.ToString("dddd, d MMMM")
+                            <ul style="list-style: none; padding: 0;">
+                                @foreach (var eventItem in group)
+                                {
+                                    <li>
+                                        <div style="width: 255px; height: 85px; background-color: purple; margin-left: auto; border-radius:
+                                    15px; display: flex; flex-direction: column; justify-content: center; margin-bottom: 10px;">
+                                            <div
+                                                style="text-align: left; padding-right: 20px; color: white; padding: 6px; font-weight: bold">
+                                                @eventItem.title
+                                            </div>
+                                            <div style="text-align: left; color: white; padding: 6px;">
+                                                @eventItem.location
+                                                <br />
+                                                @eventItem.start_time.ToString(@"hh\:mm") -
+                                                @eventItem.end_time.ToString(@"hh\:mm")
+                                                <span
+                                                    style="position: static; top: 10px; right: 10px; font-size: 18px; color: white;">&#9432;</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
                         </li>
                     }
                 </ul>
