@@ -4,6 +4,44 @@
     ViewData["Title"] = "Confirm email";
 }
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: purple;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>@ViewData["Title"]</h1>
+    @* <partial name="_StatusMessage" model="Model.StatusMessage"/> *@
+</body>
+
+</html>
+
+
+@* @page
+@model ConfirmEmailModel
+@{
+ViewData["Title"] = "Confirm email";
+}
+
 <h1>@ViewData["Title"]</h1>
 
-@* <partial name="_StatusMessage" model="Model.StatusMessage"/> *@
+<partial name="_StatusMessage" model="Model.StatusMessage"/> *@
