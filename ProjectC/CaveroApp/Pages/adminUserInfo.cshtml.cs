@@ -8,7 +8,6 @@ namespace CaveroApp.Pages;
 public class adminUserInfo : PageModel
 {
     public CaveroAppContext Context { get; }
-    public CaveroAppUser UserToEdit { get; set; }
     public void OnGet()
     {
         
@@ -21,11 +20,6 @@ public class adminUserInfo : PageModel
     public List<CaveroAppUser> Users()
     {
         return Context.Users.ToList();
-    }
-
-    public CaveroAppUser GetChosenUser(string id)
-    {
-        
     }
     public IActionResult OnPostUpdateUser(CaveroAppUser updatedUser)
     {
