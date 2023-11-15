@@ -12,27 +12,16 @@
 <div>
     @if (@Model.AvailableToday())
     {
-        <form class="form-button" method="post" asp-page="Aanwezig_button">
-            <button id="submitButton" class="button afwezig" onclick="@Model.SetUnavailable()">Zet jezelf afwezig</button>
+        <form class="form-button" method="post" asp-page="Aanwezig_button" asp-page-handler="SetUnavailable">
+            <button id="submitButton" class="button afwezig">Zet jezelf afwezig</button>
         </form>
     }
     else
     {
-        <form class="form-button" method="post" asp-page="Aanwezig_button">
-            <button id="submitButton" class="button aanwezig" onclick="@Model.SetAvailable()">Zet jezelf aanwezig</button>
+        <form class="form-button" method="post" asp-page="Aanwezig_button" asp-page-handler="SetAvailable">
+            <button id="submitButton" class="button aanwezig">Zet jezelf aanwezig</button>
         </form> 
     }
-    <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // Disable the button on page load
-                document.getElementById("submitButton").disabled = true;
-    
-                // Enable the button after a delay (e.g., 3000 milliseconds or 3 seconds)
-                setTimeout(function () {
-                    document.getElementById("submitButton").disabled = false;
-                }, 1000);
-            });
-    </script>
 </div>
 </body>
 </html>

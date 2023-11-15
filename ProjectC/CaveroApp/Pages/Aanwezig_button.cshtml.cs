@@ -20,10 +20,10 @@ public class Aanwezig_button : PageModel
         string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var AreAtWork = (from a in Context.Attendances 
             join u in Context.Users on a.user_id equals u.Id
-            where DateTime.UtcNow.Date.Equals(a.date.Date) select u.Id).ToList();
+            where DateTime.UtcNow.Date.Equals(a.date.Date)  select u.Id).ToList();
         return AreAtWork.Contains(userId);
     }
-    public string SetUnavailable()
+    public IActionResult OnPostSetUnavailable()
     {
         string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (userId != null) 
@@ -37,20 +37,27 @@ public class Aanwezig_button : PageModel
             Context.SaveChanges();
             Console.WriteLine("afwezig gezet");
         }
-        return "Attendance changed to unavailable";
+
+        return RedirectToPage();
     }
 
-    public string SetAvailable()
+    public IActionResult OnPostSetAvailable()
     {
         string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (userId != null) 
         {   
-        CaveroAppContext.Attendance newAttendance = new CaveroAppContext.Attendance()
-            { user_id = userId, date = DateTime.UtcNow.Date };
-        Context.Attendances.Add(newAttendance);
-        Context.SaveChanges();
-        Console.WriteLine("aanwezig gezet");
+            CaveroAppContext.Attendance newAttendance = new CaveroAppContext.Attendance()
+                { user_id = userId, date = DateTime.UtcNow.Date };
+            Context.Attendances.Add(newAttendance);
+            Context.SaveChanges();
+            Console.WriteLine("aanwezig gezet");
         }
-        return "Attendance changed to available";
+
+        return RedirectToPage();
+    }
+
+    public void OnGet()
+    {
+        
     }
 }
