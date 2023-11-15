@@ -1,395 +1,399 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CaveroApp.bundle.scp.css",
-      "PackagePath": "staticwebassets\\CaveroApp.bundle.scp.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/obj/Debug/net7.0/scopedcss/projectbundle/CaveroApp.bundle.scp.css",
+      "PackagePath": "staticwebassets/CaveroApp.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\dashboard.css",
-      "PackagePath": "staticwebassets\\css\\dashboard.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/dashboard.css",
+      "PackagePath": "staticwebassets/css/dashboard.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\eventheader.css",
-      "PackagePath": "staticwebassets\\css\\eventheader.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/eventheader.css",
+      "PackagePath": "staticwebassets/css/eventheader.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\events.css",
-      "PackagePath": "staticwebassets\\css\\events.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/events.css",
+      "PackagePath": "staticwebassets/css/events.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\globals.css",
-      "PackagePath": "staticwebassets\\css\\globals.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/globals.css",
+      "PackagePath": "staticwebassets/css/globals.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\layout.css",
-      "PackagePath": "staticwebassets\\css\\layout.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/layout.css",
+      "PackagePath": "staticwebassets/css/layout.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\login.css",
-      "PackagePath": "staticwebassets\\css\\login.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/login.css",
+      "PackagePath": "staticwebassets/css/login.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\registration.css",
-      "PackagePath": "staticwebassets\\css\\registration.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/registration.css",
+      "PackagePath": "staticwebassets/css/registration.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\style.css",
-      "PackagePath": "staticwebassets\\css\\style.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/style.css",
+      "PackagePath": "staticwebassets/css/style.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\styleguide.css",
-      "PackagePath": "staticwebassets\\css\\styleguide.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/styleguide.css",
+      "PackagePath": "staticwebassets/css/styleguide.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\test.css",
-      "PackagePath": "staticwebassets\\css\\test.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/css/test.css",
+      "PackagePath": "staticwebassets/css/test.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\arrow.png",
-      "PackagePath": "staticwebassets\\img\\arrow.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/arrow.png",
+      "PackagePath": "staticwebassets/img/arrow.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\branding.png",
-      "PackagePath": "staticwebassets\\img\\branding.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/branding.png",
+      "PackagePath": "staticwebassets/img/branding.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\cavero-logo-full.png",
-      "PackagePath": "staticwebassets\\img\\cavero-logo-full.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/cavero-logo-full.png",
+      "PackagePath": "staticwebassets/img/cavero-logo-full.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\caverologowhite.png",
-      "PackagePath": "staticwebassets\\img\\caverologowhite.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/caverologowhite.png",
+      "PackagePath": "staticwebassets/img/caverologowhite.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\hamburgericon.png",
-      "PackagePath": "staticwebassets\\img\\hamburgericon.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/hamburgericon.png",
+      "PackagePath": "staticwebassets/img/hamburgericon.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\icon-arrow-right.svg",
-      "PackagePath": "staticwebassets\\img\\icon-arrow-right.svg"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/icon-arrow-right.svg",
+      "PackagePath": "staticwebassets/img/icon-arrow-right.svg"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-1.png",
-      "PackagePath": "staticwebassets\\img\\image-1.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/image-1.png",
+      "PackagePath": "staticwebassets/img/image-1.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-2.png",
-      "PackagePath": "staticwebassets\\img\\image-2.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/image-2.png",
+      "PackagePath": "staticwebassets/img/image-2.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-3-1.png",
-      "PackagePath": "staticwebassets\\img\\image-3-1.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/image-3-1.png",
+      "PackagePath": "staticwebassets/img/image-3-1.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-3.png",
-      "PackagePath": "staticwebassets\\img\\image-3.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/image-3.png",
+      "PackagePath": "staticwebassets/img/image-3.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-4.png",
-      "PackagePath": "staticwebassets\\img\\image-4.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/image-4.png",
+      "PackagePath": "staticwebassets/img/image-4.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-5.png",
-      "PackagePath": "staticwebassets\\img\\image-5.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/image-5.png",
+      "PackagePath": "staticwebassets/img/image-5.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-6.png",
-      "PackagePath": "staticwebassets\\img\\image-6.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/image-6.png",
+      "PackagePath": "staticwebassets/img/image-6.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-8-2.png",
-      "PackagePath": "staticwebassets\\img\\image-8-2.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/image-8-2.png",
+      "PackagePath": "staticwebassets/img/image-8-2.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\image-8-3.png",
-      "PackagePath": "staticwebassets\\img\\image-8-3.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/image-8-3.png",
+      "PackagePath": "staticwebassets/img/image-8-3.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\line-1.svg",
-      "PackagePath": "staticwebassets\\img\\line-1.svg"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/line-1.svg",
+      "PackagePath": "staticwebassets/img/line-1.svg"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\logohandtekening-1-1.png",
-      "PackagePath": "staticwebassets\\img\\logohandtekening-1-1.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/logohandtekening-1-1.png",
+      "PackagePath": "staticwebassets/img/logohandtekening-1-1.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\logouticon.png",
-      "PackagePath": "staticwebassets\\img\\logouticon.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/logouticon.png",
+      "PackagePath": "staticwebassets/img/logouticon.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\microsoft-outlook-macos-icon-12-1.png",
-      "PackagePath": "staticwebassets\\img\\microsoft-outlook-macos-icon-12-1.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/microsoft-outlook-macos-icon-12-1.png",
+      "PackagePath": "staticwebassets/img/microsoft-outlook-macos-icon-12-1.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\rectangle-1.png",
-      "PackagePath": "staticwebassets\\img\\rectangle-1.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/rectangle-1.png",
+      "PackagePath": "staticwebassets/img/rectangle-1.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\rectangle-3.svg",
-      "PackagePath": "staticwebassets\\img\\rectangle-3.svg"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/rectangle-3.svg",
+      "PackagePath": "staticwebassets/img/rectangle-3.svg"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\img\\user-check-icon.png",
-      "PackagePath": "staticwebassets\\img\\user-check-icon.png"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/img/user-check-icon.png",
+      "PackagePath": "staticwebassets/img/user-check-icon.png"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\create-event-validation.js",
-      "PackagePath": "staticwebassets\\js\\create-event-validation.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/js/create-event-validation.js",
+      "PackagePath": "staticwebassets/js/create-event-validation.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/js/event-dashboard-scripts.js",
+      "PackagePath": "staticwebassets/js/event-dashboard-scripts.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\LICENSE",
-      "PackagePath": "staticwebassets\\lib\\bootstrap"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery\\dist\\jquery.js",
-      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
-      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.CaveroApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.CaveroApp.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.CaveroApp.props",
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.CaveroApp.props",
       "PackagePath": "build\\CaveroApp.props"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.CaveroApp.props",
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.CaveroApp.props",
       "PackagePath": "buildMultiTargeting\\CaveroApp.props"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.CaveroApp.props",
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.CaveroApp.props",
       "PackagePath": "buildTransitive\\CaveroApp.props"
     }
   ],

@@ -1,5 +1,6 @@
 ﻿@page
-@model CaveroApp.Pages.testpage
+@using System.Diagnostics
+@model CaveroApp.Pages.adminUserInfo
 
 @{
     Layout = "Shared/CaveroLayoutResponsive";
@@ -11,12 +12,32 @@
 <head>
     <link rel="stylesheet" href="css/events.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/eventheader.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title></title>
     <style>
-    
+        .custom-event-card
+        {
+            max-width: 460px;
+        }
+        .custom-button-small
+        {
+            max-width: 65px;
+        }
     </style>
 </head>
 <body>
+    @foreach (var user in @Model.Users())
+    {
+        <div class="event-card custom-event-card">
+            <p>First Name: @(user.FirstName)</p>
+            <p>Last Name: @(user.LastName)</p>
+            <p>Email: @(user.Email)</p>
+            <p>User ID: @(user.Id)</p>
+            <button class="button edit custom-button-small" data-user-id="@user.Id">Edit</button>
+            <button class="button delete custom-button-small" data-user-id="@user.Id">Delete</button>
+        </div>
+    }
 </body>
 </html>
 
