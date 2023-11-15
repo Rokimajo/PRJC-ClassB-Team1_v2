@@ -111,8 +111,8 @@ div.event-card > * {
     user-select: none;
     transition: 0.3s ease;
     color: white;
-    background: -moz-linear-gradient(153deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-    background: linear-gradient(153deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    background: -moz-linear-gradient(var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
+    background: linear-gradient(var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
 }
 
 .event-card > h1 {

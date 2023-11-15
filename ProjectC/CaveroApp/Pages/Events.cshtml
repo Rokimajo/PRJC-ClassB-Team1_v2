@@ -77,7 +77,7 @@
                     @foreach (var ev in evArr.allEvents.OrderBy(x => x.start_time))
                     {
                         <!-- Event Card -->
-                        <div class="event-card" style="background: linear-gradient(@(Model.GetRandGradient())deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);">
+                        <div class="event-card">
                             <h1>@(ev.title)</h1>
                             <p>Locatie: @(ev.location)</p>
                             <p>Tijd: @ev.start_time.ToString(@"hh\:mm") - @ev.end_time.ToString(@"hh\:mm")</p>
