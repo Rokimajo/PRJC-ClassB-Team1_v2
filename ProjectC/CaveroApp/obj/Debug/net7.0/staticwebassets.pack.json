@@ -45,10 +45,6 @@
       "PackagePath": "staticwebassets\\css\\styleguide.css"
     },
     {
-      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\test.css",
-      "PackagePath": "staticwebassets\\css\\test.css"
-    },
-    {
       "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -143,6 +139,10 @@
     {
       "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\create-event-validation.js",
       "PackagePath": "staticwebassets\\js\\create-event-validation.js"
+    },
+    {
+      "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\event-dashboard-scripts.js",
+      "PackagePath": "staticwebassets\\js\\event-dashboard-scripts.js"
     },
     {
       "Id": "C:\\Users\\robin\\Desktop\\Project_C\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\js\\site.js",

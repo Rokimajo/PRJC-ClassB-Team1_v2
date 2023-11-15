@@ -11,12 +11,36 @@
 <head>
     <link rel="stylesheet" href="css/events.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title></title>
-    <style>
-    
-    </style>
+<style>
+    .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 10px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .name-gradient {
+        background: linear-gradient(to right, white, gray);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
 </head>
 <body>
+<li class="list-group-item d-flex align-items-center glass-card">
+    <img src="img/image-5.png" alt="Profile Picture" class="rounded-circle" style="width: 50px; height: 50px;">
+    <div class="ml-3">
+        <strong class="name-gradient">John Doe</strong>
+    </div>
+    <span class="ml-auto">
+        <i class="fas fa-info-circle"></i>
+    </span>
+</li>
 </body>
 </html>
 

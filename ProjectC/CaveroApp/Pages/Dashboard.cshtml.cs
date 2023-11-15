@@ -71,6 +71,7 @@ public class Dashboard : PageModel
         // Remove eventsinitialset if it was created in events, so the information is not stored between pages.
         // This is used so that the event week view starts on the date of today when you navigate back to it.
         HttpContext.Session.Remove("EventsInitialSet");
+        HttpContext.Session.Remove("AttendanceInitialSet");
         // Call this function to populate the fields with how many employees are present today,
         // and how many events are happening  this week.
         GetTodayStats();

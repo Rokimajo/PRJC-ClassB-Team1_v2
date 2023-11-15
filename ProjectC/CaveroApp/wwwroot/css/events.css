@@ -332,6 +332,20 @@ strong {
     padding: 20px;
     border: 1px solid var(--collection-1-cavero-blackish-grey);
     border-radius: 10px;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.3s;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
 }
 
 .event-modal-header {
