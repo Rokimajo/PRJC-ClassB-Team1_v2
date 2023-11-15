@@ -1,0 +1,7 @@
+{
+  "name": "ProjectC",
+  "version": "1.0.0",
+  "dependencies": {
+    "flatpickr": "^4.6.13"
+  }
+}

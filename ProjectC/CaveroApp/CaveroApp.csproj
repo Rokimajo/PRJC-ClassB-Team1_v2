@@ -41,13 +41,6 @@
       </Content>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Areas\Identity\Pages\Account\Manage\" />
-      <Folder Include="Database\" />
-      <Folder Include="Data\Migrations\" />
-      <Folder Include="wwwroot\reacttemp\" />
-    </ItemGroup>
-
 
 
 </Project>

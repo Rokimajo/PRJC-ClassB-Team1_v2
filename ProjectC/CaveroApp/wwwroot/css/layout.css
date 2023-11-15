@@ -43,8 +43,8 @@ body {
     flex-direction: column;
     background-color: var(--collection-1-cavero-paars);
     margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 10px;
-    margin-bottom: 50px;
     border-radius: 15px;
 }
 
@@ -58,6 +58,7 @@ body {
     margin-top: 30px;
     margin-left: 15px;
     list-style-type: none;
+    overflow-y: auto;
 }
 
 .button-link {
@@ -117,6 +118,7 @@ body {
     margin-bottom: 10px;
     width: 100px;
     height: 100px;
+    filter: brightness(0) invert(1);
 }
 .aside-close-icon {
     display: none;
@@ -161,7 +163,6 @@ body {
     .aside {
         display: flex;
         flex-direction: column;
-        background-color: var(--collection-1-cavero-paars);
         border: 3px solid var(--collection-1-cavero-gradient);
         height: 97vh;
         width: 200px;
