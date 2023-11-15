@@ -6,20 +6,22 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="css/Button.css" />
 </head>
 <body>
 <div>
     @if (@Model.AvailableToday())
     {
+        <p class="message-aanwezig">U bent aanwezig op het kantoor vandaag</p>
         <form class="form-button" method="post" asp-page="Aanwezig_button" asp-page-handler="SetUnavailable">
-            <button id="submitButton" class="button afwezig">Zet jezelf afwezig</button>
+            <button id="submitButton" class="button afwezig">Zet uzelf afwezig</button>
         </form>
     }
     else
     {
+        <p class="message-afwezig">U bent afwezig op het kantoor vandaag</p>
         <form class="form-button" method="post" asp-page="Aanwezig_button" asp-page-handler="SetAvailable">
-            <button id="submitButton" class="button aanwezig">Zet jezelf aanwezig</button>
+            <button id="submitButton" class="button aanwezig">Zet uzelf aanwezig</button>
         </form> 
     }
 </div>

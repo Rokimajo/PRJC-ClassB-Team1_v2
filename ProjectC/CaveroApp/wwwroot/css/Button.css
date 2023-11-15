@@ -1,0 +1,59 @@
+﻿/* wwwroot/css/site.css */
+.message-aanwezig::before
+{
+    font-size: 20px;
+    content: "\2611"; /* Unicode for a checkmark emoji */
+    margin-right: 10px; /* Adjust the spacing between the icon and text */
+}
+.message-aanwezig {
+    font-family: "Lato", Helvetica, serif;
+    border-radius: 15px ;
+    padding: 8px 40px;
+    font-size: 18px;
+    color: white; /* Set your desired text color */
+    background-color: green;
+    margin-bottom: 10px; /* Add some margin below the text */
+    width: 450px;
+    
+}
+.message-afwezig::before {
+    font-size: 20px;
+    content: "\1F6AB"; /* Unicode for a cross mark emoji */
+    margin-right: 10px; /* Adjust the spacing between the icon and text */
+    
+}
+.message-afwezig
+{
+    font-family: "Lato", Helvetica, serif;
+    border-radius: 15px ;
+    padding: 8px 40px;
+    font-size: 18px;
+    color: white; /* Set your desired text color */
+    background-color: darkred;
+    margin-bottom: 10px; /* Add some margin below the text */
+    width: 450px;
+}
+.button {
+    font-family: "Lato", Helvetica, serif;
+    border-radius: 15px ;
+    padding: 8px 40px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgba(128, 54, 137, 1); 
+    color: white; 
+    border: none;
+    width: 450px;
+}
+.button::after {
+    content: ""; /* Empty content for pseudo-element */
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: auto;
+    background-image: url("../img/image-6.png");
+    background-size: cover; /* Adjust to cover the pseudo-element */
+}
+.button:hover {
+    opacity: 0.92; /* Adjust opacity on hover if needed */
+}

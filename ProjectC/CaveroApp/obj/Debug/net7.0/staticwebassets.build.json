@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ltV7Y3WtmS4Um3eel9nvzuriH4sIvzUfZyY88sTx0QU=",
+  "Hash": "/Eht1ExgoxVZVdiLLIheMjTex2cbFNqDkg9o7i5OE6I=",
   "Source": "CaveroApp",
   "BasePath": "_content/CaveroApp",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CaveroApp.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\Button.css",
+      "SourceId": "CaveroApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\",
+      "BasePath": "_content/CaveroApp",
+      "RelativePath": "css/Button.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Button.css"
     },
     {
       "Identity": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\dashboard.css",

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CaveroApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\Button.css",
+      "PackagePath": "staticwebassets\\css\\Button.css"
+    },
+    {
       "Id": "C:\\Users\\sveng\\Desktop\\School\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\wwwroot\\css\\dashboard.css",
       "PackagePath": "staticwebassets\\css\\dashboard.css"
     },
