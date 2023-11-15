@@ -1,0 +1,99 @@
+@page
+@model CaveroApp.Areas.Identity.Pages.Account.UpcomingEventsModel
+@{
+    var today = DateTime.Now.Date;
+    var validEvents = Model.EventInfo.Where(e => e.date.Date >= today).OrderBy(e => e.date);
+    var groupedEvents = validEvents.GroupBy(e => e.date.Date).OrderBy(g => g.Key);
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>UpcomingEvents Page</title>
+    <style>
+        .scroll-container {
+            height: 800px;
+            overflow-y: scroll;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius:
+                20px;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .scroll-container::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        .purple-underline {
+            border-bottom: 1px;
+            display: inline;
+        }
+
+        .day-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    @* <img class="cavero-logo-full" src="/img/cavero-logo-full.png" alt="Cavero Logo" /> *@
+    <script src="your-script.js"></script>
+    <div
+        style="width:300px; height:800px; border:1px solid #000; border-radius: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center">
+        <div class="scroll-container">
+            <u class="purple-underline;">Komende Events</u>
+            <div style="text-align: right; padding-right: 20px;">
+                <ul style="list-style: none; padding: 0;">
+                    @foreach (var group in groupedEvents)
+                    {
+                        <li class="day-group">
+                            @group.Key.ToString("dddd, d MMMM")
+                            <ul style="list-style: none; padding: 0;">
+                                @foreach (var eventItem in group)
+                                {
+                                    <li>
+                                        <div style="width: 255px; height: 85px; background-color: purple; margin-left: auto; border-radius:
+                                    15px; display: flex; flex-direction: column; justify-content: center; margin-bottom: 10px;">
+                                            <div
+                                                style="text-align: left; padding-right: 20px; color: white; padding: 6px; font-weight: bold">
+                                                @eventItem.title
+                                            </div>
+                                            <div style="text-align: left; color: white; padding: 6px;">
+                                                @eventItem.location
+                                                <br />
+                                                @eventItem.start_time.ToString(@"hh\:mm") -
+                                                @eventItem.end_time.ToString(@"hh\:mm")
+                                                <span
+                                                    style="position: static; top: 10px; right: 10px; font-size: 18px; color: white;">&#9432;</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
