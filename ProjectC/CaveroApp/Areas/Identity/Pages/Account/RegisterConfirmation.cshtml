@@ -2,6 +2,7 @@
 @model RegisterConfirmationModel
 @{
     ViewData["Title"] = "Register confirmation";
+    Layout = "_EmptyLayout";
 }
 
 <!DOCTYPE html>
@@ -13,37 +14,50 @@
     <title>@ViewData["Title"]</title>
     <style>
         body {
-            background-color: purple;
-            color: white;
+            background-color: white;
+            color: purple;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            /* Align content to the top */
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
+            /* Set font to Arial */
         }
 
-        h1 {
+        .cavero-logo-full {
+            max-width: 100%;
+            height: 80px;
+            /* Adjust the height as needed */
+            margin-bottom: 20px;
+        }
+
+        h1,
+        p,
+        a {
             text-align: center;
+            color: purple;
         }
 
         p {
-            text-align: center;
-        }
-
-        a {
-            color: white;
+            margin-top: auto;
+            /* Add this line to center the text vertically */
         }
     </style>
 </head>
 
 <body>
+    <img class="cavero-logo-full" src="/img/cavero-logo-full.png" alt="Cavero Logo" />
     <h1>@ViewData["Title"]</h1>
     @{
         if (@Model.DisplayConfirmAccountLink)
         {
             <p>
-                This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf"
-                    style="color: white;">these docs</a> for how to configure a real email sender.
+                This app does not currently have a real email sender registered, see <a
+                    href="https://aka.ms/aspaccountconf">these
+                    docs</a> for how to configure a real email sender.
                 Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm
                     your account</a>
             </p>
@@ -58,6 +72,7 @@
 </body>
 
 </html>
+
 
 
 @* @page
