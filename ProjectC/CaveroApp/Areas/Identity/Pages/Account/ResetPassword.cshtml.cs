@@ -21,6 +21,7 @@ namespace CaveroApp.Areas.Identity.Pages.Account
     public class ResetPasswordModel : PageModel
     {
         private readonly UserManager<CaveroAppUser> _userManager;
+        
 
         public ResetPasswordModel(UserManager<CaveroAppUser> userManager)
         {
@@ -73,8 +74,8 @@ namespace CaveroApp.Areas.Identity.Pages.Account
                 // Don't reveal that the user does not exist
                 return RedirectToPage("./ResetPasswordConfirmation");
             }
-
-            var result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
+            string token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, Input.Password);
             if (result.Succeeded)
             {
                 return RedirectToPage("./ResetPasswordConfirmation");
