@@ -113,7 +113,7 @@ namespace CaveroApp.Areas.Identity.Pages.Account
                     if (existingUser == null)
                     {
                         // Don't reveal that the user does not exist
-                        return RedirectToPage("./ForgotPasswordConfirmation");
+                        return RedirectToPage("./Login");
                     }
 
                     // await _userStore.SetUserNameAsync(existingUser, Input.Email, CancellationToken.None);
@@ -125,11 +125,11 @@ namespace CaveroApp.Areas.Identity.Pages.Account
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
-                        "/Account/ForgotPasswordConfirmation",
+                        "/Account/ResetPassword",
                         pageHandler: null,
                         values: new { area = "Identity", code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
-                    
+
                     SendEmail(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
