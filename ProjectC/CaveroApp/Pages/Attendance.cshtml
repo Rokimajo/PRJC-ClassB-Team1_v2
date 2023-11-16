@@ -1,5 +1,6 @@
 ﻿@page
 @using System.Globalization
+@inject CaveroAppContext Context
 @model CaveroApp.Pages.Attendance
 
 @{
@@ -39,16 +40,19 @@
                         <h2>@evArr.Date.Day</h2>
                     }
                 </div>
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek naar namen.." title="Type in a name">
+               
                 <div class="item @(evArr.Date.ToString("ddd", CultureInfo.InvariantCulture))" id="@(evArr.Date.ToString("dddd", CultureInfo.InvariantCulture))">
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek naar namen.." title="Type in a name">
                     @foreach (var us in evArr.allUsers.OrderBy(x => x.FirstName))
                     {
                         <div class="attendance-card">
-                             @if (System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{@us.Id}.png"))
+                             @if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{@us.Id}.png"))
                             {
-                                <img src="img/profilepictures/avatar@(us.Id).png"/>
+                                var user = Context.Users.First(x => x.Id == @us.Id);
+                                ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, @us.Id!);
                             }
-                            <h1>@us.FirstName</h1>
+                             <img src="img/profilepictures/avatar@(us.Id).png"/>
+                            <h1>@us.FirstName @us.LastName</h1>
                         </div>
                     }
                 </div>

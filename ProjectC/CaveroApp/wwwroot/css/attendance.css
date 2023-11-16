@@ -16,10 +16,12 @@
 }
 
 .attendance-card > img {
-    height: 28px; 
-    width: 28px;
+    height: 36px; 
+    width: 36px;
+    padding: 5px;
 }
 
 .attendance-card > h1 {
-    margin-left: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
 }
