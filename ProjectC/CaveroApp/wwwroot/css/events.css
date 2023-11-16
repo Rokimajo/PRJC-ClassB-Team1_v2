@@ -73,6 +73,20 @@
     background-color: var(--collection-1-cavero-blackish-grey);
 }
 
+.item > input {
+    width: 100%;
+    margin: 4px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .mon {
     grid-area: monday;
 }
