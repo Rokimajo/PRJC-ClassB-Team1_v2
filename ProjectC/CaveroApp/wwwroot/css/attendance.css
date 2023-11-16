@@ -25,3 +25,20 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
+
+.attendance-card ion-icon {
+    font-size: 22px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.attendance-user-info:hover {
+    cursor: pointer;
+    color: thistle;
+}
+
+.attendance-card:hover {
+    transform: translateY(1px);
+    filter: brightness(1.15);
+    box-shadow: 3px 3px 3px #00000040;
+}

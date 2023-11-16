@@ -259,19 +259,3 @@ public IActionResult OnPostCreateEvent()
         return RedirectToPage();
     }
 }
-
-/// <summary>
-///     This enum is used to get the day of the week till monday as an integer.
-///     So if its monday, it returns 0, tuesday returns 1, etc.
-///     This is used to get the current week's dates.
-/// </summary>
-public enum DaysTillMonday
-{
-    Monday = 0,
-    Tuesday = 1,
-    Wednesday = 2,
-    Thursday = 3,
-    Friday = 4,
-    Saturday = 5,
-    Sunday = 6
-}

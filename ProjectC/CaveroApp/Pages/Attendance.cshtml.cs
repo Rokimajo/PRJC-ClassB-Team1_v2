@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using CaveroApp.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using static CaveroApp.Services.CustomClasses;
 
@@ -47,6 +48,11 @@ public class Attendance : PageModel
         }
         return week;
     }
+
+    public bool IsAttending(string userID, DateTime date)
+    {
+        return Context.Attendances.Any(x => x.user_id == userID && x.date.Date == date.Date);
+    }
     
     public void OnGet()
     {
@@ -62,12 +68,57 @@ public class Attendance : PageModel
             HttpContext.Session.SetString("AttendanceInitialSet", true.ToString());
         }
         Week = Services.DateServices.GetCurrentWeek(ChosenDay);
-        var userID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{userID}.png"))
+    }
+    
+    /// <summary>
+    ///     This function is called when the user clicks the "Next Week" button.
+    ///     It adds 7 Days to the ChosenDay variable, which means the next Get() call will get the events for that week.
+    /// </summary>
+    /// <returns>
+    ///     A RedirectToPageResult, which redirects to the same page,
+    ///     without keeping a post form blocking the user from refreshing the page.
+    /// </returns>
+    public IActionResult OnPostWeekForward()
+    {
+        ChosenDay = ChosenDay.AddDays(7);
+        return RedirectToPage();
+    }
+
+    /// <summary>
+    ///     This function is called when the user clicks the "Last Week" button.
+    ///     It adds -7 Days to the ChosenDay variable, which means the next Get() call will get the events for that week.
+    /// </summary>
+    /// <returns>
+    ///     A RedirectToPageResult, which redirects to the same page,
+    ///     without keeping a post form blocking the user from refreshing the page.
+    /// </returns>
+    public IActionResult OnPostWeekBackward()
+    {
+        ChosenDay = ChosenDay.AddDays(-7);
+        return RedirectToPage();
+    }
+
+    public IActionResult OnPostUserJoin(string userID, string date)
+    {
+        var splitDate = date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
+        var newDate = DateTime.SpecifyKind(new DateTime(splitDate[2], splitDate[1], splitDate[0]), DateTimeKind.Utc);
+        Context.Attendances.Add(new CaveroAppContext.Attendance()
         {
-            var user = Context.Users.First(x => x.Id == userID);
-            ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, userID!);
-        }
+            user_id = userID,
+            date = newDate,
+        });
+        Context.SaveChanges();
+        return RedirectToPage();
+    }
+    
+    public IActionResult OnPostUserLeave(string userID, string date)
+    {
+        var splitDate = date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
+        var newDate = DateTime.SpecifyKind(new DateTime(splitDate[2], splitDate[1], splitDate[0]), DateTimeKind.Utc);
+        var Att = Context.Attendances.First(x => x.user_id == userID && x.date.Date == newDate.Date);
+        Context.Remove(Att);
+        Context.SaveChanges();
+        return RedirectToPage();
     }
     
     
