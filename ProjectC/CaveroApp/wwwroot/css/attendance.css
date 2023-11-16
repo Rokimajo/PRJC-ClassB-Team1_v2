@@ -1,0 +1,25 @@
+﻿.attendance-card {
+    display: flex;
+    margin: 5px;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--collection-1-cavero-blackish-grey);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    transition: 0.3s ease;
+    color: white;
+    background: -moz-linear-gradient(var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
+    background: linear-gradient(var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
+}
+
+.attendance-card > img {
+    height: 28px; 
+    width: 28px;
+}
+
+.attendance-card > h1 {
+    margin-left: 8px;
+}

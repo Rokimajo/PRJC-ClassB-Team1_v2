@@ -1,4 +1,5 @@
-﻿using CaveroApp.Data;
+﻿using System.Security.Claims;
+using CaveroApp.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using static CaveroApp.Services.CustomClasses;
 
@@ -61,6 +62,12 @@ public class Attendance : PageModel
             HttpContext.Session.SetString("AttendanceInitialSet", true.ToString());
         }
         Week = Services.DateServices.GetCurrentWeek(ChosenDay);
+        var userID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{userID}.png"))
+        {
+            var user = Context.Users.First(x => x.Id == userID);
+            ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, userID!);
+        }
     }
     
     
