@@ -1,5 +1,4 @@
 ﻿@page
-@using System.Diagnostics
 @model CaveroApp.Pages.adminUserInfo
 
 @{
@@ -16,28 +15,50 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title></title>
     <style>
-        .custom-event-card
-        {
+        .custom-event-card {
             max-width: 460px;
+            position: relative;
         }
-        .custom-button-small
-        {
+        .custom-button-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex; /* Add this line */
+        }
+        .custom-button-small {
             max-width: 65px;
+            margin-right: 5px;
+        }
+        .user-edit-list{
+            display: flex;
+            align-items: center;
+            max-height: 700px;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 10px;
+            border-radius: 15px;
+            background: var(--collection-1-cavero-lichtpaars);
+            box-shadow: 2px 2px 2px 2px #00030040 inset;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    @foreach (var user in @Model.Users())
-    {
-        <div class="event-card custom-event-card">
-            <p>First Name: @(user.FirstName)</p>
-            <p>Last Name: @(user.LastName)</p>
-            <p>Email: @(user.Email)</p>
-            <p>User ID: @(user.Id)</p>
+<div class="user-edit-list">
+@foreach (var user in @Model.Users())
+{
+    <div class="event-card custom-event-card">
+        <p>First Name: @(user.FirstName)</p>
+        <p>Last Name: @(user.LastName)</p>
+        <p>Email: @(user.Email)</p>
+        <p>User ID: @(user.Id)</p>
+        <div class="custom-button-container">
             <button class="button edit custom-button-small" data-user-id="@user.Id">Edit</button>
             <button class="button delete custom-button-small" data-user-id="@user.Id">Delete</button>
         </div>
-    }
+    </div>
+}
+</div>
 </body>
 </html>
-
