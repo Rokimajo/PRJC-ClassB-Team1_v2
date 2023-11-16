@@ -102,3 +102,46 @@
     font-size: 35px;
     margin-left: 10px;
 }
+
+.upcoming-events-list {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*flex-wrap: wrap;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    border: 1px solid var(--collection-1-cavero-blackish-grey);
+    border-radius: 15px;
+    max-width: 450px;
+    max-height: 700px;
+    box-shadow: 3px 3px 3px #00000040;
+    padding: 10px;
+    overflow-x: auto;
+    overflow-y: auto;
+    margin: 9px;
+}
+
+.upcoming-events-list > h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--collection-1-cavero-paars);
+    margin-top: 4px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.upcoming-events-list > p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--collection-1-cavero-paars);
+    margin-top: 4px;
+    white-space: normal;
+    text-overflow: ellipsis;
+}

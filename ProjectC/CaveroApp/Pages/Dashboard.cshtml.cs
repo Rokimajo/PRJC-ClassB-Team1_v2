@@ -64,7 +64,30 @@ public class Dashboard : PageModel
         week.Item2 = week.Item1.AddDays(4).Date;
         Week = week;
     }
+    
+    public List<CaveroAppContext.Event> GetAllEvents()
+    {
+        // Context.Events.Select(x => x);
+        var Info = (from events in Context.Events
+            select events).Distinct().ToList();
 
+        return Info;
+    }
+    
+    /// <summary>
+    ///    This function gets the number of participants for a given event.
+    ///     It returns the count of how many participants that event has.
+    /// </summary>
+    /// <param name="ev">
+    ///     The event to get the participants for.
+    /// </param>
+    public int GetEventParticipantsCount(CaveroAppContext.Event ev)
+    {
+        return (from e in Context.Events
+            join ea in Context.EventAttendances on e.ID equals ea.event_id
+            where e.Equals(ev)
+            select ea).Count();
+    }
     
     public void OnGet()
     {
