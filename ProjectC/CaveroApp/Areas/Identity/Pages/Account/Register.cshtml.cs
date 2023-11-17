@@ -230,43 +230,78 @@ namespace CaveroApp.Areas.Identity.Pages.Account
 
         private string GetConfirmationEmailBody(string callbackUrl)
         {
-            // Replace "{{confirmationUrl}}" with the actual URL in your environment.
             string confirmationUrl = HtmlEncoder.Default.Encode(callbackUrl);
 
             return $@"
-        <!DOCTYPE html>
-        <html lang='en'>
-        <head>
-            <meta charset='utf-8'>
-            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-            <title>Email Confirmation</title>
-        </head>
-        <body style='margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: var(--collection-1-cavero-lichtpaars);'>
-            <table role='presentation' cellspacing='0' cellpadding='0' width='100%'>
-                <tr>
-                    <td style='padding: 20px;'>
-                        <table role='presentation' cellspacing='0' cellpadding='0' width='100%'>
-                            <tr>
-                                <td>
-                                    <div style='text-align: center;'>
-                                        <div style='margin-bottom: 20px;'>
-                                            <img class='cavero-logo-full' src='/img/cavero-logo-full.png' alt='Cavero Logo' style='max-width: 100px; height: auto;' />
-                                        </div>
-                                        <h1 style='color: white;'>Email Confirmation</h1>
-                                        <p style='color: white;'>Please confirm your account by <a href='{confirmationUrl}' style='color: white;'>clicking here</a>.</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </body>
-        </html>
-    ";
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Email Confirmation</title>
+    <style>
+        body {{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }}
+
+        .container {{
+            display: flex;
+            align-items: center;
+            max-height: 100vh;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 10px;
+            border-radius: 15px;
+            background: #F5E6F8; /* Change to the desired background color */
+            box-shadow: 2px 2px 2px 2px #00030040 inset;
+            text-align: center;
+            width: 100%;
+        }}
+
+        .logo {{
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }}
+
+        h1 {{
+            color: #800080;
+            text-align: center;
+        }}
+
+        p {{
+            text-align: center;
+            margin-top: 20px;
+        }}
+
+        a {{
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #800080;
+            border-radius: 3px;
+        }}
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <img src='https://cavero.nl/wp-content/uploads/2019/07/logohandtekening.png' alt='Cavero Logo' class='logo' />
+        <h1>Welcome to Cavero!</h1>
+        <p>Please confirm your account by <a href='{confirmationUrl}'>clicking here</a>.</p>
+    </div>
+</body>
+
+</html>";
         }
-
-
-
     }
 }

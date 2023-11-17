@@ -19,19 +19,27 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
         .cavero-logo-full {
             max-width: 100%;
-            height: 100;
+            height: 80px;
             margin-bottom: 20px;
         }
 
-        h1 {
+        h1,
+        p,
+        a {
             text-align: center;
+            color: purple;
+        }
+
+        p {
+            margin-top: auto;
         }
     </style>
 </head>
@@ -42,12 +50,13 @@
 
     <script>
         setTimeout(function () {
-            window.location.href = "/dashboard";
+            window.location.href = "/Identity/Account/Login";
         }, 5000); 
     </script>
 </body>
 
 </html>
+
 
 
 
