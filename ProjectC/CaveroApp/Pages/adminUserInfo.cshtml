@@ -34,26 +34,56 @@
     }
     </tbody>
 </table>
-<div id="editModal" class="modal">
-    <div class="modal-content">
-            
-        <form method="post" asp-page-handler="UpdateUser">
-            <label for="showId">ID:</label>
-            <input type="text" id="showId" name="Id" readonly>
+<!-- Modal for editing -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <!-- Form for editing user -->
+            <form method="post" asp-page-handler="UpdateUser">
+                <label for="editId">ID:</label>
+                <input type="text" id="editId" name="Id" readonly>
 
-            <label for="editFirstName">First Name:</label>
-            <input type="text" id="editFirstName" name="FirstName">
+                <label for="editFirstName">First Name:</label>
+                <input type="text" id="editFirstName" name="FirstName">
 
-            <label for="editLastName">Last Name:</label>
-            <input type="text" id="editLastName" name="LastName">
+                <label for="editLastName">Last Name:</label>
+                <input type="text" id="editLastName" name="LastName">
 
-            <label for="editEmail">Email:</label>
-            <input type="text" id="editEmail" name="Email">
+                <label for="editEmail">Email:</label>
+                <input type="text" id="editEmail" name="Email">
 
-            <input type="submit" value="Update">
-        </form>
+                <input type="submit" value="Update">
+            </form>
+        </div>
     </div>
-</div>
 
+    <script>
+        // Function to open the modal for editing
+        function openModal(userId, firstName, lastName, email) {
+            document.getElementById("editId").value = userId;
+            document.getElementById("editFirstName").value = firstName;
+            document.getElementById("editLastName").value = lastName;
+            document.getElementById("editEmail").value = email;
+            document.getElementById("editModal").style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("editModal").style.display = "none";
+        }
+
+        // Attach click event to all edit buttons
+        var editButtons = document.getElementsByClassName("edit-button");
+        for (var i = 0; i < editButtons.length; i++) {
+            editButtons[i].addEventListener("click", function () {
+                var userId = this.getAttribute("data-user-id");
+                var firstName = this.parentNode.parentNode.children[1].innerText;
+                var lastName = this.parentNode.parentNode.children[2].innerText;
+                var email = this.parentNode.parentNode.children[3].innerText;
+
+                openModal(userId, firstName, lastName, email);
+            });
+        }
+    </script>
 </body>
 </html>
