@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using CaveroApp.Areas.Identity.Data;
 using CaveroApp.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -42,11 +43,20 @@ public class Attendance : PageModel
                     join u in Context.Users on x.user_id equals u.Id
                     where x.date.Date.Equals(StartDay.Date.Date) select u).ToList()
             };
+            events.allUsers.AddRange(GetRecurringUserDays(events.Date));
+            events.allUsers = events.allUsers.Distinct().ToList();
             week.Add(events);
             count++;
             StartDay = StartDay.AddDays(1);
         }
         return week;
+    }
+
+    public List<CaveroAppUser> GetRecurringUserDays(DateTime date)
+    {
+        var query = (from u in Context.Users
+            where u.RecurringDays.Contains(date.DayOfWeek.ToString().ToLower()) select u).ToList();
+        return query;
     }
 
     public bool IsAttending(string userID, DateTime date)

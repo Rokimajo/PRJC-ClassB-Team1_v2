@@ -12,7 +12,7 @@ public class CaveroAppUser : IdentityUser
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    
-    public List<DateTime>? RecurringDays { get; set; }
+
+    public List<string>? RecurringDays { get; set; } = new List<string>();
 }
 

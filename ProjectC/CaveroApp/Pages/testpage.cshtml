@@ -17,6 +17,21 @@
 </style>
 </head>
 <body>
+<h1>Set Recurring Days</h1>
+<br/>
+<form asp-page-handler="SetRecurringDays" method="post">
+  <input type="checkbox" asp-for="recurringDays.Monday">
+  <label for="day1">Maandag</label><br>
+  <input type="checkbox" asp-for="recurringDays.Tuesday">
+  <label for="day2">Dinsdag</label><br>
+  <input type="checkbox" asp-for="recurringDays.Wednesday">
+  <label for="day3">Woensdag</label><br>
+  <input type="checkbox" asp-for="recurringDays.Thursday">
+  <label for="day4">Donderdag</label><br>
+  <input type="checkbox" asp-for="recurringDays.Friday">
+  <label for="day5">Vrijdag</label><br><br>
+  <input type="submit" value="Submit">
+</form>
 </body>
 </html>
 
