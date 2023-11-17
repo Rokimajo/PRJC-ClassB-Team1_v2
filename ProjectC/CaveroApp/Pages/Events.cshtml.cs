@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using static CaveroApp.Services.CustomClasses;
 
 namespace CaveroApp.Pages;
 
@@ -43,35 +44,20 @@ public class Events : PageModel
         
         public string EndTime { get; set; }
     }
-
-    /// <summary>
-    ///     Gets the current week's dates based on the chosen day parameter.
-    ///     It fills the Week tuple with the first item being monday and the last item being friday in dates.
-    ///     Function is made to be maintainable and flexible, if you add 6 days to week.Item2 instead of 4,
-    ///     you can easily and quickly change the event tab from mon-fri to mon-sun.
-    /// </summary>
-    public void GetCurrentWeek()
-    {
-        DateTime toUse = DateTime.SpecifyKind(ChosenDay, DateTimeKind.Utc);
-        var week = new ValueTuple<DateTime, DateTime>();
-        var success = DaysTillMonday.TryParse<DaysTillMonday>(toUse.DayOfWeek.ToString(), out var day);
-        week.Item1 = toUse.Date.AddDays(-(int)day).Date;
-        week.Item2 = week.Item1.AddDays(4).Date;
-        Week = week;
-    }
+    
     
     /// <summary>
     /// This function gets all the events for the current week, based on the dates listed in the Week Tuple.
     /// It returns a list of WeekInfo objects, which contain the date and all the events for that date.
     /// </summary>
-    public List<WeekInfo> GetWeekEvents()
+    public List<WeekEvents> GetWeekEvents()
     {
-        var week = new List<WeekInfo>();
+        var week = new List<WeekEvents>();
         var StartDay = Week.Item1;
         int count = 0;
         while (StartDay <= Week.Item2)
         {
-            var events = new WeekInfo
+            var events = new WeekEvents
                 {
                     Date = StartDay,
                     allEvents = (from x in Context.Events where
@@ -126,7 +112,7 @@ public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
             // Set the session variable to indicate that the action has been performed
             HttpContext.Session.SetString("EventsInitialSet", true.ToString());
         }
-        GetCurrentWeek();
+        Week = Services.DateServices.GetCurrentWeek(ChosenDay);
     }
 
 public IActionResult OnPostCreateEvent()
@@ -272,30 +258,4 @@ public IActionResult OnPostCreateEvent()
         Context.SaveChanges();
         return RedirectToPage();
     }
-}
-
-/// <summary>
-///     This enum is used to get the day of the week till monday as an integer.
-///     So if its monday, it returns 0, tuesday returns 1, etc.
-///     This is used to get the current week's dates.
-/// </summary>
-public enum DaysTillMonday
-{
-    Monday = 0,
-    Tuesday = 1,
-    Wednesday = 2,
-    Thursday = 3,
-    Friday = 4,
-    Saturday = 5,
-    Sunday = 6
-}
-
-/// <summary>
-///     This class is used to store the date and all the events for that date.
-///     It is used to display the events for each day in the frontend.
-/// </summary>
-public class WeekInfo
-{
-    public DateTime Date { get; set; }
-    public List<CaveroAppContext.Event> allEvents { get; set; }
 }
