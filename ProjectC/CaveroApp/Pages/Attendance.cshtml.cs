@@ -102,12 +102,15 @@ public class Attendance : PageModel
     {
         var splitDate = date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
         var newDate = DateTime.SpecifyKind(new DateTime(splitDate[2], splitDate[1], splitDate[0]), DateTimeKind.Utc);
-        Context.Attendances.Add(new CaveroAppContext.Attendance()
+        if (newDate.Date >= DateTime.UtcNow.Date)
         {
-            user_id = userID,
-            date = newDate,
-        });
-        Context.SaveChanges();
+                        Context.Attendances.Add(new CaveroAppContext.Attendance()
+                        {
+                            user_id = userID,
+                            date = newDate,
+                        });
+                        Context.SaveChanges();
+        }
         return RedirectToPage();
     }
     
@@ -115,9 +118,13 @@ public class Attendance : PageModel
     {
         var splitDate = date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
         var newDate = DateTime.SpecifyKind(new DateTime(splitDate[2], splitDate[1], splitDate[0]), DateTimeKind.Utc);
-        var Att = Context.Attendances.First(x => x.user_id == userID && x.date.Date == newDate.Date);
-        Context.Remove(Att);
-        Context.SaveChanges();
+        if (newDate.Date >= DateTime.UtcNow.Date)
+        {
+             var Att = Context.Attendances.First(x => x.user_id == userID && x.date.Date == newDate.Date);
+             Context.Remove(Att);
+             Context.SaveChanges();
+        }
+ 
         return RedirectToPage();
     }
     
