@@ -144,8 +144,10 @@ namespace CaveroApp.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await SendEmailAsync(Input.Email, "Confirm your email", GetConfirmationEmailBody(callbackUrl));
+
+                    // await SendEmailAsync(Input.Email, "Confirm your email",
+                    //     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -225,5 +227,46 @@ namespace CaveroApp.Areas.Identity.Pages.Account
             }
             return (IUserEmailStore<CaveroAppUser>)_userStore;
         }
+
+        private string GetConfirmationEmailBody(string callbackUrl)
+        {
+            // Replace "{{confirmationUrl}}" with the actual URL in your environment.
+            string confirmationUrl = HtmlEncoder.Default.Encode(callbackUrl);
+
+            return $@"
+        <!DOCTYPE html>
+        <html lang='en'>
+        <head>
+            <meta charset='utf-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <title>Email Confirmation</title>
+        </head>
+        <body style='margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: var(--collection-1-cavero-lichtpaars);'>
+            <table role='presentation' cellspacing='0' cellpadding='0' width='100%'>
+                <tr>
+                    <td style='padding: 20px;'>
+                        <table role='presentation' cellspacing='0' cellpadding='0' width='100%'>
+                            <tr>
+                                <td>
+                                    <div style='text-align: center;'>
+                                        <div style='margin-bottom: 20px;'>
+                                            <img class='cavero-logo-full' src='/img/cavero-logo-full.png' alt='Cavero Logo' style='max-width: 100px; height: auto;' />
+                                        </div>
+                                        <h1 style='color: white;'>Email Confirmation</h1>
+                                        <p style='color: white;'>Please confirm your account by <a href='{confirmationUrl}' style='color: white;'>clicking here</a>.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </body>
+        </html>
+    ";
+        }
+
+
+
     }
 }

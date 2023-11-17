@@ -39,10 +39,16 @@
 <body>
     <img class="cavero-logo-full" src="/img/cavero-logo-full.png" alt="Cavero Logo" />
     <h1>@ViewData["Title"]</h1>
-    @* <partial name="_StatusMessage" model="Model.StatusMessage"/> *@
+
+    <script>
+        setTimeout(function () {
+            window.location.href = "/dashboard";
+        }, 5000); 
+    </script>
 </body>
 
 </html>
+
 
 
 @* @page
