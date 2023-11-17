@@ -1,5 +1,4 @@
-﻿
-/*grid body and main card grids for dashboard.*/
+﻿/*grid body and main card grids for dashboard.*/
 .main-overview {
     display: flex;
     flex-direction: column;
@@ -13,13 +12,12 @@
     grid-template-columns: fit-content(300px) fit-content(300px);
     grid-template-rows: auto;
     grid-template-areas:
-    'card1 card2 card3';
+        'card1 card2 card3';
     grid-gap: 10px;
 }
 
 
-.card {
-}
+.card {}
 
 .one {
     grid-area: card1;
@@ -47,9 +45,9 @@
         grid-template-columns: 1fr;
         grid-template-rows: fit-content(300px) fit-content(300px) fit-content(300px);
         grid-template-areas:
-        'card1'
-        'card2'
-        'card3';
+            'card1'
+            'card2'
+            'card3';
         grid-gap: 10px;
     }
 }
@@ -92,7 +90,7 @@
 }
 
 .box-info img {
-    filter: brightness(30%); 
+    filter: brightness(30%);
     width: 60px;
     height: 60px;
 }
@@ -101,4 +99,125 @@
     font-weight: 700;
     font-size: 35px;
     margin-left: 10px;
+}
+
+/* <!-- My Events: --> */
+.my-events-container {
+    display: flex;
+    /* Use flexbox */
+    align-items: center;
+    max-height: 100vh;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    border-radius: 15px;
+    background: var(--collection-1-cavero-lichtpaars);
+    box-shadow: 2px 2px 2px 2px #00030040 inset;
+    text-align: center;
+    max-width: 40%;
+    /* max-height: 200%; */
+}
+
+.my-events-title {
+    font-weight: bold;
+    margin: 0;
+    background-color: var(--collection-1-cavero-lichtpaars);
+    color: purple;
+    padding: 10px;
+    border-radius: 10px;
+    position: static;
+    margin-top: 10px;
+    border-bottom: 2px solid purple;
+}
+
+/* Adjusted styles for responsiveness */
+@media only screen and (max-width: 630px) {
+    .my-events-container {
+        max-width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.my-events-date {
+    font-weight: bold;
+    margin-top: 10px;
+    color: purple;
+}
+
+.my-events-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-y: auto;
+}
+
+.my-events-table th,
+.my-events-table td {
+    border: 1px solid #fbebeb;
+    padding: 8px;
+    text-align: left;
+}
+
+.my-events-table th {
+    background: var(--collection-1-cavero-lichtpaars);
+    color: white;
+}
+
+.my-events-column {
+    background: var(--collection-1-cavero-lichtpaars);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.my-events-column li {
+    list-style-type: none;
+    /* Remove the dot for list items */
+}
+
+.event-card {
+    background-color: purple;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.my-event-card h3 {
+    margin-top: 0;
+}
+
+.my-event-card p {
+    margin-bottom: 5px;
+}
+
+.scroll-container {
+    height: 300px;
+    overflow-y: auto;
+    margin-right: 10px;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.scroll-container::-webkit-scrollbar-button {
+    display: none;
 }

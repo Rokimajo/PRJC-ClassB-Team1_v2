@@ -12,13 +12,14 @@ namespace CaveroApp.Pages;
 public class Dashboard : PageModel
 {
     private CaveroAppContext Context { get; }
-    
+
     // Monday - Friday
     // First item is monday, last item is friday in dates.
     public (DateTime, DateTime) Week { get; set; }
     public int EmployeeCount { get; set; }
     public int EventCount { get; set; }
-    
+    public List<CaveroAppContext.Event> EventInfo { get; set; }
+
     [BindProperty]
     public CheckInModel CheckModel { get; set; }
 
@@ -26,6 +27,21 @@ public class Dashboard : PageModel
     public Dashboard(CaveroAppContext context)
     {
         Context = context;
+        EventInfo = new List<CaveroAppContext.Event>();
+    }
+
+    //<summary>
+    //    This function grabs events from the database, the events are ordered by date and based 
+    //    on if the user has signed up for the event or not.
+    //</summary>
+    public void GetUserEventsForToday(string userId)
+    {
+        var userEvents = Context.EventAttendances
+            .Where(ea => ea.user_id == userId)
+            .Select(ea => ea.Event)
+            .ToList();
+
+        EventInfo = userEvents;
     }
 
     public class CheckInModel
@@ -40,18 +56,19 @@ public class Dashboard : PageModel
     public void GetTodayStats()
     {
         var emp_count = (from a in Context.Attendances
-            join u in Context.Users on a.user_id equals u.Id
-            where DateTime.UtcNow.Date.Equals(a.date.Date) select u).ToList().Distinct().Count();
+                         join u in Context.Users on a.user_id equals u.Id
+                         where DateTime.UtcNow.Date.Equals(a.date.Date)
+                         select u).ToList().Distinct().Count();
 
         GetCurrentWeek();
         var event_count = (from u in Context.Events
-            where u.date.Date >= Week.Item1.Date && u.date.Date <= Week.Item2.Date && u.admin_approval != false
-            select u).Count();
-        
+                           where u.date.Date >= Week.Item1.Date && u.date.Date <= Week.Item2.Date && u.admin_approval != false
+                           select u).Count();
+
         EmployeeCount = emp_count;
         EventCount = event_count;
     }
-    
+
     /// <summary>
     ///     Gets the current week's dates based on the chosen day parameter.
     ///     It fills the Week tuple with the first item being monday and the last item being friday in dates.
@@ -65,7 +82,7 @@ public class Dashboard : PageModel
         Week = week;
     }
 
-    
+
     public void OnGet()
     {
         // Remove eventsinitialset if it was created in events, so the information is not stored between pages.
@@ -74,6 +91,10 @@ public class Dashboard : PageModel
         // Call this function to populate the fields with how many employees are present today,
         // and how many events are happening  this week.
         GetTodayStats();
+
+        // My Events:
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        GetUserEventsForToday(userId);
     }
 
     // get method api endpoint for javascript validator
