@@ -9,9 +9,10 @@
     ViewData["Title"] = "Dashboard";
     Layout = "Shared/CaveroLayoutResponsive";
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preload" as="style" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
     <link rel="stylesheet" href="css/events.css"/>
-    <link rel="stylesheet" href="css/dashboard.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script type="module" src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     var today = DateTime.Now.Date;
@@ -80,7 +81,7 @@
     </div>
     <div class="card three">
         @*Gemaakt door Aryan*@
-        <div class="upcoming-events-list">
+        <div class="dashboard-upcoming-events">
             <h1>Aanstaande evenementen</h1>
             <div class="line"></div>
             @foreach (var group in groupedEvents)
