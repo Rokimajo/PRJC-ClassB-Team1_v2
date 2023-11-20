@@ -8,21 +8,9 @@ namespace CaveroApp.Pages;
 public class adminUserInfo : PageModel
 {
     public CaveroAppContext Context { get; }
-    public UserInfoModel userInfoModel { get; set; }
-
     public void OnGet()
     {
         
-    }
-    public class UserInfoModel
-    {
-        public string userID { get; set; }
-        
-        public string firstName { get; set; }
-        
-        public string lastName { get; set; }
-        
-        public string email { get; set; }
     }
     public adminUserInfo(CaveroAppContext context)
     {
@@ -39,6 +27,14 @@ public class adminUserInfo : PageModel
         userToChange.FirstName = updatedUser.FirstName;
         userToChange.LastName = updatedUser.LastName;
         userToChange.Email = updatedUser.Email;
+        Context.SaveChanges();
+        return RedirectToPage();
+    }
+
+    public IActionResult OnPostDeleteUser(CaveroAppUser userToDelete)
+    {
+        var user = Context.Users.First(x => x.Id == userToDelete.Id);
+        Context.Remove(user);
         Context.SaveChanges();
         return RedirectToPage();
     }
