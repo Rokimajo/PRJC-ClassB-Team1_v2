@@ -129,9 +129,20 @@ namespace CaveroApp.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
-
-                    SendEmail(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    // Make an email that uses the cavero logo and has a purple background
+                    SendEmail(Input.Email, "Reset your password",
+                        $"<div style=\"background-color: rgb(184, 138, 235); padding: 10px 0px 10px 0px; margin: 0px 0px 10px 0px; text-align: center;\">" +
+                        $"<img src=\"/img/caverologowhite.png\" alt=\"Cavero Logo\" style=\"height: 100px; width: 100px;\">" +
+                        $"</div>" +
+                        $"<div style=\"background-color: white; padding: 10px 0px 10px 0px; margin: 0px 0px 10px 0px; text-align: center;\">" +
+                        $"<h1 style=\"color: rgb(184, 138, 235);\">Reset your password</h1>" +
+                        $"<p>Hi {Input.Email},</p>" +
+                        $"<p>We received a request to reset your Cavero password.</p>" +
+                        $"<p>If you didn't make the request, just ignore this email. Otherwise, you can reset your password using this link:</p>" +
+                        $"<a href=\"{HtmlEncoder.Default.Encode(callbackUrl)}\" style=\"color: white; background-color: rgb(184, 138, 235); padding: 10px 20px 10px 20px; text-decoration: none;\">Reset Password</a>" +
+                        $"<p>Thanks,</p>" +
+                        $"<p>The Cavero Team</p>" +
+                        $"</div>");
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("ForgotPasswordConfirmation", new { email = Input.Email, returnUrl = returnUrl });

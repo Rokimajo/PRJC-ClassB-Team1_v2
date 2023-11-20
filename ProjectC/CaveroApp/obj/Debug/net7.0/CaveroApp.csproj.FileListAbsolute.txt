@@ -888,6 +888,7 @@ C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Deb
 C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\React.Web.dll
 C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\WebActivatorEx.dll
 C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\ru-RU\JavaScriptEngineSwitcher.Core.resources.dll
+C:\Users\robin\Desktop\Project_C\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\package-lock.json
 C:\Users\jgonc\git\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\jgonc\git\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\appsettings.json
 C:\Users\jgonc\git\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\bin\Debug\net7.0\app.db
