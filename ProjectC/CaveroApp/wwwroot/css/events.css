@@ -493,8 +493,10 @@ div.event-modal-row br {
     margin: auto;
     padding: 20px;
     border: 1px solid var(--collection-1-cavero-blackish-grey);
-    max-width: 60%;
+    max-width: 30%;
     border-radius: 10px;
+    margin-top: 50vh;
+    transform: translateY(-50%);
 }
 
 .modal-content label {
