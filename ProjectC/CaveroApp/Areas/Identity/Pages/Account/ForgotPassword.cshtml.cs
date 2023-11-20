@@ -132,7 +132,7 @@ namespace CaveroApp.Areas.Identity.Pages.Account
                     // Make an email that uses the cavero logo and has a purple background
                     SendEmail(Input.Email, "Reset your password",
                         $"<div style=\"background-color: rgb(184, 138, 235); padding: 10px 0px 10px 0px; margin: 0px 0px 10px 0px; text-align: center;\">" +
-                        $"<img src=\"/img/caverologowhite.png\" alt=\"Cavero Logo\" style=\"height: 100px; width: 100px;\">" +
+                        $"<img src=\"https://cavero.nl/wp-content/uploads/2019/07/logohandtekening.png\" alt=\"Cavero Logo\" style=\"height: 100px; width: 100px;\">" +
                         $"</div>" +
                         $"<div style=\"background-color: white; padding: 10px 0px 10px 0px; margin: 0px 0px 10px 0px; text-align: center;\">" +
                         $"<h1 style=\"color: rgb(184, 138, 235);\">Reset your password</h1>" +
