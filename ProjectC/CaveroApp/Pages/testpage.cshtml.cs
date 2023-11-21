@@ -27,6 +27,9 @@ public class testpage : PageModel
         userToChange.FirstName = updatedUser.FirstName;
         userToChange.LastName = updatedUser.LastName;
         userToChange.Email = updatedUser.Email;
+        userToChange.UserName = updatedUser.Email;
+        userToChange.NormalizedEmail = updatedUser.Email.ToUpper();
+        userToChange.NormalizedUserName = updatedUser.Email.ToUpper();
         Context.SaveChanges();
         return RedirectToPage();
     }
