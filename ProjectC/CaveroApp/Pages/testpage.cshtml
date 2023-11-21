@@ -66,7 +66,6 @@
     <div id="editModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <!-- Form for editing user -->
             <form method="post" asp-page-handler="UpdateUser">
                 <label for="editId">ID:</label>
                 <input type="text" id="editId" name="Id" readonly>
@@ -86,7 +85,7 @@
     </div>
 
     <script>
-        // Function to open the modal for editing
+        
         function openModal(userId, firstName, lastName, email) {
             document.getElementById("editId").value = userId;
             document.getElementById("editFirstName").value = firstName;
@@ -94,13 +93,9 @@
             document.getElementById("editEmail").value = email;
             document.getElementById("editModal").style.display = "block";
         }
-
-        // Function to close the modal
         function closeModal() {
             document.getElementById("editModal").style.display = "none";
         }
-
-        // Attach click event to all edit buttons
         var editButtons = document.getElementsByClassName("button edit custom-button-small");
         for (var i = 0; i < editButtons.length; i++) {
             editButtons[i].addEventListener("click", function () {
