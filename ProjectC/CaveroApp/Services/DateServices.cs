@@ -8,6 +8,9 @@ public static class DateServices
     ///     Function is made to be maintainable and flexible, if you add 6 days to week.Item2 instead of 4,
     ///     you can easily and quickly change the event tab from mon-fri to mon-sun.
     /// </summary>
+    /// <returns>
+    ///     A ValueTuple of DateTime, DateTime. First item is monday, last item is friday.
+    /// </returns>
     public static (DateTime, DateTime) GetCurrentWeek(DateTime ChosenDay)
     {
         DateTime toUse = DateTime.SpecifyKind(ChosenDay, DateTimeKind.Utc);
@@ -19,6 +22,11 @@ public static class DateServices
     }
 }
 
+/// <summary>
+///     This enum is used to get the day of the week to monday as an integer.
+///     So if its monday, it returns 0, tuesday returns 1, sunday is 6 days from monday, etc.
+///     This is used to get the current week's dates.
+/// </summary>
 public enum DaysTillMonday
 {
     Monday = 0,

@@ -44,7 +44,7 @@ public class Dashboard : PageModel
             join u in Context.Users on a.user_id equals u.Id
             where DateTime.UtcNow.Date.Equals(a.date.Date) select u).ToList().Distinct().Count();
 
-        GetCurrentWeek();
+        Week = DateServices.GetCurrentWeek(DateTime.UtcNow);
         var event_count = (from u in Context.Events
             where u.date.Date >= Week.Item1.Date && u.date.Date <= Week.Item2.Date && u.admin_approval != false
             select u).Count();
@@ -53,18 +53,6 @@ public class Dashboard : PageModel
         EventCount = event_count;
     }
     
-    /// <summary>
-    ///     Gets the current week's dates based on the chosen day parameter.
-    ///     It fills the Week tuple with the first item being monday and the last item being friday in dates.
-    /// </summary>
-    public void GetCurrentWeek()
-    {
-        var week = new ValueTuple<DateTime, DateTime>();
-        var success = DaysTillMonday.TryParse<DaysTillMonday>(DateTime.UtcNow.DayOfWeek.ToString(), out var day);
-        week.Item1 = DateTime.UtcNow.Date.AddDays(-(int)day).Date;
-        week.Item2 = week.Item1.AddDays(4).Date;
-        Week = week;
-    }
     
     public List<CaveroAppContext.Event> GetAllEvents()
     {
@@ -100,8 +88,16 @@ public class Dashboard : PageModel
         // and how many events are happening  this week.
         GetTodayStats();
     }
-
-    // get method api endpoint for javascript validator
+    
+    /// <summary>
+    ///     This function checks if the user is already checked in on the given date in string format.
+    /// </summary>
+    /// <param name="date">
+    ///    The date to check if the user is already checked in on. This date is given as string, in the format of dd-mm-yyyy.
+    /// </param>
+    /// <returns>
+    ///     Returns a JsonResult, which is used by AJAX to check if the user is already checked in on the given date.
+    /// </returns>
     public JsonResult OnGetCheckDate(string date)
     {
         var dateSplit = date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();

@@ -177,11 +177,13 @@ public IActionResult OnPostCreateEvent()
 
     /// <summary>
     ///     This function checks if the user has already joined a event.
-    ///     Returns a boolean, true if the user has already joined an event, false if they haven't.
     /// </summary>
     /// <param name="eventID">
     ///     The ID of the event passed along from the frontend to check if the currently logged in user has joined.
     /// </param>
+    /// <returns>
+    ///     A boolean, true if the user has already joined an event, false if they haven't.
+    /// </returns>
     public bool JoinedEvent(int eventID)
     {
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
