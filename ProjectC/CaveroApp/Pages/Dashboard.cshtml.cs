@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Globalization;
 using System.Security.Claims;
 using CaveroApp.Areas.Identity.Data;
 using CaveroApp.Data;
@@ -111,15 +112,17 @@ public class Dashboard : PageModel
     public IActionResult OnPostDateCheckInUser()
     {
         var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        var dateSplit = CheckModel.Date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
-        var parsedDate = DateTime.SpecifyKind(new DateTime(dateSplit[2], dateSplit[1], dateSplit[0]), DateTimeKind.Utc);
-        var att = new CaveroAppContext.Attendance()
+        if(DateTime.TryParseExact(CheckModel.Date, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
         {
-            user_id = userID,
-            date = parsedDate,
-        };
-        Context.Add(att);
-        Context.SaveChanges();
+            parsedDate = DateTime.SpecifyKind(parsedDate, DateTimeKind.Utc);
+            var att = new CaveroAppContext.Attendance()
+            {
+                user_id = userID,
+                date = parsedDate,
+            };
+            Context.Add(att);
+            Context.SaveChanges();
+        }
         return RedirectToPage("/Dashboard");
     }
 

@@ -237,6 +237,15 @@ public IActionResult OnPostCreateEvent()
         return RedirectToPage();
     }
 
+    /// <summary>
+    ///     This function is called when the currently logged in user (admin) clicks on the 'Delete' button for an event.
+    /// </summary>
+    /// <param name="eventID">
+    ///     The ID of the event passed along from the frontend to search the event to remove from the database.
+    /// </param>
+    /// <returns>
+    ///     A RedirectToPageResult, which redirects to the same page.
+    /// </returns>
     public IActionResult OnPostDeleteEvent(int eventID)
     {
         var evtoDelete = Context.Events.First(x => x.ID == eventID);
