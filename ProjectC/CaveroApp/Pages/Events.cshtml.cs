@@ -14,17 +14,17 @@ public class Events : PageModel
 {
     // Database context
     public CaveroAppContext Context { get; }
-    
+
     [BindProperty]
     public EventModel eventModel { get; set; }
-    
+
     // Monday - Friday
     // First item is monday, last item is friday in dates.
     public (DateTime, DateTime) Week { get; set; }
-    
+
     // The day that the user has chosen to view events for
     public static DateTime ChosenDay { get; set; }
-    
+
     public Events(CaveroAppContext context)
     {
         Context = context;
@@ -33,19 +33,19 @@ public class Events : PageModel
     public class EventModel
     {
         public string Title { get; set; }
-        
+
         public string Description { get; set; }
-        
+
         public string Location { get; set; }
-        
+
         public string Date { get; set; }
-        
+
         public string StartTime { get; set; }
-        
+
         public string EndTime { get; set; }
     }
-    
-    
+
+
     /// <summary>
     /// This function gets all the events for the current week, based on the dates listed in the Week Tuple.
     /// It returns a list of WeekInfo objects, which contain the date and all the events for that date.
@@ -58,47 +58,48 @@ public class Events : PageModel
         while (StartDay <= Week.Item2)
         {
             var events = new WeekEvents
-                {
-                    Date = StartDay,
-                    allEvents = (from x in Context.Events where
-                                x.date.Date.Equals(StartDay.Date.Date) && x.admin_approval == true
-                                select x).ToList()
-                };
+            {
+                Date = StartDay,
+                allEvents = (from x in Context.Events
+                             where
+                            x.date.Date.Equals(StartDay.Date.Date) && x.admin_approval == true
+                             select x).ToList()
+            };
             week.Add(events);
             count++;
             StartDay = StartDay.AddDays(1);
         }
         return week;
     }
-    
-/// <summary>
-///    This function gets the number of participants for a given event.
-///     It returns the count of how many participants that event has.
-/// </summary>
-/// <param name="ev">
-///     The event to get the participants for.
-/// </param>
+
+    /// <summary>
+    ///    This function gets the number of participants for a given event.
+    ///     It returns the count of how many participants that event has.
+    /// </summary>
+    /// <param name="ev">
+    ///     The event to get the participants for.
+    /// </param>
     public int GetEventParticipantsCount(CaveroAppContext.Event ev)
     {
         return (from e in Context.Events
-            join ea in Context.EventAttendances on e.ID equals ea.event_id
-            where e.Equals(ev)
-            select ea).Count();
+                join ea in Context.EventAttendances on e.ID equals ea.event_id
+                where e.Equals(ev)
+                select ea).Count();
     }
 
-public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
-{
-    return (from ea in Context.EventAttendances
-        join u in Context.Users on ea.user_id equals u.Id
-        where ea.event_id.Equals(ev.ID)
-        select u).ToList();
-}
-    
-/// <summary>
-///     The Get() function has a bool that checks if the action has already been performed.
-///     This is used so that we only set ChosenDay once, and not every time the page is refreshed.
-///     This makes switching weeks possible.
-/// </summary>
+    public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
+    {
+        return (from ea in Context.EventAttendances
+                join u in Context.Users on ea.user_id equals u.Id
+                where ea.event_id.Equals(ev.ID)
+                select u).ToList();
+    }
+
+    /// <summary>
+    ///     The Get() function has a bool that checks if the action has already been performed.
+    ///     This is used so that we only set ChosenDay once, and not every time the page is refreshed.
+    ///     This makes switching weeks possible.
+    /// </summary>
     public void OnGet()
     {
         // This variable is used to set the event date to the current date, so the user starts at the current week instead of a random date.
@@ -115,28 +116,28 @@ public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
         Week = Services.DateServices.GetCurrentWeek(ChosenDay);
     }
 
-public IActionResult OnPostCreateEvent()
-{
-    // if this method goes trough, the javascript validation checker found no issues.
-    // so there's no need for backend validation checking here.
-    var splitDate = eventModel.Date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
-    var startTime = eventModel.StartTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
-    var endTime = eventModel.EndTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
-    var newEvent = new CaveroAppContext.Event()
+    public IActionResult OnPostCreateEvent()
     {
-        title = eventModel.Title,
-        description = eventModel.Description,
-        location = eventModel.Location,
-        date = DateTime.SpecifyKind(new DateTime(splitDate[2], splitDate[1], splitDate[0]), DateTimeKind.Utc),
-        start_time = new TimeSpan(startTime[0], startTime[1], 0),
-        end_time = new TimeSpan(endTime[0], endTime[1], 0),
-        // change this to false once admin works
-        admin_approval = true
-    };
-    Context.Add(newEvent);
-    Context.SaveChanges();
-    return RedirectToPage("/Events");
-}
+        // if this method goes trough, the javascript validation checker found no issues.
+        // so there's no need for backend validation checking here.
+        var splitDate = eventModel.Date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
+        var startTime = eventModel.StartTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
+        var endTime = eventModel.EndTime.Split(":").Select(x => Convert.ToInt32(x)).ToArray();
+        var newEvent = new CaveroAppContext.Event()
+        {
+            title = eventModel.Title,
+            description = eventModel.Description,
+            location = eventModel.Location,
+            date = DateTime.SpecifyKind(new DateTime(splitDate[2], splitDate[1], splitDate[0]), DateTimeKind.Utc),
+            start_time = new TimeSpan(startTime[0], startTime[1], 0),
+            end_time = new TimeSpan(endTime[0], endTime[1], 0),
+            // change this to false once admin works
+            admin_approval = true
+        };
+        Context.Add(newEvent);
+        Context.SaveChanges();
+        return RedirectToPage("/Events");
+    }
 
     /// <summary>
     ///     This function is called when the user clicks the "Next Week" button.
@@ -214,7 +215,7 @@ public IActionResult OnPostCreateEvent()
 
         return RedirectToPage();
     }
-    
+
     /// <summary>
     /// This function is called when the currently logged in user clicks on the 'Leave' button for an event.
     /// It removes an EventAttendance object to the database, with the passed along eventID and the currently logged in user's ID.
@@ -230,8 +231,8 @@ public IActionResult OnPostCreateEvent()
     {
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var evAtt = (from ea in Context.EventAttendances
-            where ea.event_id.Equals(eventID) && ea.user_id.Equals(userId)
-                select ea).First();
+                     where ea.event_id.Equals(eventID) && ea.user_id.Equals(userId)
+                     select ea).First();
         Context.Remove(evAtt);
         Context.SaveChanges();
         return RedirectToPage();
@@ -253,7 +254,7 @@ public IActionResult OnPostCreateEvent()
         Context.SaveChanges();
         return RedirectToPage();
     }
-    
+
     public IActionResult OnPostEditEvent(int eventID)
     {
         var evtoChange = Context.Events.First(x => x.ID == eventID);
@@ -268,5 +269,13 @@ public IActionResult OnPostCreateEvent()
         evtoChange.end_time = new TimeSpan(endTime[0], endTime[1], 0);
         Context.SaveChanges();
         return RedirectToPage();
+    }
+    [HttpPost]
+    public IActionResult SubmitReview(string reviewerName, string reviewContent, int rating)
+    {
+        // Handle the review submission (save to the database, etc.)
+
+        // Redirect or return a response as needed
+        return RedirectToAction("Index");
     }
 }
