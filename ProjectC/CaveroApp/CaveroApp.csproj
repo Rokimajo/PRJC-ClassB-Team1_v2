@@ -33,19 +33,13 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
         <PackageReference Include="React.Core" Version="5.2.12" />
         <PackageReference Include="React.Web" Version="5.2.12" />
+        <PackageReference Include="SkiaSharp" Version="2.88.6" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Areas\Identity\Pages\Account\Manage\" />
-      <Folder Include="Database\" />
-      <Folder Include="Data\Migrations\" />
-      <Folder Include="wwwroot\reacttemp\" />
     </ItemGroup>
 
 
