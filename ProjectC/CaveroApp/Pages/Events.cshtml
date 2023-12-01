@@ -187,7 +187,7 @@
                                             <input id="reviewStars" placeholder="Kies een aantal sterren.." type="number" 
                                                    oninput="validateStars()" onblur="validateStars()"/>
                                             <span class="error-message" id="starsError"></span>
-                                            </div>
+                                        </div>
                                         <div class="review-modal-row">
                                             <h1>Beschrijving (max 500 karakters)</h1>
                                             <textarea id="reviewDescription" rows="6" cols="50" placeholder="..."  
@@ -204,6 +204,34 @@
                                 </form>
                             </div>
                         </div>
+                        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the modal and the button
+        var reviewModal = document.getElementById('review-Modal');
+        var reviewButton = document.querySelector('.button.review');
+
+        // Add click event listener to the button
+        reviewButton.addEventListener('click', function () {
+            // Display the modal
+            reviewModal.style.display = 'flex';
+        });
+
+        // Add click event listener to close button in the modal
+        var closeReviewButton = document.getElementById('closeReview');
+        closeReviewButton.addEventListener('click', function () {
+            // Close the modal
+            reviewModal.style.display = 'none';
+        });
+
+        // Add click event listener to overlay (optional: close modal when clicking outside the modal content)
+        reviewModal.addEventListener('click', function (event) {
+            if (event.target === reviewModal) {
+                // Close the modal
+                reviewModal.style.display = 'none';
+            }
+        });
+    });
+</script>
                         <!--  Review Modal -->
                         <!-- Admin Delete Event Modal -->
                         <div class="event-modal modal-card-delete-@ev.ID">
