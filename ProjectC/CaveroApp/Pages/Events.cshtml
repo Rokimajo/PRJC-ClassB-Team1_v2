@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="css/events.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
     <script src="js/create-event-validation.js"></script>
-
+    <script src="js/create-review-scripts.js"></script>
+    <script src="js/create-review-validation.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 }
 
@@ -106,15 +107,12 @@
                                         </button>
                                     </form>
                                 }
-                                
-                                @*Create a review button that invokes a pop up screen that follows the review modal. only make this button appear if the user attended the event*@
                                 @if (@Model.JoinedEvent(ev.ID))
                                 {
                                     <button class="button review" data-card-id="@ev.ID">
                                         <p>REVIEW</p>
                                     </button>
                                 }
-
                                 @*Give admin users more buttons like edit and delete.*@
                                 @if (User.IsInRole("Admin"))
                                 {
@@ -173,33 +171,30 @@
                         </div>
                         <!--  Review Modal -->
                         //asp left out on line 188, 194, 200
-                        <div id="eventReviewModal" class="event-modal">
-                            <div class="event-modal-content">
-                                <div class="event-modal-header">
+                        <div id="review-Modal" class="review-modal">
+                            <div class="review-modal-content">
+                                <div class="review-modal-header">
                                     <h1 style="justify-content: flex-start">Review @ev.title</h1>
-                                    <span id="closeEvent" class="close" style="justify-content: flex-start">&times;</span>
+                                    <span id="closeReview" class="close" style="justify-content: flex-start">&times;</span>
                                 </div>
                                 <div class="line"></div>
                                 <form id="createReviewForm" asp-page-handler="CreateReview" method="post">
-                                    <div class="event-modal-create">
-                                        <div class="event-modal-row">
-                                            <h1>Titel (max 20 karakters)</h1>
-                                            <input id="reviewTitle" placeholder="..."
-                                                   pattern=".{1,20}" oninput="validateTitle()" onblur="validateTitle()"/>
-                                            <span class="error-message" id="titleError"></span> 
-                                        </div>
-                                        <div class="event-modal-row">
-                                            <h1>Beschrijving (max 250 karakters)</h1>
-                                            <textarea id="reviewDescription" rows="6" cols="50" placeholder="..."  
-                                                      oninput="validateDesc()" onblur="validateDesc()"></textarea>
-                                            <span class="error-message" id="descError"></span>
+                                    <div class="review-modal-create">
+                                        <div class="review-modal-row">
                                         </div>
                                         <div class="event-modal-row">
                                             <h1>Sterren</h1>
                                             <input id="reviewStars" placeholder="Kies een aantal sterren.." type="number" 
                                                    oninput="validateStars()" onblur="validateStars()"/>
                                             <span class="error-message" id="starsError"></span>
+                                            </div>
+                                        <div class="review-modal-row">
+                                            <h1>Beschrijving (max 500 karakters)</h1>
+                                            <textarea id="reviewDescription" rows="6" cols="50" placeholder="..."  
+                                                      oninput="validateFeedback()" onblur="validateFeedback()"></textarea>
+                                            <span class="error-message" id="descError"></span>
                                         </div>
+                                        
                                         <div class="event-modal-row">
                                             <button id="createReviewButtonModal" class="button create-event" type="submit">
                                                 <p>CREËER REVIEW</p>
@@ -355,4 +350,5 @@
 
 </body>
 <script src="js/event-dashboard-scripts.js"></script>
+
 </html>
