@@ -3,6 +3,7 @@
 @using Humanizer
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using Microsoft.EntityFrameworkCore.Query
+@inject CaveroAppContext Context
 @model CaveroApp.Pages.Events
 
 @{
@@ -131,12 +132,12 @@
                                 </div>
                                 <div class="line"></div>
                                 <div class="event-modal-row">
-                                    <h1>Beschrijving</h1>
+                                    <h1 class="event-underline">Beschrijving</h1>
                                     <p>@ev.description</p>
                                 </div>
                                 <div>
                                     <div class="event-modal-row">
-                                        <h1>Overige Informatie</h1>
+                                        <h1 class="event-underline">Overige Informatie</h1>
                                         <p>
                                             <strong>Locatie</strong>: @ev.location<br/>
                                             <strong>Datum</strong>: @ev.date.Date.ToString("dd/MM/yyyy")<br/>
@@ -152,7 +153,12 @@
                                                 @foreach (var participant in @eventParticipants)
                                                 {
                                                     <li>
-                                                        <img src="img/image-8-2.png"/>
+                                                        @if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{participant.Id}.png"))
+                                                        {
+                                                            var user = Context.Users.First(x => x.Id == participant.Id);
+                                                            ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, participant.Id!);
+                                                        }
+                                                        <img src="img/profilepictures/avatar@(participant.Id).png"/>
                                                         <p>@participant.FirstName @participant.LastName</p>
                                                     </li>
                                                 }

@@ -10,7 +10,7 @@
 .main-body {
     margin: 10px;
     display: grid;
-    grid-template-columns: fit-content(300px) fit-content(300px);
+    grid-template-columns: fit-content(300px) fit-content(300px) fit-content(300px);
     grid-template-rows: auto;
     grid-template-areas:
     'card1 card2 card3';
@@ -42,15 +42,12 @@
 /*phone layout*/
 @media only screen and (max-width: 630px) {
     .main-body {
-        margin: 10px;
-        display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: fit-content(300px) fit-content(300px) fit-content(300px);
+        grid-template-rows: auto auto auto;
         grid-template-areas:
         'card1'
         'card2'
         'card3';
-        grid-gap: 10px;
     }
 }
 

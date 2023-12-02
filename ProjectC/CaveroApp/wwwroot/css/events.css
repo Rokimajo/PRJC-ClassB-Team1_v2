@@ -318,13 +318,22 @@ div.event-card > * {
         text-align: center;
     }
     
-    .item {
+    .item {;
         height: 100%;
+        width: 70%;
         flex-grow: 1;
         align-self: center;
         overflow-y: auto;
     }
 }
+
+/*stretch the events full screen on phone.*/
+@media only screen and (max-width: 500px) {
+    .item {
+        width: 100%;
+    }
+}
+
 
 /* MODAL CSS */
 strong {
@@ -401,6 +410,7 @@ strong {
 }
 
 .event-modal-row > h1 {
+    font-weight: 600;
     text-align: start;
     font-size: 20px;
     margin-top: 5px;
@@ -409,11 +419,10 @@ strong {
 }
 
 .event-modal-row > p {
-    width: fit-content;
+    margin-top: 5px;
+    text-align: start;
     max-width: 600px;
-    padding: 8px;
     color: var(--collection-1-cavero-blackish-grey);
-    border: 1px solid var(--collection-1-cavero-blackish-grey);
     border-radius: 8px;
     word-wrap: break-word;
 }
@@ -422,6 +431,12 @@ div.event-modal-row br {
     display: block;
     content: "";
     margin-top: 3px;
+}
+
+.event-underline {
+    
+    border-bottom: 1px solid darkgray;
+    max-width: fit-content;
 }
 
 .event-modal-attendance {
