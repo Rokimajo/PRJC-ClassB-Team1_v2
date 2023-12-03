@@ -139,6 +139,7 @@ body {
 
 .main {
     grid-area: main;
+    margin-bottom: 5px;
 }
 
 .hamburger-menu {

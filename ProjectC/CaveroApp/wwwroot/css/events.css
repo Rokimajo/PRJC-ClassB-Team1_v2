@@ -1,7 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 .week-container {
-    height: 85.5vh;
+    height: 89.4vh;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     grid-auto-rows: minmax(0, min-content);
@@ -16,7 +16,7 @@
     clear: both;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 89.4vh;
     width: 100%;
 }
 
@@ -46,14 +46,14 @@
 .item {
     display: flex;
     align-items: center;
-    max-height: 100vh;
+    height: 100%;
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 10px;
     border-radius: 15px;
-    background: var(--collection-1-cavero-lichtpaars);
-    box-shadow: 2px 2px 2px 2px #00030040 inset;
+    background: rgba(246, 224, 248, 0.88);
+    border: 1px solid lightgrey;
     text-align: center;
 }
 
@@ -434,8 +434,8 @@ div.event-modal-row br {
 }
 
 .event-underline {
-    
-    border-bottom: 1px solid darkgray;
+    padding: 5px 5px 5px 0;
+    border-bottom: 2px solid rgba(71, 82, 94, 0.25);
     max-width: fit-content;
 }
 
