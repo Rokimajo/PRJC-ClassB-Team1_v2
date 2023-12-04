@@ -1,7 +1,9 @@
 ﻿using System.Data.Entity;
+using System.Globalization;
 using System.Security.Claims;
 using CaveroApp.Areas.Identity.Data;
 using CaveroApp.Data;
+using CaveroApp.Services;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +45,7 @@ public class Dashboard : PageModel
             join u in Context.Users on a.user_id equals u.Id
             where DateTime.UtcNow.Date.Equals(a.date.Date) select u).ToList().Distinct().Count();
 
-        GetCurrentWeek();
+        Week = DateServices.GetCurrentWeek(DateTime.UtcNow);
         var event_count = (from u in Context.Events
             where u.date.Date >= Week.Item1.Date && u.date.Date <= Week.Item2.Date && u.admin_approval != false
             select u).Count();
@@ -52,31 +54,51 @@ public class Dashboard : PageModel
         EventCount = event_count;
     }
     
-    /// <summary>
-    ///     Gets the current week's dates based on the chosen day parameter.
-    ///     It fills the Week tuple with the first item being monday and the last item being friday in dates.
-    /// </summary>
-    public void GetCurrentWeek()
+    
+    public List<CaveroAppContext.Event> GetAllEvents()
     {
-        var week = new ValueTuple<DateTime, DateTime>();
-        var success = DaysTillMonday.TryParse<DaysTillMonday>(DateTime.UtcNow.DayOfWeek.ToString(), out var day);
-        week.Item1 = DateTime.UtcNow.Date.AddDays(-(int)day).Date;
-        week.Item2 = week.Item1.AddDays(4).Date;
-        Week = week;
-    }
+        // Context.Events.Select(x => x);
+        var Info = (from events in Context.Events
+            select events).Distinct().ToList();
 
+        return Info;
+    }
+    
+    /// <summary>
+    ///    This function gets the number of participants for a given event.
+    ///     It returns the count of how many participants that event has.
+    /// </summary>
+    /// <param name="ev">
+    ///     The event to get the participants for.
+    /// </param>
+    public int GetEventParticipantsCount(CaveroAppContext.Event ev)
+    {
+        return (from e in Context.Events
+            join ea in Context.EventAttendances on e.ID equals ea.event_id
+            where e.Equals(ev)
+            select ea).Count();
+    }
     
     public void OnGet()
     {
         // Remove eventsinitialset if it was created in events, so the information is not stored between pages.
         // This is used so that the event week view starts on the date of today when you navigate back to it.
         HttpContext.Session.Remove("EventsInitialSet");
+        HttpContext.Session.Remove("AttendanceInitialSet");
         // Call this function to populate the fields with how many employees are present today,
         // and how many events are happening  this week.
         GetTodayStats();
     }
-
-    // get method api endpoint for javascript validator
+    
+    /// <summary>
+    ///     This function checks if the user is already checked in on the given date in string format.
+    /// </summary>
+    /// <param name="date">
+    ///    The date to check if the user is already checked in on. This date is given as string, in the format of dd-mm-yyyy.
+    /// </param>
+    /// <returns>
+    ///     Returns a JsonResult, which is used by AJAX to check if the user is already checked in on the given date.
+    /// </returns>
     public JsonResult OnGetCheckDate(string date)
     {
         var dateSplit = date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
@@ -90,15 +112,17 @@ public class Dashboard : PageModel
     public IActionResult OnPostDateCheckInUser()
     {
         var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        var dateSplit = CheckModel.Date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
-        var parsedDate = DateTime.SpecifyKind(new DateTime(dateSplit[2], dateSplit[1], dateSplit[0]), DateTimeKind.Utc);
-        var att = new CaveroAppContext.Attendance()
+        if(DateTime.TryParseExact(CheckModel.Date, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
         {
-            user_id = userID,
-            date = parsedDate,
-        };
-        Context.Add(att);
-        Context.SaveChanges();
+            parsedDate = DateTime.SpecifyKind(parsedDate, DateTimeKind.Utc);
+            var att = new CaveroAppContext.Attendance()
+            {
+                user_id = userID,
+                date = parsedDate,
+            };
+            Context.Add(att);
+            Context.SaveChanges();
+        }
         return RedirectToPage("/Dashboard");
     }
 
