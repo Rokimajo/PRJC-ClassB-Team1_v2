@@ -1,44 +1,71 @@
 ﻿@page
 @model CaveroApp.Pages.adminUserInfo
 
+@{
+    Layout = "Shared/CaveroLayoutResponsive";
+}
+
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title>Edit User Info</title>
-    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="css/events.css"/>
+    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/eventheader.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title></title>
+    <style>
+        .custom-event-card {
+            max-width: 460px;
+            position: relative;
+        }
+        .custom-button-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+        }
+        .custom-button-small {
+            max-width: 65px;
+            margin-right: 5px;
+        }
+        .user-edit-list{
+            display: flex;
+            align-items: center;
+            max-height: 720px;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 10px;
+            border-radius: 15px;
+            background: var(--collection-1-cavero-lichtpaars);
+            box-shadow: 2px 2px 2px 2px #00030040 inset;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<h1>Edit User Info</h1>
-
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Change Information</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="user-edit-list">
     @foreach (var user in @Model.Users())
     {
-        <tr>
-            <td>@user.Id</td>
-            <td>@user.FirstName</td>
-            <td>@user.LastName</td>
-            <td>@user.Email</td>
-            <td><button class="edit-button" data-user-id="@user.Id">Edit</button></td>
-        </tr>
+        <div class="event-card custom-event-card">
+            <p>First Name: @(user.FirstName)</p>
+            <p>Last Name: @(user.LastName)</p>
+            <p>Email: @(user.Email)</p>
+            <p>User ID: @(user.Id)</p>
+            <div class="custom-button-container">
+                <button class="button edit custom-button-small" data-user-id="@user.Id" data-firstName="@user.FirstName" data-lastName="@user.LastName" data-email="@user.Email">Edit</button>
+                <form method="post" asp-page-handler="DeleteUser" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                    <input type="hidden" name="userToDelete.Id" value="@user.Id" />
+                    <button class="button delete custom-button-small" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
     }
-    </tbody>
-</table>
-<!-- Modal for editing -->
+</div>
     <div id="editModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <!-- Form for editing user -->
             <form method="post" asp-page-handler="UpdateUser">
                 <label for="editId">ID:</label>
                 <input type="text" id="editId" name="Id" readonly>
@@ -58,7 +85,7 @@
     </div>
 
     <script>
-        // Function to open the modal for editing
+        
         function openModal(userId, firstName, lastName, email) {
             document.getElementById("editId").value = userId;
             document.getElementById("editFirstName").value = firstName;
@@ -66,20 +93,16 @@
             document.getElementById("editEmail").value = email;
             document.getElementById("editModal").style.display = "block";
         }
-
-        // Function to close the modal
         function closeModal() {
             document.getElementById("editModal").style.display = "none";
         }
-
-        // Attach click event to all edit buttons
-        var editButtons = document.getElementsByClassName("edit-button");
+        var editButtons = document.getElementsByClassName("button edit custom-button-small");
         for (var i = 0; i < editButtons.length; i++) {
             editButtons[i].addEventListener("click", function () {
                 var userId = this.getAttribute("data-user-id");
-                var firstName = this.parentNode.parentNode.children[1].innerText;
-                var lastName = this.parentNode.parentNode.children[2].innerText;
-                var email = this.parentNode.parentNode.children[3].innerText;
+                var firstName = this.getAttribute("data-firstName");
+                var lastName = this.getAttribute("data-lastName");
+                var email = this.getAttribute("data-email");
 
                 openModal(userId, firstName, lastName, email);
             });
