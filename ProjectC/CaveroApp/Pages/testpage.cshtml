@@ -52,7 +52,6 @@
             <p>First Name: @(user.FirstName)</p>
             <p>Last Name: @(user.LastName)</p>
             <p>Email: @(user.Email)</p>
-            <p>User ID: @(user.Id)</p>
             <div class="custom-button-container">
                 <button class="button edit custom-button-small" data-user-id="@user.Id" data-firstName="@user.FirstName" data-lastName="@user.LastName" data-email="@user.Email">Edit</button>
                 <form method="post" asp-page-handler="DeleteUser" onsubmit="return confirm('Are you sure you want to delete this user?');">
@@ -67,8 +66,9 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <form method="post" asp-page-handler="UpdateUser">
-                <label for="editId">ID:</label>
-                <input type="text" id="editId" name="Id" readonly>
+                @*Disabled id for now, because of potential confusion*@
+                @* <label for="editId">ID:</label> *@
+                <input type="text" id="editId" name="Id" style="display: none;" readonly>
 
                 <label for="editFirstName">First Name:</label>
                 <input type="text" id="editFirstName" name="FirstName">
