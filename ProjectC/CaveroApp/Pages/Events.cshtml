@@ -5,6 +5,7 @@
 @using Microsoft.EntityFrameworkCore.Query
 @model CaveroApp.Pages.Events
 
+
 @{
     ViewData["Title"] = "Events";
     Layout = "Shared/CaveroLayoutResponsive";
@@ -171,6 +172,41 @@
                         </div>
                         <!--  Review Modal -->
                         //asp left out on line 188, 194, 200
+                        @* <div id="review-Modal" class="review-modal"> *@
+                        @*     <div class="review-modal-content"> *@
+                        @*         <div class="review-modal-header"> *@
+                        @*             <h1 style="justify-content: flex-start">Review @ev.title</h1> *@
+                        @*             <span id="closeReview" class="close" style="justify-content: flex-start">&times;</span> *@
+                        @*             </div> *@
+                        @*         <div class="line"></div> *@
+                        @*         <form id="createReviewForm" asp-page-handler="Events" method="post"> *@
+                        @*             <div class="review-modal-create"> *@
+                        @*                 <div class="review-modal-row"> *@
+                        @*                     </div> *@
+                        @*                 <div class="event-modal-row"> *@
+                        @*                      *@
+                        @*                     <h1>Sterren</h1> *@
+                        @*                     <input id="rating-@ev.ID" value="rating" required asp-for="reviewModel.rating" placeholder="Kies een aantal sterren.." type="number" *@
+                        @*                            oninput="validateStars()" onblur="validateStars()"/> *@
+                        @*                     <span class="error-message" id="starsError"></span> *@
+                        @*                 </div> *@
+                        @*                 <div class="review-modal-row"> *@
+                        @*                     <h1>Beschrijving (max 500 karakters)</h1> *@
+                        @*                     <textarea id="feedback-@ev.ID" value="feedback" required asp-for="reviewModel.feedback "rows="6" cols="50" placeholder="..."  oninput="validateFeedback()" onblur="validateFeedback()"></textarea> *@
+                        @*                     <span class="error-message" id="descError"></span> *@
+                        @*                     </div> *@
+                        @*                                      *@
+                        @*                 <div class="event-modal-row"> *@
+                        @*                     <button id="createReviewButtonModal" class="button create-event" type="submit"> *@
+                        @*                         <p>CREËER REVIEW</p> *@
+                        @*                         </button> *@
+                        @*                     </div> *@
+                        @*                 </div> *@
+                        @*             </form> *@
+                        @*         </div> *@
+                        @*     </div> *@
+                        //edit the modal above so that the inputted data can be sent to the database via the OnPost method
+
                         <div id="review-Modal" class="review-modal">
                             <div class="review-modal-content">
                                 <div class="review-modal-header">
@@ -181,21 +217,18 @@
                                 <form id="createReviewForm" asp-page-handler="CreateReview" method="post">
                                     <div class="review-modal-create">
                                         <div class="review-modal-row">
-                                        </div>
-                                        <div class="event-modal-row">
                                             <h1>Sterren</h1>
-                                            <input id="reviewStars" placeholder="Kies een aantal sterren.." type="number" 
+                                            <input id="rating" asp-for="reviewModel.rating" placeholder="Kies een aantal sterren.." type="number"
                                                    oninput="validateStars()" onblur="validateStars()"/>
                                             <span class="error-message" id="starsError"></span>
                                         </div>
                                         <div class="review-modal-row">
                                             <h1>Beschrijving (max 500 karakters)</h1>
-                                            <textarea id="reviewDescription" rows="6" cols="50" placeholder="..."  
+                                            <textarea id="feedback" asp-for="reviewModel.feedback" rows="6" cols="50" placeholder="..."
                                                       oninput="validateFeedback()" onblur="validateFeedback()"></textarea>
                                             <span class="error-message" id="descError"></span>
                                         </div>
-                                        
-                                        <div class="event-modal-row">
+                                        <div class="review-modal-row">
                                             <button id="createReviewButtonModal" class="button create-event" type="submit">
                                                 <p>CREËER REVIEW</p>
                                             </button>
@@ -203,35 +236,45 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                        <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Get the modal and the button
-        var reviewModal = document.getElementById('review-Modal');
-        var reviewButton = document.querySelector('.button.review');
+                        </div>                  
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    var reviewModal = document.getElementById('review-Modal');
+                                    var createReviewForm = document.getElementById('createReviewForm');
 
-        // Add click event listener to the button
-        reviewButton.addEventListener('click', function () {
-            // Display the modal
-            reviewModal.style.display = 'flex';
-        });
+                                    // Use attribute selector to target buttons with data-card-id attribute
+                                    var reviewButtons = document.querySelectorAll('.button.review[data-card-id]');
 
-        // Add click event listener to close button in the modal
-        var closeReviewButton = document.getElementById('closeReview');
-        closeReviewButton.addEventListener('click', function () {
-            // Close the modal
-            reviewModal.style.display = 'none';
-        });
+                                    // Loop through all review buttons
+                                    reviewButtons.forEach(function (button) {
+                                        button.addEventListener('click', function () {
+                                            reviewModal.style.display = 'flex';
+                                        });
+                                    });
 
-        // Add click event listener to overlay (optional: close modal when clicking outside the modal content)
-        reviewModal.addEventListener('click', function (event) {
-            if (event.target === reviewModal) {
-                // Close the modal
-                reviewModal.style.display = 'none';
-            }
-        });
-    });
-</script>
+                                    createReviewForm.addEventListener('submit', function (event) {
+                                        event.preventDefault();
+
+                                        // Existing logic to display the modal
+                                        reviewModal.style.display = 'none';
+                                        createReviewForm.submit();
+                                    });
+
+                                    var closeReviewButton = document.getElementById('closeReview');
+                                    closeReviewButton.addEventListener('click', function () {
+                                        reviewModal.style.display = 'none';
+                                    });
+
+                                    reviewModal.addEventListener('click', function (event) {
+                                        if (event.target === reviewModal) {
+                                            reviewModal.style.display = 'none';
+                                        }
+                                    });
+                                });
+                            </script>
+
+                                                    
+        
                         <!--  Review Modal -->
                         <!-- Admin Delete Event Modal -->
                         <div class="event-modal modal-card-delete-@ev.ID">

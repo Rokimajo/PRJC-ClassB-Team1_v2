@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
 using static CaveroApp.Services.CustomClasses;
+
 
 namespace CaveroApp.Pages;
 
@@ -15,8 +17,10 @@ public class Events : PageModel
     // Database context
     public CaveroAppContext Context { get; }
 
+
     [BindProperty]
     public EventModel eventModel { get; set; }
+    public ReviewModel reviewModel { get; set; }
 
     // Monday - Friday
     // First item is monday, last item is friday in dates.
@@ -25,11 +29,17 @@ public class Events : PageModel
     // The day that the user has chosen to view events for
     public static DateTime ChosenDay { get; set; }
 
+
     public Events(CaveroAppContext context)
     {
         Context = context;
     }
 
+    public class ReviewModel
+    {
+        public StringValues feedback { get; set; }
+        public StringValues rating { get; set; }
+    }
     public class EventModel
     {
         public string Title { get; set; }
@@ -270,12 +280,35 @@ public class Events : PageModel
         Context.SaveChanges();
         return RedirectToPage();
     }
-    [HttpPost]
-    public IActionResult SubmitReview(string reviewerName, string reviewContent, int rating)
-    {
-        // Handle the review submission (save to the database, etc.)
 
-        // Redirect or return a response as needed
-        return RedirectToAction("Index");
+    public IActionResult OnPostSaveReview(int eventID)
+    {
+        int ID = Context.Reviews.Max(r => (int?)r.ID) ?? 0 + 1;
+        string? userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        StringValues? rating = Request.Form["rating"];
+        StringValues? feedback = Request.Form["feedback"];
+        int ratingInt = Convert.ToInt32(rating);
+        var newReview = new CaveroAppContext.Review()
+        {
+            ID = ID,
+            user_id = userId,
+            event_id = eventID,
+            rating = ratingInt,
+            feedback = feedback
+        };
+        if (eventID == 0 || string.IsNullOrEmpty(userId) || ratingInt == 0 || string.IsNullOrEmpty(feedback))
+        {
+            TempData["Message"] = "Review not submitted, please fill out all fields";
+            return RedirectToPage();
+        }
+        else
+        {
+            TempData["Message"] = "Review submitted successfully!";
+            Context.Add(newReview);
+            Context.SaveChanges();
+            return RedirectToPage();
+        }
     }
+
+
 }
