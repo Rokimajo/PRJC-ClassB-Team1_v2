@@ -12772,25 +12772,27 @@
     ]
   },
   "packageFolders": {
-    "/Users/metalsi/.nuget/packages/": {}
+    "C:\\Users\\robin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/CaveroApp.csproj",
+      "projectUniqueName": "C:\\Users\\robin\\Desktop\\Project_C\\ProjectC\\CaveroApp\\CaveroApp.csproj",
       "projectName": "CaveroApp",
-      "projectPath": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/CaveroApp.csproj",
-      "packagesPath": "/Users/metalsi/.nuget/packages/",
-      "outputPath": "/Users/metalsi/RiderProjects/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/obj/",
+      "projectPath": "C:\\Users\\robin\\Desktop\\Project_C\\ProjectC\\CaveroApp\\CaveroApp.csproj",
+      "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\robin\\Desktop\\Project_C\\ProjectC\\CaveroApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/metalsi/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "net7.0": {
@@ -12888,7 +12890,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   },
