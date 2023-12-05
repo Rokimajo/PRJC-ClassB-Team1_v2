@@ -1,6 +1,7 @@
 ﻿@page
 @using CaveroApp.Areas.Identity.Data
 @using System.Security.Claims
+@using System.Runtime.InteropServices.JavaScript
 @model CaveroApp.Pages.Dashboard
 @inject SignInManager<CaveroAppUser> SignInManager
 @inject CaveroAppContext Context
@@ -27,11 +28,26 @@
         var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var username = Context.Users.Where(x => x.Id == userID).Select(y => y.FirstName).First();
         <h1 style="color: white; font-size: 28px; font-weight:  600; font-family: 'Montserrat', sans-serif;">Welkom terug, @username!</h1>
+        <img id="bell-icon" src="img/icons8-notification-bell-50.png" alt="Notification Bell Icon" class="notification-bell">
+
     }
 }
 
 <!DOCTYPE html>
 <html>
+<style>
+        img.notification-bell {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+        #NextDayEvent {
+            position: absolute;
+            right: 20px;
+        }
+    </style>
 <head>
 </head>
 <body>
@@ -107,6 +123,25 @@
             }
         </div>
     </div>
+    <div id="NextDayEvent" style="visibility: hidden">
+        @* Dit laat event van de volgende dag zien *@
+        @foreach (var groupp in groupedEvents)
+        {
+            @foreach (var evv in groupp.OrderBy(x => x.date))
+            {
+                if (evv.date.Date == DateTime.Now.AddDays(1).Date)
+                {
+                    <script>
+                        document.getElementById("bell-icon").src = "img/icons8-notification-50.png"
+                    </script>
+                    <div class="event-card custom-event-card">
+                        <h1>@evv.title</h1>
+                        <p>@groupp.Key.ToString("dddd, d MMMM")</p>
+                    </div>
+                }
+            }
+        }
+    </div>
 </div>
 </body>
 
@@ -165,5 +200,20 @@ function validateCheckInDate(event) {
                 });
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+            const notificationBell = document.querySelector('.notification-bell');
+
+            notificationBell.addEventListener('click', function () {
+                // logic om upcoming events te laten zien
+                var eventShow = document.getElementById("NextDayEvent");
+                if (eventShow.style.visibility === 'hidden') {
+                    eventShow.style.visibility = 'visible';
+                  } else {
+                    eventShow.style.visibility = 'hidden';
+                  }
+            });
+        });
 </script>
 </html>
