@@ -281,34 +281,64 @@ public class Events : PageModel
         return RedirectToPage();
     }
 
-    public IActionResult OnPostSaveReview(int eventID)
+    // public IActionResult OnPostSaveReview(int eventID)
+    // {
+    //     Console.WriteLine("test");
+    //     string? userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    //     StringValues? rating = Request.Form["rating"];
+    //     StringValues? feedback = Request.Form["feedback"];
+    //     int ratingInt = Convert.ToInt32(rating);
+    //     var newReview = new CaveroAppContext.Review()
+    //     {
+    //         user_id = userId,
+    //         event_id = eventID,
+    //         rating = ratingInt,
+    //         feedback = feedback
+    //     };
+    //     Console.WriteLine(newReview);
+    //     Context.Add(newReview);
+    //     Context.SaveChanges();
+    //     TempData["Message"] = "Review submitted successfully!";
+    //     Console.WriteLine("test2");
+    //     return RedirectToPage();
+    //     
+    //     // if (eventID == 0 || string.IsNullOrEmpty(userId) || ratingInt == 0 || string.IsNullOrEmpty(feedback))
+    //     // {
+    //     //     TempData["Message"] = "Review not submitted, please fill out all fields";
+    //     //     return RedirectToPage();
+    //     // }
+    //     // else
+    //     // {
+    //     //
+    //     // }
+    // }
+    public IActionResult OnPostSaveReview(int eventID, ReviewModel reviewModel)
     {
-        int ID = Context.Reviews.Max(r => (int?)r.ID) ?? 0 + 1;
-        string? userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        StringValues? rating = Request.Form["rating"];
-        StringValues? feedback = Request.Form["feedback"];
+        Console.WriteLine("SAVE REVIEW CALLED!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var rating = reviewModel.rating;
+        var feedback = reviewModel.feedback;
         int ratingInt = Convert.ToInt32(rating);
+
+        // Check if feedback is null or empty
+        if (string.IsNullOrEmpty(feedback))
+        {
+            // Handle the error, perhaps return an error message to the user
+            return BadRequest("Feedback cannot be empty");
+        }
+
         var newReview = new CaveroAppContext.Review()
         {
-            ID = ID,
             user_id = userId,
             event_id = eventID,
             rating = ratingInt,
             feedback = feedback
         };
-        if (eventID == 0 || string.IsNullOrEmpty(userId) || ratingInt == 0 || string.IsNullOrEmpty(feedback))
-        {
-            TempData["Message"] = "Review not submitted, please fill out all fields";
-            return RedirectToPage();
-        }
-        else
-        {
-            TempData["Message"] = "Review submitted successfully!";
-            Context.Add(newReview);
-            Context.SaveChanges();
-            return RedirectToPage();
-        }
+        Console.WriteLine(feedback+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        Context.Add(newReview);
+        Context.SaveChanges();
+        TempData["Message"] = "Review submitted successfully!";
+        Console.WriteLine("Context Saved!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!.");
+        return RedirectToPage();
     }
-
-
 }

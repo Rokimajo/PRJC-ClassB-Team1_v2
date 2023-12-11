@@ -214,7 +214,7 @@
                                     <span id="closeReview" class="close" style="justify-content: flex-start">&times;</span>
                                 </div>
                                 <div class="line"></div>
-                                <form id="createReviewForm" asp-page-handler="CreateReview" method="post">
+                                <form id="createReviewForm" asp-page-handler="SaveReview" method="post">
                                     <div class="review-modal-create">
                                         <div class="review-modal-row">
                                             <h1>Sterren</h1>
@@ -224,8 +224,8 @@
                                         </div>
                                         <div class="review-modal-row">
                                             <h1>Beschrijving (max 500 karakters)</h1>
-                                            <textarea id="feedback" asp-for="reviewModel.feedback" rows="6" cols="50" placeholder="..."
-                                                      oninput="validateFeedback()" onblur="validateFeedback()"></textarea>
+                                            <input id="feedback" asp-for="reviewModel.feedback" rows="6" cols="50" placeholder="..."
+                                                                              oninput="validateFeedback()" onblur="validateFeedback()"></input>
                                             <span class="error-message" id="descError"></span>
                                         </div>
                                         <div class="review-modal-row">
@@ -236,7 +236,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>                  
+                                                </div>                 
                             <script>
                                 document.addEventListener('DOMContentLoaded', function () {
                                     var reviewModal = document.getElementById('review-Modal');
