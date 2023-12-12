@@ -265,37 +265,37 @@
                     <div class="event-modal-row">
                         <h1>Titel (max 20 karakters)</h1>
                         <input id="eventTitle" placeholder="..." asp-for="eventModel.Title" required
-                               pattern=".{1,20}" oninput="validateTitle()" onblur="validateTitle()"/>
+                               pattern=".{1,20}" oninput="validateTitle('')" onblur="validateTitle('')"/>
                         <span class="error-message" id="titleError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Beschrijving (max 250 karakters)</h1>
                         <textarea id="eventDescription" rows="6" cols="50" placeholder="..."  asp-for="eventModel.Description" required 
-                           oninput="validateDesc()" onblur="validateDesc()"></textarea>
+                           oninput="validateDesc('')" onblur="validateDesc('')"></textarea>
                         <span class="error-message" id="descError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Locatie (max 20 karakters)</h1>
                         <input id="eventLocation" placeholder="..." asp-for="eventModel.Location" required
-                               pattern=".{1,20}" oninput="validateLoc()" onblur="validateLoc()"/>
+                               pattern=".{1,20}" oninput="validateLoc('')" onblur="validateLoc('')"/>
                         <span class="error-message" id="locError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Datum</h1>
                         <input id="eventDate" placeholder="Kies een datum.." type="text" asp-for="eventModel.Date" required
-                               oninput="validateDate()" onblur="validateDate()"/>
+                               oninput="validateDate(undefined, '')" onblur="validateDate(undefined, '')"/>
                         <span class="error-message" id="dateError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Starttijd</h1>
                         <input id="eventStartTime" placeholder="Kies een starttijd.." class="timepicker" type="text" asp-for="eventModel.StartTime" required
-                               oninput="validateStartTime()" onblur="validateStartTime()"/>
+                               oninput="validateStartTime(undefined, '')" onblur="validateStartTime(undefined, '')"/>
                         <span class="error-message" id="startTimeError"></span>
                     </div>
                     <div class="event-modal-row">
                         <h1>Eindtijd</h1>
                         <input id="eventEndTime" placeholder="Kies een eindtijd.." class="timepicker" type="text" asp-for="eventModel.EndTime" required
-                               oninput="validateEndTime()" onblur="validateEndTime()"/>
+                               oninput="validateEndTime(undefined, '')" onblur="validateEndTime(undefined, '')"/>
                         <span class="error-message" id="endTimeError"></span>
                     </div>
                     <div class="event-modal-row">
