@@ -224,8 +224,8 @@
                                         </div>
                                         <div class="review-modal-row">
                                             <h1>Beschrijving (max 500 karakters)</h1>
-                                            <input id="feedback" asp-for="reviewModel.feedback" rows="6" cols="50" placeholder="..."
-                                                                              oninput="validateFeedback()" onblur="validateFeedback()"></input>
+                                            <input id="feedback" asp-for="reviewModel.feedback" rows="6" cols="50" placeholder="..." type="text"
+                                                   oninput="validateFeedback()" onblur="validateFeedback()"></input>
                                             <span class="error-message" id="descError"></span>
                                         </div>
                                         <div class="review-modal-row">
@@ -236,7 +236,7 @@
                                     </div>
                                 </form>
                             </div>
-                                                </div>                 
+                        </div>                 
                             <script>
                                 document.addEventListener('DOMContentLoaded', function () {
                                     var reviewModal = document.getElementById('review-Modal');
@@ -271,6 +271,24 @@
                                         }
                                     });
                                 });
+                                    // Listen for the event selection change
+                                    document.getElementById('eventSelect').addEventListener('change', function() {
+                                        // Get the selected event ID
+                                        var eventId = this.value;
+                                
+                                        // Fetch the event details
+                                        fetch(`/api/events/${eventId}`)
+                                            .then(response => response.json())
+                                            .then(event => {
+                                                // Fill the form fields
+                                                document.getElementById('date').value = event.date;
+                                                document.getElementById('startTime').value = event.startTime;
+                                                document.getElementById('endTime').value = event.endTime;
+                                                document.getElementById('location').value = event.location;
+                                                document.getElementById('description').value = event.description;
+                                            });
+                                    });
+                                
                             </script>
 
                                                     

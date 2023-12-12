@@ -39,6 +39,7 @@ public class Events : PageModel
     {
         public StringValues feedback { get; set; }
         public StringValues rating { get; set; }
+
     }
     public class EventModel
     {
@@ -315,18 +316,28 @@ public class Events : PageModel
     public IActionResult OnPostSaveReview(int eventID, ReviewModel reviewModel)
     {
         Console.WriteLine("SAVE REVIEW CALLED!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        //get the current chosen event and the details of the event
+
         string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var rating = reviewModel.rating;
         var feedback = reviewModel.feedback;
         int ratingInt = Convert.ToInt32(rating);
+        // Check if model state is valid
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
 
+        // Check if rating is null or empty
+        if (string.IsNullOrEmpty(rating))
+        {
+            return BadRequest("Rating cannot be empty");
+        }
         // Check if feedback is null or empty
         if (string.IsNullOrEmpty(feedback))
         {
-            // Handle the error, perhaps return an error message to the user
             return BadRequest("Feedback cannot be empty");
         }
-
         var newReview = new CaveroAppContext.Review()
         {
             user_id = userId,
@@ -334,11 +345,13 @@ public class Events : PageModel
             rating = ratingInt,
             feedback = feedback
         };
-        Console.WriteLine(feedback+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        Context.Add(newReview);
+
+        Console.WriteLine(feedback + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        Context.Reviews.Add(newReview);
         Context.SaveChanges();
         TempData["Message"] = "Review submitted successfully!";
         Console.WriteLine("Context Saved!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!.");
         return RedirectToPage();
+
     }
 }
