@@ -37,8 +37,9 @@ public class Events : PageModel
 
     public class ReviewModel
     {
-        public StringValues feedback { get; set; }
-        public StringValues rating { get; set; }
+        public int event_id { get; set; }
+        public string feedback { get; set; }
+        public int rating { get; set; }
 
     }
     public class EventModel
@@ -313,23 +314,15 @@ public class Events : PageModel
     //     //
     //     // }
     // }
-    public IActionResult OnPostSaveReview(int eventID, ReviewModel reviewModel)
+    public IActionResult OnPostSaveReview(ReviewModel reviewModel)
     {
         Console.WriteLine("SAVE REVIEW CALLED!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         //get the current chosen event and the details of the event
 
         string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        var rating = reviewModel.rating;
-        var feedback = reviewModel.feedback;
-        int ratingInt = Convert.ToInt32(rating);
-        // Check if model state is valid
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-
-        // Check if rating is null or empty
-        if (string.IsNullOrEmpty(rating))
+        int rating = reviewModel.rating;
+        string feedback = reviewModel.feedback;
+        if (rating == 0 || rating == null)
         {
             return BadRequest("Rating cannot be empty");
         }
@@ -341,16 +334,13 @@ public class Events : PageModel
         var newReview = new CaveroAppContext.Review()
         {
             user_id = userId,
-            event_id = eventID,
-            rating = ratingInt,
+            event_id = reviewModel.event_id,
+            rating = rating,
             feedback = feedback
         };
-
-        Console.WriteLine(feedback + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Context.Reviews.Add(newReview);
         Context.SaveChanges();
         TempData["Message"] = "Review submitted successfully!";
-        Console.WriteLine("Context Saved!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!.");
         return RedirectToPage();
 
     }

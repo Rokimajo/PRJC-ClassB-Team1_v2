@@ -1,18 +1,20 @@
-﻿function validateStars() {
-    var stars = document.getElementById('reviewStars').value;
-    if (stars < 1 || stars > 5) {
-        document.getElementById('starsError').innerHTML = 'Kies een aantal sterren tussen 1 en 5.';
-    } else {
-        document.getElementById('starsError').innerHTML = '';
-        console.log("Stars valid");
+﻿function validateCreateReviewForm() {
+    let rating = document.getElementById("rating").value;
+    let review = document.getElementById("review").value;
+
+    if (rating == "" || review == "") {
+        alert("Please fill in all fields");
+        return false;
     }
-}
-function validateFeedback() {
-    var review = document.getElementById('reviewText').value;
-    if (review.length < 1 || review.length > 500) {
-        document.getElementById('reviewError').innerHTML = 'Review moet 1-500 karakters bevatten.';
-    } else {
-        document.getElementById('reviewError').innerHTML = '';
-        console.log("Review valid");
+    else if (rating < 1 || rating > 5) {
+        alert("Rating must be between 1 and 5");
+        return false;
+    }
+    else if (review.length < 10 && review.length > 500) {
+        alert("Review must be at least 10 characters long and max 500 characters long");
+        return false;
+    }
+    else {
+        return true;
     }
 }
