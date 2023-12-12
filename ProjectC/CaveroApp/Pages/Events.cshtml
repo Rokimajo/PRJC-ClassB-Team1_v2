@@ -227,13 +227,13 @@
                                             <h1>Sterren</h1>
                                             <input id="rating" asp-for="reviewModel.rating" placeholder="Kies een aantal sterren.." type="number"
                                                    oninput="validateCreateReviewForm()" onblur="validateCreateReviewForm()"/>
-                                            <span class="error-message" id="starsError"></span>
+                                            <span class="error-message" id="error"></span>
                                         </div>
                                         <div class="review-modal-row">
                                             <h1>Beschrijving (max 500 karakters)</h1>
                                             <input id="feedback" asp-for="reviewModel.feedback" rows="6" cols="50" placeholder="..." type="text"
                                                    oninput="validateCreateReviewForm()" onblur="validateCreateReviewForm()"></input>
-                                            <span class="error-message" id="descError"></span>
+                                            <span class="error-message" id="error" ></span>
                                         </div>
                                         <div class="review-modal-row">
                                             <button id="createReviewButtonModal" class="button create-event" type="submit">

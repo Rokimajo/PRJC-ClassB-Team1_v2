@@ -316,12 +316,11 @@ public class Events : PageModel
     // }
     public IActionResult OnPostSaveReview(ReviewModel reviewModel)
     {
-        Console.WriteLine("SAVE REVIEW CALLED!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         //get the current chosen event and the details of the event
-
         string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         int rating = reviewModel.rating;
         string feedback = reviewModel.feedback;
+        // Check if rating is null or empty
         if (rating == 0 || rating == null)
         {
             return BadRequest("Rating cannot be empty");
