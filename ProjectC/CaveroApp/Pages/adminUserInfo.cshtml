@@ -1,8 +1,19 @@
 ﻿@page
+@using System.Security.Claims
+@using CaveroApp.Areas.Identity.Data
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model CaveroApp.Pages.testpage
+@inject SignInManager<CaveroAppUser> SignInManager
+@inject CaveroAppContext Context
 
 @{
     Layout = "Shared/CaveroLayoutResponsive";
+}
+
+
+@section HeaderContent
+{
+    <h1 style="color: white; font-size: 24px; font-weight:  600; font-family: 'Montserrat', sans-serif;">Kies hier een gebruiker om hun informatie aan te passen.</h1>
 }
 
 <!DOCTYPE html>
@@ -32,14 +43,13 @@
         .user-edit-list{
             display: flex;
             align-items: center;
-            max-height: 720px;
+            max-height: 91.8vh;
             flex-direction: column;
             overflow-y: auto;
             overflow-x: hidden;
             padding: 10px;
             border-radius: 15px;
-            background: var(--collection-1-cavero-lichtpaars);
-            box-shadow: 2px 2px 2px 2px #00030040 inset;
+            background-color: lightcyan;
             text-align: center;
         }
     </style>
