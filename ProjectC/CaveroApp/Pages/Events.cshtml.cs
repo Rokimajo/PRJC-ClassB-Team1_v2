@@ -320,16 +320,14 @@ public class Events : PageModel
         string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         int rating = reviewModel.rating;
         string feedback = reviewModel.feedback;
-        // Check if rating is null or empty
-        if (rating == 0 || rating == null)
+
+        //if the rating or feedback is empty, return an error
+        if (rating == 0 || rating == null || string.IsNullOrEmpty(feedback) || rating > 5 || rating < 1)
         {
-            return BadRequest("Rating cannot be empty");
+            TempData["Message"] = "Review not submitted, please fill out all fields correctly";
+            return RedirectToPage();
         }
-        // Check if feedback is null or empty
-        if (string.IsNullOrEmpty(feedback))
-        {
-            return BadRequest("Feedback cannot be empty");
-        }
+        
         var newReview = new CaveroAppContext.Review()
         {
             user_id = userId,

@@ -224,7 +224,7 @@
                                     <input type="hidden" asp-for="reviewModel.event_id" value="@ev.ID" />
                                     <div class="review-modal-create">
                                         <div class="review-modal-row">
-                                            <h1>Sterren</h1>
+                                            <h1>Sterren(1-5)</h1>
                                             <input id="rating" asp-for="reviewModel.rating" placeholder="Kies een aantal sterren.." type="number"
                                                    oninput="validateCreateReviewForm()" onblur="validateCreateReviewForm()"/>
                                             <span class="error-message" id="error"></span>
@@ -238,8 +238,9 @@
                                         <div class="review-modal-row">
                                             <button id="createReviewButtonModal" class="button create-event" type="submit">
                                                 <p>CREËER REVIEW</p>
-                                            </button>
-                                        </div>
+                                                </button>
+                                            </div>
+                                        
                                     </div>
                                 </form>
                             </div>
@@ -278,24 +279,7 @@
                                         }
                                     });
                                 });
-                                    // // Listen for the event selection change
-                                    // document.getElementById('eventSelect').addEventListener('change', function() {
-                                    //     // Get the selected event ID
-                                    //     var eventId = this.value;
-                                    //
-                                    //     // Fetch the event details
-                                    //     fetch(`/api/events/${eventId}`)
-                                    //         .then(response => response.json())
-                                    //         .then(event => {
-                                    //             // Fill the form fields
-                                    //             document.getElementById('date').value = event.date;
-                                    //             document.getElementById('startTime').value = event.startTime;
-                                    //             document.getElementById('endTime').value = event.endTime;
-                                    //             document.getElementById('location').value = event.location;
-                                    //             document.getElementById('description').value = event.description;
-                                    //         });
-                                    // });
-                                
+                          
                             </script>
 
                                                     
