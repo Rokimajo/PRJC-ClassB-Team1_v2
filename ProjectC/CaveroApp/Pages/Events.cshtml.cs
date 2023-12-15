@@ -228,12 +228,16 @@ public IActionResult OnPostCreateEvent()
     /// </returns>
     public IActionResult OnPostEventSignOut(int eventID)
     {
-        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        var evAtt = (from ea in Context.EventAttendances
-            where ea.event_id.Equals(eventID) && ea.user_id.Equals(userId)
-                select ea).First();
-        Context.Remove(evAtt);
-        Context.SaveChanges();
+        if (Context.Events.First(x => x.ID == eventID).date.Date >= DateTime.UtcNow.Date)
+        {       
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+             var evAtt = (from ea in Context.EventAttendances
+                 where ea.event_id.Equals(eventID) && ea.user_id.Equals(userId)
+                     select ea).First();
+             Context.Remove(evAtt);
+             Context.SaveChanges();
+             return RedirectToPage();
+        }
         return RedirectToPage();
     }
 

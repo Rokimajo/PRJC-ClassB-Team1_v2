@@ -334,6 +334,14 @@ div.event-card > * {
     }
 }
 
+.event-toggle {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%;
+    background-color: var(--collection-1-cavero-lichtpaars);
+}
 
 /* MODAL CSS */
 strong {

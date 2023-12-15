@@ -38,6 +38,7 @@ public class adminUserInfo : PageModel
 
     public IActionResult OnPostDeleteUser(CaveroAppUser userToDelete)
     {
+        
         var user = Context.Users.First(x => x.Id == userToDelete.Id);
         Context.Remove(user);
         Context.SaveChanges();
