@@ -121,6 +121,13 @@ namespace CaveroApp.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                // Check if the email ends with @cavero.
+                // MADE NON FUNCTIONAL BECAUSE PEOPLE NEED TO TEST AND RUN THIS APART FROM CAVERO.
+                // if (!Input.Email.EndsWith("@cavero.nl"))
+                // {
+                //     ModelState.AddModelError(string.Empty, "You can only register with a Cavero email address.");
+                //     return Page();
+                // }
                 var user = CreateUser();
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
