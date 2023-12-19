@@ -7,7 +7,7 @@
     grid-auto-rows: minmax(0, min-content);
     grid-auto-flow: dense;
     grid-template-areas:
-            "monday tuesday wednesday thursday friday";
+        "monday tuesday wednesday thursday friday";
     grid-gap: 10px;
     margin: 10px;
 }
@@ -29,14 +29,14 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.day > h1 {
+.day>h1 {
     float: left;
     padding: 5px;
     font-size: 20px;
     font-weight: 500;
 }
 
-.day > h2 {
+.day>h2 {
     float: right;
     padding: 5px;
     font-size: 25px;
@@ -69,11 +69,11 @@
 
 .item::-webkit-scrollbar-thumb {
     border-radius: 15px;
-    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: var(--collection-1-cavero-blackish-grey);
 }
 
-.item > input {
+.item>input {
     background-image: url('https://www.w3schools.com/css/searchicon.png');
     background-repeat: no-repeat;
     background-size: 20px;
@@ -92,7 +92,7 @@
     transition: 0.3s;
 }
 
-.item > input:hover {
+.item>input:hover {
     cursor: pointer;
     box-shadow: 2px 2px 2px #00000040;
 }
@@ -118,7 +118,7 @@
 }
 
 div.event-card,
-div.event-card > * {
+div.event-card>* {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -139,7 +139,7 @@ div.event-card > * {
     background: linear-gradient(var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
 }
 
-.event-card > h1 {
+.event-card>h1 {
     width: 100%;
     font-size: 28px;
     font-weight: 600;
@@ -154,7 +154,7 @@ div.event-card > * {
     text-overflow: ellipsis;
 }
 
-.event-card > p {
+.event-card>p {
     width: 100%;
     font-weight: 500;
     white-space: normal;
@@ -195,7 +195,7 @@ div.event-card > * {
     font-weight: 500;
 }
 
-.event-card-attendance > p {
+.event-card-attendance>p {
     margin-left: 5px;
 }
 
@@ -251,7 +251,7 @@ div.event-card > * {
 }
 
 .sign-out {
-    background-color: rgba(252,70,107,1);
+    background-color: rgba(252, 70, 107, 1);
 }
 
 .create-event {
@@ -297,27 +297,27 @@ div.event-card > * {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, auto);
         grid-template-areas:
-                "monday"
-                "tuesday"
-                "wednesday"
-                "thursday"
-                "friday";
+            "monday"
+            "tuesday"
+            "wednesday"
+            "thursday"
+            "friday";
     }
-    
+
     .day-wrapper {
         height: auto;
         display: flex;
         flex-grow: 1;
         width: 100%;
     }
-    
+
     .day {
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
     }
-    
+
     .item {
         height: 100%;
         flex-grow: 1;
@@ -343,8 +343,8 @@ strong {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(1px);
     transition: 0.3s ease-in-out;
 }
@@ -364,13 +364,23 @@ strong {
 }
 
 @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)}
-    to {-webkit-transform:scale(1)}
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
 }
 
 @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
 }
 
 .event-modal-header {
@@ -381,13 +391,13 @@ strong {
     color: var(--collection-1-cavero-paars);
 }
 
-.event-modal-header > h1 {
+.event-modal-header>h1 {
     font-size: 25px;
     margin-right: 10px;
     font-weight: 700;
 }
 
-.event-modal-header > img {
+.event-modal-header>img {
     height: 40px;
     width: 40px;
     margin-right: 15px;
@@ -400,7 +410,7 @@ strong {
     color: black;
 }
 
-.event-modal-row > h1 {
+.event-modal-row>h1 {
     text-align: start;
     font-size: 20px;
     margin-top: 5px;
@@ -408,7 +418,7 @@ strong {
     color: var(--collection-1-cavero-blackish-grey);
 }
 
-.event-modal-row > p {
+.event-modal-row>p {
     width: fit-content;
     max-width: 600px;
     padding: 8px;
@@ -444,12 +454,12 @@ div.event-modal-row br {
     overflow-wrap: break-word;
 }
 
-.event-modal-attendance li > p {
+.event-modal-attendance li>p {
     font-weight: 600;
     word-wrap: break-word;
 }
 
-.event-modal-attendance li > img {
+.event-modal-attendance li>img {
     height: 25px;
     width: 25px;
     margin-right: 5px;
@@ -465,15 +475,21 @@ div.event-modal-row br {
 }
 
 #eventDescription {
-    max-width: 80vw; /* Set the maximum width to 80% of the viewport width */
-    max-height: 40vh; /* Set the maximum height to 40% of the viewport height */
-    width: 100%; /* Make sure it expands to 100% of its container width */
+    max-width: 80vw;
+    /* Set the maximum width to 80% of the viewport width */
+    max-height: 40vh;
+    /* Set the maximum height to 40% of the viewport height */
+    width: 100%;
+    /* Make sure it expands to 100% of its container width */
 }
 
 #eventDescriptionEdit {
-    max-width: 70vw; /* Set the maximum width to 80% of the viewport width */
-    max-height: 30vh; /* Set the maximum height to 40% of the viewport height */
-    width: 100%; /* Make sure it expands to 100% of its container width */
+    max-width: 70vw;
+    /* Set the maximum width to 80% of the viewport width */
+    max-height: 30vh;
+    /* Set the maximum height to 40% of the viewport height */
+    width: 100%;
+    /* Make sure it expands to 100% of its container width */
 }
 
 .close {
@@ -486,7 +502,7 @@ div.event-modal-row br {
 
 .close:hover,
 .close:focus {
-    color: rgba(252,70,107,1);
+    color: rgba(252, 70, 107, 1);
     text-decoration: none;
     cursor: pointer;
 }
@@ -513,8 +529,5 @@ div.event-modal-row br {
 .flatpickr-time ::selection {
     background: lightblue;
 }
+
 /*MODAL CONTENT END*/
-
-
-
-

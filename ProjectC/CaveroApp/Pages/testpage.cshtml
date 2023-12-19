@@ -1,22 +1,94 @@
 ﻿@page
 @model CaveroApp.Pages.testpage
+@using CaveroApp.Areas.Identity.Data
+@using System.Security.Claims
+@inject SignInManager<CaveroAppUser> SignInManager
+@inject CaveroAppContext Context
 
 @{
     Layout = "Shared/CaveroLayoutResponsive";
 }
 
+@section HeaderContent
+{
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var username = Context.Users.Where(x => x.Id == userID).Select(y => y.FirstName).First();
+        <h1 style="color: white; font-size: 28px; font-weight:  600; font-family: 'Montserrat', sans-serif;">Dit zijn je user
+            settings, @username!</h1>
+    }
+}
+
 <!DOCTYPE html>
 
 <html>
+
 <head>
-    <link rel="stylesheet" href="css/events.css"/>
-    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/settings.css" />
+    <link rel="stylesheet" href="css/layout.css" />
     <title></title>
-<style>
+    <style>
 
-</style>
+    </style>
 </head>
-<body>
-</body>
-</html>
 
+<body>
+    <div class="account-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h2>Gebruikersinstellingen</h2>
+                    <hr>
+                    <div class="card-body">
+                        <div class="text">
+                            <h5>Email: @if (SignInManager.IsSignedIn(User))
+                                {
+                                    var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                                    var email = Context.Users.Where(x => x.Id == userID).Select(y => y.Email).First();
+                                    @email
+                                }</h5>
+                            <br>
+                            <h5>Naam: @if (SignInManager.IsSignedIn(User))
+                                {
+                                    var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                                    var username = Context.Users.Where(x => x.Id == userID).Select(y =>
+                                    y.FirstName).First();
+                                    @username
+                                }</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* make a container with an option to edit the name and email *@
+    <div class="account-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h2>Wijzig je gegevens</h2>
+                    <hr>
+                    <div class="card-body">
+                        <h5>Edit Email</h5>
+                        @* make a button to edit the email *@
+                        <div class="button">
+                            <button class="button" onclick="location.href='edit-email'">Edit Email</button>
+                        </div>
+                        <h5>Edit Naam</h5>
+                        @* make a button to edit the name *@
+                        <div class="button">
+                            <button class="button" onclick="location.href='edit-name'">Edit Naam</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
