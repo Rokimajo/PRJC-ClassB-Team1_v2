@@ -39,7 +39,7 @@
                 </li>
             </a>
             <a class="button-link" asp-area="" asp-page="/Attendance">
-                <li class="aside_list_item">
+                <li class="aside_list_item">    
                     <img class="list-image" src="img/image-2.png"/>
                     <p>Aanwezigen</p>
                 </li>
@@ -50,6 +50,15 @@
                     <p>Events</p>
                 </li>
             </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="button-link" asp-area="" asp-page="/adminUserInfo">
+                    <li class="aside_list_item log-out-logo">
+                        <img class="list-image" src="img/image-8-2.png"/>
+                        <p>Userinfo</p>
+                    </li>
+                </a>
+            }
             <a class="button-link" asp-area="" asp-page="/testpage">
                 <li class="aside_list_item log-out-logo">
                     <img class="list-image" src="img/image-4.png"/>

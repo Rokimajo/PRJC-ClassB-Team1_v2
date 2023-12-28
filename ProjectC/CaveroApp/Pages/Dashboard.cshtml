@@ -11,13 +11,14 @@
     Layout = "Shared/CaveroLayoutResponsive";
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="preload" as="style" href="css/dashboard.css">
+    <link rel="preload" as="style" href="css/events.css">
     <link rel="stylesheet" href="css/dashboard.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
     <link rel="stylesheet" href="css/events.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script type="module" src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     var today = DateTime.Now.Date;
-    var validEvents = Model.GetAllEvents().Where(e => e.date.Date >= today).OrderBy(e => e.date);
+    var validEvents = Model.GetAllEvents().OrderBy(e => e.date);
     var groupedEvents = validEvents.GroupBy(e => e.date.Date).OrderBy(g => g.Key);
 }
 
@@ -104,6 +105,8 @@
                             </button>
                         </div>
                     </div>
+                    
+                    
                 }
             }
         </div>

@@ -59,6 +59,7 @@ public class Dashboard : PageModel
     {
         // Context.Events.Select(x => x);
         var Info = (from events in Context.Events
+            where events.date.Date >= Week.Item1 && events.date.Date <= Week.Item1.AddDays(7)
             select events).Distinct().ToList();
 
         return Info;
