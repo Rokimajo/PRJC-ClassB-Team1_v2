@@ -54,7 +54,17 @@ public class Dashboard : PageModel
         EventCount = event_count;
     }
     
-    
+    /// <summary>
+    /// Retrieves all events that are scheduled for the current week.
+    /// </summary>
+    /// <returns>
+    /// A list of Event objects, each representing an event that is scheduled for the current week.
+    /// </returns>
+    /// <remarks>
+    /// This method retrieves all events from the database where the event's date is within the current week.
+    /// The current week is defined as the period from the date stored in the Week.Item1 property to seven days after that date.
+    /// The method returns a list of distinct events, meaning that if an event occurs more than once in the same week, it is only included once in the list.
+    /// </remarks>
     public List<CaveroAppContext.Event> GetAllEvents()
     {
         // Context.Events.Select(x => x);
@@ -110,6 +120,20 @@ public class Dashboard : PageModel
         // If we do not invert, returning true would mean the json is valid, and this would make the check in button submittable.
         return new JsonResult(!exists);
     }
+    
+    /// <summary>
+    /// Checks in a user for a specific date.
+    /// </summary>
+    /// <remarks>
+    /// This method is called when the user submits the form to check in for a specific date.
+    /// It retrieves the user's ID from the current user's claims, and then tries to parse the date from the form.
+    /// If the date is successfully parsed, it creates a new Attendance object with the user's ID and the parsed date,
+    /// adds it to the database, and then saves the changes to the database.
+    /// After the check-in process is completed, it redirects the user to the Dashboard page.
+    /// </remarks>
+    /// <returns>
+    /// A RedirectToPageResult that redirects the user to the Dashboard page.
+    /// </returns>
     public IActionResult OnPostDateCheckInUser()
     {
         var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

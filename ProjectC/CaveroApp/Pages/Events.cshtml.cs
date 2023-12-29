@@ -2,9 +2,11 @@
 using System.Security.Claims;
 using CaveroApp.Areas.Identity.Data;
 using CaveroApp.Data;
+using CaveroApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
 using static CaveroApp.Services.CustomClasses;
@@ -99,6 +101,29 @@ public class Events : PageModel
                 select ea).Count();
     }
 
+    /// <summary>
+    /// Retrieves a list of reviews for a given event.
+    /// </summary>
+    /// <param name="ev">The event for which to retrieve the reviews.</param>
+    /// <returns>A list of UserReviews objects, each containing a user and their corresponding review for the event.</returns>
+    public List<UserReviews> GetEventReviews(CaveroAppContext.Event ev)
+    {
+        return (from r in Context.Reviews 
+            join u in Context.Users on r.user_id equals u.Id
+            where r.event_id == ev.ID 
+            select new UserReviews
+            {
+                User = u,
+                Review = r
+            }).ToList();
+    }
+    
+
+    /// <summary>
+    /// Retrieves a list of users who are participants of a given event.
+    /// </summary>
+    /// <param name="ev">The event for which to retrieve the participants.</param>
+    /// <returns>A list of CaveroAppUser objects representing the participants of the event.</returns>
     public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
     {
         return (from ea in Context.EventAttendances
@@ -128,6 +153,16 @@ public class Events : PageModel
         Week = Services.DateServices.GetCurrentWeek(ChosenDay);
     }
 
+    /// <summary>
+    /// Creates a new event and adds it to the database.
+    /// </summary>
+    /// <remarks>
+    /// This method is called when the user submits the form to create a new event.
+    /// It assumes that the form has already been validated on the client side.
+    /// </remarks>
+    /// <returns>
+    /// A RedirectToPageResult that redirects the user to the Events page.
+    /// </returns>
     public IActionResult OnPostCreateEvent()
     {
         // if this method goes trough, the javascript validation checker found no issues.
@@ -204,6 +239,25 @@ public class Events : PageModel
     }
 
     /// <summary>
+    /// Checks if the user is allowed to review a specific event.
+    /// </summary>
+    /// <param name="eventID">The ID of the event to check.</param>
+    /// <returns>
+    /// Returns true if the user is allowed to review the event, false otherwise.
+    /// A user is allowed to review an event if:
+    /// - The user has attended the event (i.e., there is an entry in EventAttendances for this user and event).
+    /// - The user has not already reviewed the event (i.e., there is no entry in Reviews for this user and event).
+    /// - The event has already occurred (i.e., the event's date is less than or equal to the current date).
+    /// </returns>
+    public bool AllowedToReview(int eventID)
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        return Context.EventAttendances.Any(x => x.user_id == userId && x.event_id == eventID) &&
+               !Context.Reviews.Any(x => x.event_id == eventID && x.user_id == userId) &&
+               Context.Events.Count(x => x.ID == eventID && x.date.Date <= DateTime.UtcNow.Date) > 0 ;
+    }
+
+    /// <summary>
     /// This function is called when the currently logged in user clicks on the 'Join' button for an event.
     /// It adds an EventAttendance object to the database, with the passed along eventID and the currently logged in user's ID.
     /// </summary>
@@ -267,6 +321,19 @@ public class Events : PageModel
         return RedirectToPage();
     }
 
+    /// <summary>
+    /// Edits an existing event in the database.
+    /// </summary>
+    /// <param name="eventID">The ID of the event to be edited.</param>
+    /// <returns>
+    /// A RedirectToPageResult that redirects the user to the Events page.
+    /// </returns>
+    /// <remarks>
+    /// This method is called when the user submits the form to edit an existing event.
+    /// It assumes that the form has already been validated on the client side.
+    /// The method retrieves the event from the database, updates its properties with the new values from the form,
+    /// and then saves the changes to the database.
+    /// </remarks>
     public IActionResult OnPostEditEvent(int eventID)
     {
         var evtoChange = Context.Events.First(x => x.ID == eventID);
@@ -283,37 +350,21 @@ public class Events : PageModel
         return RedirectToPage();
     }
 
-    // public IActionResult OnPostSaveReview(int eventID)
-    // {
-    //     Console.WriteLine("test");
-    //     string? userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-    //     StringValues? rating = Request.Form["rating"];
-    //     StringValues? feedback = Request.Form["feedback"];
-    //     int ratingInt = Convert.ToInt32(rating);
-    //     var newReview = new CaveroAppContext.Review()
-    //     {
-    //         user_id = userId,
-    //         event_id = eventID,
-    //         rating = ratingInt,
-    //         feedback = feedback
-    //     };
-    //     Console.WriteLine(newReview);
-    //     Context.Add(newReview);
-    //     Context.SaveChanges();
-    //     TempData["Message"] = "Review submitted successfully!";
-    //     Console.WriteLine("test2");
-    //     return RedirectToPage();
-    //     
-    //     // if (eventID == 0 || string.IsNullOrEmpty(userId) || ratingInt == 0 || string.IsNullOrEmpty(feedback))
-    //     // {
-    //     //     TempData["Message"] = "Review not submitted, please fill out all fields";
-    //     //     return RedirectToPage();
-    //     // }
-    //     // else
-    //     // {
-    //     //
-    //     // }
-    // }
+    /// <summary>
+    /// Saves a user's review for an event.
+    /// </summary>
+    /// <param name="reviewModel">The review model containing the event ID, rating, and feedback.</param>
+    /// <returns>
+    /// A RedirectToPageResult that redirects the user to the current page.
+    /// If the rating or feedback is invalid, a message is added to TempData with key "Message" and value "Review not submitted, please fill out all fields correctly".
+    /// If the review is saved successfully, a message is added to TempData with key "Message" and value "Review submitted successfully!".
+    /// </returns>
+    /// <remarks>
+    /// This method is called when the user submits the form to save a review for an event.
+    /// It assumes that the form has already been validated on the client side.
+    /// The method creates a new Review object with the user's ID, the event ID, the rating, and the feedback from the form,
+    /// adds it to the database, and then saves the changes to the database.
+    /// </remarks>
     public IActionResult OnPostSaveReview(ReviewModel reviewModel)
     {
         //get the current chosen event and the details of the event

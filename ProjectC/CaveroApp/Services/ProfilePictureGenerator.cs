@@ -8,6 +8,19 @@ public class ProfilePictureGenerator
         SKColors.Aquamarine, SKColors.Coral, SKColors.Tomato, SKColors.Goldenrod, SKColors.Plum
     };
 
+    /// <summary>
+    /// Generates a profile picture for a user.
+    /// </summary>
+    /// <param name="firstName">The first name of the user. The first letter of this name will be used in the profile picture.</param>
+    /// <param name="lastName">The last name of the user. The first letter of this name will be used in the profile picture.</param>
+    /// <returns>
+    /// A stream containing the image data of the generated profile picture.
+    /// </returns>
+    /// <remarks>
+    /// This method generates a profile picture by creating a bitmap and drawing a circle with a random color as the background,
+    /// and the initials of the user as the text. The text color is a darker version of the background color.
+    /// The bitmap is then encoded as a PNG and returned as a stream.
+    /// </remarks>
     public Stream Generate(string firstName, string lastName)
     {
         int width = 100, height = 100;
@@ -48,6 +61,17 @@ public class ProfilePictureGenerator
         return data.AsStream();
     }
 
+    /// <summary>
+    /// Generates a profile picture for a user and saves it to a file.
+    /// </summary>
+    /// <param name="firstName">The first name of the user. The first letter of this name will be used in the profile picture.</param>
+    /// <param name="lastName">The last name of the user. The first letter of this name will be used in the profile picture.</param>
+    /// <param name="ID">The ID of the user. This will be used to name the file.</param>
+    /// <remarks>
+    /// This method generates a profile picture by calling the Generate method of the ProfilePictureGenerator class,
+    /// which returns a stream containing the image data. This stream is then copied to a new file in the wwwroot/img/profilepictures directory.
+    /// The file is named "avatar" followed by the user's ID and the .png extension.
+    /// </remarks>
     public static void MakePF(string firstName, string lastName, string ID)
     {
         using (var stream = new ProfilePictureGenerator().Generate(firstName, lastName))

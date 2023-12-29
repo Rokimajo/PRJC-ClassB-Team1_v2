@@ -3,6 +3,7 @@
 @using Humanizer
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using Microsoft.EntityFrameworkCore.Query
+@inject CaveroAppContext Context
 @model CaveroApp.Pages.Events
 
 
@@ -13,6 +14,7 @@
     <link rel="preload" as="style" href="css/eventheader.css">
     <link rel="stylesheet" href="css/eventheader.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/events.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
     <script src="js/create-event-validation.js"></script>
@@ -108,7 +110,7 @@
                                         </button>
                                     </form>
                                 }
-                                @if (@Model.JoinedEvent(ev.ID))
+                                @if (@Model.AllowedToReview(ev.ID))
                                 {
                                     <button class="button review" data-card-id="@ev.ID">
                                         <p>REVIEW</p>
@@ -167,54 +169,66 @@
                                             </ul>
                                         }
                                     </div>
+                                    <div class="event-modal-row">
+                                        @{ var Reviews = Model.GetEventReviews(ev); }
+                                        @if (Reviews.Count() != 0)
+                                        {
+                                            <h1>Gem. Reviewscore: (@Reviews.Select(x => x.Review.rating).Average().ToString("#.##")/5) </h1>
+                                        }
+                                    </div>
+                                    <div class="event-modal-row">
+                                        @{ var reviews = Model.GetEventReviews(ev); }
+                                        <h1>Reviews (@reviews.Count())</h1>
+                                        @if (reviews.Count() != 0)
+                                        {
+                                            <div class="event-reviews">
+                                                 @foreach (var us in reviews)
+                                                    {
+                                                        @if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{@us.User.Id}.png"))
+                                                        {
+                                                            var user = Context.Users.First(x => x.Id == @us.User.Id);
+                                                            ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, @us.User.Id!);
+                                                        }
+                                                        <div class="event-review-content">
+                                                            <div class="event-review-header">
+                                                                <img src="img/profilepictures/avatar@(@us.User.Id).png"/>
+                                                                <h1>@us.User.FirstName @us.User.LastName</h1>
+                                                                @{ var reviewRating = us.Review.rating;}
+                                                                    @for (int i = 0; i < 5; i++)
+                                                                    {
+                                                                        if (reviewRating > 0)
+                                                                        { 
+                                                                            <span class="fa fa-star checked"></span>
+                                                                            reviewRating--;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <span class="fa fa-star unchecked"></span>
+                                                                        }
+                                                                    }
+                                                               
+                                                            </div>
+                                                            
+                                                            <div class="line"></div>
+                                                            <div class="event-review-row">
+                                                                <p style="font-weight: 500;">@us.Review.feedback</p>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!--  Review Modal -->
-                        //asp left out on line 188, 194, 200
-                        @* <div id="review-Modal" class="review-modal"> *@
-                        @*     <div class="review-modal-content"> *@
-                        @*         <div class="review-modal-header"> *@
-                        @*             <h1 style="justify-content: flex-start">Review @ev.title</h1> *@
-                        @*             <span id="closeReview" class="close" style="justify-content: flex-start">&times;</span> *@
-                        @*             </div> *@
-                        @*         <div class="line"></div> *@
-                        @*         <form id="createReviewForm" asp-page-handler="Events" method="post"> *@
-                        @*             <div class="review-modal-create"> *@
-                        @*                 <div class="review-modal-row"> *@
-                        @*                     </div> *@
-                        @*                 <div class="event-modal-row"> *@
-                        @*                      *@
-                        @*                     <h1>Sterren</h1> *@
-                        @*                     <input id="rating-@ev.ID" value="rating" required asp-for="reviewModel.rating" placeholder="Kies een aantal sterren.." type="number" *@
-                        @*                            oninput="validateStars()" onblur="validateStars()"/> *@
-                        @*                     <span class="error-message" id="starsError"></span> *@
-                        @*                 </div> *@
-                        @*                 <div class="review-modal-row"> *@
-                        @*                     <h1>Beschrijving (max 500 karakters)</h1> *@
-                        @*                     <textarea id="feedback-@ev.ID" value="feedback" required asp-for="reviewModel.feedback "rows="6" cols="50" placeholder="..."  oninput="validateFeedback()" onblur="validateFeedback()"></textarea> *@
-                        @*                     <span class="error-message" id="descError"></span> *@
-                        @*                     </div> *@
-                        @*                                      *@
-                        @*                 <div class="event-modal-row"> *@
-                        @*                     <button id="createReviewButtonModal" class="button create-event" type="submit"> *@
-                        @*                         <p>CREËER REVIEW</p> *@
-                        @*                         </button> *@
-                        @*                     </div> *@
-                        @*                 </div> *@
-                        @*             </form> *@
-                        @*         </div> *@
-                        @*     </div> *@
-                        //edit the modal above so that the inputted data can be sent to the database via the OnPost method
-
-                        <div id="review-Modal" class="review-modal">
+                        <div id="review-Modal-@ev.ID" class="review-modal">
                             <div class="review-modal-content">
                                 <div class="review-modal-header">
                                     <h1 style="justify-content: flex-start">Review @ev.title</h1>
-                                    <span id="closeReview" class="close" style="justify-content: flex-start">&times;</span>
+                                    <span id="closeReview-@ev.ID" class="close" style="justify-content: flex-start">&times;</span>
                                 </div>
                                 <div class="line"></div>
-                                <form id="createReviewForm" asp-page-handler="SaveReview" method="post">
+                                <form id="createReviewForm-@ev.ID" asp-page-handler="SaveReview" method="post">
                                     <input type="hidden" asp-for="eventModel.Date" value="@ev.date.Date.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)" />
                                     <input type="hidden" asp-for="eventModel.StartTime" value="@ev.start_time.ToString(@"hh\:mm")" />
                                     <input type="hidden" asp-for="eventModel.EndTime" value="@ev.end_time.ToString(@"hh\:mm")" />
@@ -240,51 +254,12 @@
                                                 <p>CREËER REVIEW</p>
                                                 </button>
                                             </div>
-                                        
                                     </div>
                                 </form>
                             </div>
-                        </div>                 
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    var reviewModal = document.getElementById('review-Modal');
-                                    var createReviewForm = document.getElementById('createReviewForm');
-
-                                    // Use attribute selector to target buttons with data-card-id attribute
-                                    var reviewButtons = document.querySelectorAll('.button.review[data-card-id]');
-
-                                    // Loop through all review buttons
-                                    reviewButtons.forEach(function (button) {
-                                        button.addEventListener('click', function () {
-                                            reviewModal.style.display = 'flex';
-                                        });
-                                    });
-
-                                    createReviewForm.addEventListener('submit', function (event) {
-                                        event.preventDefault();
-
-                                        // Existing logic to display the modal
-                                        reviewModal.style.display = 'none';
-                                        createReviewForm.submit();
-                                    });
-
-                                    var closeReviewButton = document.getElementById('closeReview');
-                                    closeReviewButton.addEventListener('click', function () {
-                                        reviewModal.style.display = 'none';
-                                    });
-
-                                    reviewModal.addEventListener('click', function (event) {
-                                        if (event.target === reviewModal) {
-                                            reviewModal.style.display = 'none';
-                                        }
-                                    });
-                                });
-                          
-                            </script>
-
-                                                    
-        
+                        </div>              
                         <!--  Review Modal -->
+                        
                         <!-- Admin Delete Event Modal -->
                         <div class="event-modal modal-card-delete-@ev.ID">
                             <div class="event-modal-content">
@@ -430,5 +405,38 @@
 
 </body>
 <script src="js/event-dashboard-scripts.js"></script>
+<script>
+    let reviewButtons = document.querySelectorAll(".button.review");
+    reviewButtons.forEach(function (button) {
+       button.addEventListener("click", function () {
+           let cardId = button.getAttribute("data-card-id");
+           let reviewModal = document.getElementById('review-Modal-' + cardId);
+           let createReviewForm = document.getElementById('createReviewForm-' + cardId);
+           let span = document.getElementById('closeReview-' + cardId);
+           
+            span.onclick = function() {
+                reviewModal.style.display = "none";
+            }
+           
+           // When the user clicks anywhere outside of the modal, close it
+           window.onclick = function(event) {
+               if (event.target == modal) {
+                   reviewModal.style.display = "none";
+               }
+           }
+           
+            createReviewForm.addEventListener('submit', function (event) {
+               event.preventDefault();
+   
+               // Existing logic to display the modal
+               reviewModal.style.display = 'none';
+               createReviewForm.submit();
+           });
+          
+             // Open the modal.
+            reviewModal.style.display = "flex";
+       })
+    });
+</script>
 
 </html>

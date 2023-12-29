@@ -15,6 +15,17 @@ public class Seeder
         SeedEvents();
     }
 
+    /// <summary>
+    /// Seeds the database with a set of predefined events.
+    /// </summary>
+    /// <remarks>
+    /// This method creates an array of Event objects, each representing an event with a predefined title, description, date, start time, location, and admin approval status.
+    /// The events are scheduled for various dates, with the date of each event being calculated relative to the current date and time (DateTime.UtcNow).
+    /// The start time for all events is set to 16:00 (4 PM).
+    /// The location for all events is set to "somewhere".
+    /// The admin approval status for all events is set to true, meaning that the events are approved by an admin and can be displayed to users.
+    /// After creating the array of events, the method adds the events to the database and saves the changes.
+    /// </remarks>
     public void SeedEvents()
     {
         var evArr = new CaveroAppContext.Event[]
@@ -73,7 +84,7 @@ public class Seeder
                 location = "somewhere",
                 admin_approval = true
             },
-new()
+            new()
             {
                 title = "Event7",
                 description = "ev",

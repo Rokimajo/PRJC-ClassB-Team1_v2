@@ -274,6 +274,12 @@ div.event-card > * {
     background-color: #0c63e4;
 }
 
+.review {
+    background-color: #ffc107;
+    text-align: center;
+    max-width: fit-content;
+}
+
 .admin-divider {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -619,6 +625,374 @@ div.event-modal-row br {
     filter: opacity(20%);
 }
 
+/*REVIEW MODAL*/
 
+.review-modal {
+    font-family: 'Montserrat', sans-serif;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(1px);
+    transition: 0.3s ease-in-out;
+}
 
+.review-modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--collection-1-cavero-blackish-grey);
+    border-radius: 10px;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.3s;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+}
 
+.review-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 16px;
+    color: var(--collection-1-cavero-paars);
+}
+
+.review-modal-header > h1 {
+    font-size: 25px;
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+.review-modal-header > img {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+}
+
+.review-modal-row {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 16px;
+    color: black;
+}
+
+.review-modal-row > h1 {
+    text-align: start;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    color: var(--collection-1-cavero-blackish-grey);
+}
+
+.review-modal-row > p {
+    width: fit-content;
+    max-width: 600px;
+    padding: 8px;
+    color: var(--collection-1-cavero-blackish-grey);
+    border: 1px solid var(--collection-1-cavero-blackish-grey);
+    border-radius: 8px;
+    word-wrap: break-word;
+}
+
+div.review-modal-row br {
+    display: block;
+    content: "";
+    margin-top: 3px;
+}
+
+.review-modal-attendance {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    color: var(--collection-1-cavero-blackish-grey);
+    border: 1px solid var(--collection-1-cavero-blackish-grey);
+    border-radius: 10px;
+    max-height: 185px;
+    overflow-y: auto;
+}
+
+.review-modal-attendance li {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid var(--collection-1-cavero-blackish-grey);
+    overflow-wrap: break-word;
+}
+
+.review-modal-attendance li > p {
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.review-modal-attendance li > img {
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+}
+
+.review-modal-create {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#reviewDescription {
+    max-width: 80vw; /* Set the maximum width to 80% of the viewport width */
+    max-height: 40vh; /* Set the maximum height to 40% of the viewport height */
+    width: 100%; /* Make sure it expands to 100% of its container width */
+}
+
+#reviewDescriptionEdit {
+    max-width: 70vw; /* Set the maximum width to 80% of the viewport width */
+    max-height: 30vh; /* Set the maximum height to 40% of the viewport height */
+    width: 100%; /* Make sure it expands to 100% of its container width */
+}
+
+.close {
+    color: var(--collection-1-cavero-blackish-grey);
+    font-size: 38px;
+    font-weight: 600;
+    user-select: none;
+    transition: 0.2s ease-in-out;
+}
+
+.close:hover,
+.close:focus {
+    color: rgba(252,70,107,1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.line {
+    margin: 10px 18px 5px 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--collection-1-cavero-blackish-grey);
+    filter: opacity(20%);
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 5px;
+    font-weight: 500;
+    text-align: start;
+}
+
+.flatpickr-calendar {
+    border: 2px solid var(--collection-1-cavero-paars) !important;
+}
+
+.flatpickr-time ::selection {
+    background: lightblue;
+}
+
+/*REVIEW MODAL END*/
+/*MODAL CONTENT END*/
+.review-modal {
+    font-family: 'Montserrat', sans-serif;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(1px);
+    transition: 0.3s ease-in-out;
+}
+
+.review-modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--collection-1-cavero-blackish-grey);
+    border-radius: 10px;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+}
+
+.review-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 16px;
+    color: var(--collection-1-cavero-paars);
+}
+
+.review-modal-header > h1 {
+    font-size: 25px;
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+.review-modal-header > span {
+    color: var(--collection-1-cavero-blackish-grey);
+    font-size: 38px;
+    font-weight: 600;
+    user-select: none;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.review-modal-header > span:hover {
+    color: rgba(252, 70, 107, 1);
+}
+
+.line {
+    margin: 10px 18px 5px 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--collection-1-cavero-blackish-grey);
+    filter: opacity(20%);
+}
+
+.review-modal-create {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.review-modal-row {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 16px;
+    color: black;
+}
+
+.review-modal-row > h1 {
+    text-align: start;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    color: var(--collection-1-cavero-blackish-grey);
+}
+
+.review-modal-row > input,
+.review-modal-row > textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid var(--collection-1-cavero-blackish-grey);
+    border-radius: 8px;
+}
+
+.review-modal-row > textarea {
+    resize: vertical; /* Allow vertical resizing of the textarea */
+}
+
+.review-modal-row > button {
+    width: fit-content;
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 5px;
+    font-weight: 500;
+    text-align: start;
+}
+
+.event-reviews {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    border-radius: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.event-review-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid var(--collection-1-cavero-blackish-grey);
+    border-radius: 10px;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.3s;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+}
+
+.event-review-header {
+    display: flex;
+    align-items: center;
+    padding: 2px 16px;
+    color: var(--collection-1-cavero-paars);
+}
+
+.event-review-header > h1 {
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+.event-review-header > img {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+}
+
+.event-review-row {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 16px;
+    color: black;
+    max-width: 23em;
+}
+
+.event-review-row > h1 {
+    font-weight: 600;
+    text-align: start;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    color: var(--collection-1-cavero-blackish-grey);
+}
+
+.event-review-row > p {
+    margin-top: 5px;
+    text-align: start;
+    max-width: 600px;
+    color: var(--collection-1-cavero-blackish-grey);
+    border-radius: 8px;
+    word-wrap: break-word;
+}
+
+div.event-review-row br {
+    display: block;
+    content: "";
+    margin-top: 3px;
+}
+
+.checked {
+    color: orange;
+}
+
+.unchecked {
+    color: var(--collection-1-cavero-blackish-grey);
+}
