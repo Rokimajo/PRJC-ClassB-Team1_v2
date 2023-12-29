@@ -24,4 +24,13 @@ public class CustomClasses
         public DateTime Date { get; set; }
         public List<CaveroAppUser> allUsers { get; set; }
     }
+
+    /// <summary>
+    /// Represents a user's review for an event.
+    /// </summary>
+    public class UserReviews
+    {
+        public CaveroAppUser User { get; set; }
+        public CaveroAppContext.Review Review { get; set; }
+    }
 }
