@@ -1,11 +1,13 @@
 ﻿using System.Security.Claims;
 using CaveroApp.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using static CaveroApp.Services.CustomClasses;
 
 namespace CaveroApp.Pages;
 
+[Authorize]
 public class Attendance : PageModel
 {
     // Database context

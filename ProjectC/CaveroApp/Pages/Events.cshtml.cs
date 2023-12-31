@@ -3,6 +3,7 @@ using System.Security.Claims;
 using CaveroApp.Areas.Identity.Data;
 using CaveroApp.Data;
 using CaveroApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -14,6 +15,7 @@ using static CaveroApp.Services.CustomClasses;
 
 namespace CaveroApp.Pages;
 
+[Authorize]
 public class Events : PageModel
 {
     // Database context

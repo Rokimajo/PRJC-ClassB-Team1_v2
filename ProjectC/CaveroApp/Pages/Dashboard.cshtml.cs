@@ -4,6 +4,7 @@ using System.Security.Claims;
 using CaveroApp.Areas.Identity.Data;
 using CaveroApp.Data;
 using CaveroApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CaveroApp.Pages;
 
+[Authorize]
 public class Dashboard : PageModel
 {
     private CaveroAppContext Context { get; }
