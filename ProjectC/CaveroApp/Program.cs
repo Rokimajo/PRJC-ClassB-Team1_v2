@@ -95,35 +95,4 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-
-
-using (var scope = app.Services.CreateScope())
-{
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<CaveroAppUser>>();
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-    // Check if roles exist and create them if they don't
-    if (!await roleManager.RoleExistsAsync("Admin"))
-    {
-        await roleManager.CreateAsync(new IdentityRole("Admin"));
-    }
-    if (!await roleManager.RoleExistsAsync("User"))
-    {
-        await roleManager.CreateAsync(new IdentityRole("User"));
-    }
-
-    // Check if users exist and assign roles
-    var adminUser = await userManager.FindByNameAsync("admin@cavero.nl");
-    if (adminUser != null && !await userManager.IsInRoleAsync(adminUser, "Admin"))
-    {
-        await userManager.AddToRoleAsync(adminUser, "Admin");
-    }
-
-    var caveriaanUser = await userManager.FindByNameAsync("user@cavero.nl");
-    if (caveriaanUser != null && !await userManager.IsInRoleAsync(caveriaanUser, "User"))
-    {
-        await userManager.AddToRoleAsync(caveriaanUser, "User");
-    }
-}
-
 app.Run();

@@ -962,7 +962,7 @@ div.review-modal-row br {
     flex-direction: column;
     padding: 2px 16px;
     color: black;
-    max-width: 23em;
+    max-width: 15em;
 }
 
 .event-review-row > h1 {
