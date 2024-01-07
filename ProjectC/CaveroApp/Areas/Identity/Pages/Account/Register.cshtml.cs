@@ -261,72 +261,33 @@ namespace CaveroApp.Areas.Identity.Pages.Account
             return $@"
 <!DOCTYPE html>
 <html lang='en'>
-
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <title>Email Confirmation</title>
-    <style>
-        body {{
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }}
-
-        .container {{
-            display: flex;
-            align-items: center;
-            max-height: 100vh;
-            flex-direction: column;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding: 10px;
-            border-radius: 15px;
-            background: #F5E6F8; /* Change to the desired background color */
-            box-shadow: 2px 2px 2px 2px #00030040 inset;
-            text-align: center;
-            width: 100%;
-        }}
-
-        .logo {{
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto;
-        }}
-
-        h1 {{
-            color: #800080;
-            text-align: center;
-        }}
-
-        p {{
-            text-align: center;
-            margin-top: 20px;
-        }}
-
-        a {{
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #fff;
-            background-color: #800080;
-            border-radius: 3px;
-        }}
-    </style>
 </head>
-
-<body>
-    <div class='container'>
-        <img src='https://cavero.nl/wp-content/uploads/2019/07/logohandtekening.png' alt='Cavero Logo' class='logo' />
-        <h1>Welcome to Cavero!</h1>
-        <p>Please confirm your account by <a href='{confirmationUrl}'>clicking here</a>.</p>
-    </div>
+<body style=""padding: 0; margin: 0; font-family: 'Montserrat', sans-serif; background: #F6E0F8;"">
+    <table role=""presentation"" width=""100%"" cellspacing=""0"" cellpadding=""0"">
+        <tr>
+            <td align=""center"" style=""padding: 15px;"">
+                <img src='https://cavero.nl/wp-content/uploads/2019/07/logohandtekening.png' alt='Cavero Logo' width=""165"" height=""165"" style=""display: block; margin: 0 auto;""/>
+            </td>
+        </tr>
+        <tr>
+            <td align=""center"" style=""padding: 15px; background: #803689;"">
+                <h1 style=""color: white; margin: 0;"">Welcome to Cavero!</h1>
+                <table role=""presentation"" width=""100%"" cellspacing=""0"" cellpadding=""0"" style=""margin-top: 15px; background: white; border-radius: 25px; padding: 15px;"">
+                    <tr>
+                        <td style=""text-align: center;"">
+                            <p style=""margin: 0;"">Please confirm your account by <a href='{confirmationUrl}'>clicking here</a>.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
-
 </html>";
         }
     }
