@@ -19,6 +19,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System.Net.Mail;
+using System.Net;
 
 namespace CaveroApp.Areas.Identity.Pages.Account
 {
@@ -74,11 +76,11 @@ namespace CaveroApp.Areas.Identity.Pages.Account
             [Required]
             [Display(Name = "First name")]
             public string FirstName { get; set; }
-            
+
             [Required]
             [Display(Name = "Last name")]
             public string LastName { get; set; }
-            
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -168,8 +170,10 @@ namespace CaveroApp.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await SendEmailAsync(Input.Email, "Confirm your email", GetConfirmationEmailBody(callbackUrl));
+
+                    // await SendEmailAsync(Input.Email, "Confirm your email",
+                    //     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -189,6 +193,42 @@ namespace CaveroApp.Areas.Identity.Pages.Account
 
             // If we got this far, something failed, redisplay form
             return Page();
+        }
+
+        private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
+        {
+
+            //TODO
+            //INSERT YOUR OWN MAIL SERVER CREDENTIALS
+            // message.From = ?
+            // message.Port = ?
+            // message.Host = ?
+            // smtpClient.Credentials = new NetworkCredential(?Username,?Password);
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient();
+                message.From = new MailAddress("caveroapp@gmail.com");
+                message.To.Add(email);
+                message.Subject = subject;
+                message.IsBodyHtml = true;
+                message.Body = confirmLink;
+
+                smtpClient.Port = 587;
+                smtpClient.Host = "smtp.gmail.com";
+
+
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("caveroapp@gmail.com", "iwcu fqli ccpy kuzz");
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Send(message);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private CaveroAppUser CreateUser()
@@ -212,6 +252,43 @@ namespace CaveroApp.Areas.Identity.Pages.Account
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
             return (IUserEmailStore<CaveroAppUser>)_userStore;
+        }
+
+        private string GetConfirmationEmailBody(string callbackUrl)
+        {
+            string confirmationUrl = HtmlEncoder.Default.Encode(callbackUrl);
+
+            return $@"
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <title>Email Confirmation</title>
+</head>
+<body style=""padding: 0; margin: 0; font-family: 'Montserrat', sans-serif; background: #F6E0F8;"">
+    <table role=""presentation"" width=""100%"" cellspacing=""0"" cellpadding=""0"">
+        <tr>
+            <td align=""center"" style=""padding: 15px;"">
+                <img src='https://cavero.nl/wp-content/uploads/2019/07/logohandtekening.png' alt='Cavero Logo' width=""165"" height=""165"" style=""display: block; margin: 0 auto;""/>
+            </td>
+        </tr>
+        <tr>
+            <td align=""center"" style=""padding: 15px; background: #803689;"">
+                <h1 style=""color: white; margin: 0;"">Welcome to Cavero!</h1>
+                <table role=""presentation"" width=""100%"" cellspacing=""0"" cellpadding=""0"" style=""margin-top: 15px; background: white; border-radius: 25px; padding: 15px;"">
+                    <tr>
+                        <td style=""text-align: center;"">
+                            <p style=""margin: 0;"">Please confirm your account by <a href='{confirmationUrl}'>clicking here</a>.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>";
         }
     }
 }
