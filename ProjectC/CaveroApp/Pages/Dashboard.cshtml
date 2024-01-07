@@ -1,19 +1,34 @@
 ﻿@page
 @using CaveroApp.Areas.Identity.Data
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model CaveroApp.Pages.Dashboard
 @inject SignInManager<CaveroAppUser> SignInManager
+@inject CaveroAppContext Context
 
 @{
+    ViewData["Title"] = "Dashboard";
     Layout = "Shared/CaveroLayoutResponsive";
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/dashboard.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preload" as="style" href="css/dashboard.css">
+    <link rel="preload" as="style" href="css/events.css">
+    <link rel="stylesheet" href="css/dashboard.css"/>
+    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/events.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    var today = DateTime.Now.Date;
+    var validEvents = Model.GetAllEvents().OrderBy(e => e.date);
+    var groupedEvents = validEvents.GroupBy(e => e.date.Date).OrderBy(g => g.Key);
 }
 
 @section HeaderContent
 {
     @if (SignInManager.IsSignedIn(User))
     {
-        <h1>Hello @User.Identity?.Name!</h1>
+        var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var username = Context.Users.Where(x => x.Id == userID).Select(y => y.FirstName).First();
+        <h1 style="color: white; font-size: 28px; font-weight:  600; font-family: 'Montserrat', sans-serif;">Welkom terug, @username!</h1>
     }
 }
 
@@ -39,8 +54,120 @@
             </div>
         </div>
     </div>
-    <div class="card two">aaa</div>
-    <div class="card three">aaa</div>
+    <div class="card two">
+        <!-- Reusing event modal because it fits very well with a check in form.-->
+        <div class="event-modal-content" style="max-width: 400px; margin: 10px; animation-name: ''; -webkit-animation-name: '';">
+            <div class="event-modal-header">
+                <h1 style="justify-content: flex-start">Inchecken</h1>
+            </div>
+            <div class="event-modal-header">
+                <p style="justify-content: flex-start; color: var(--collection-1-cavero-blackish-grey); opacity: 80%; font-weight:  500;">Kies hier met de datepicker een datum om in te checken.</p>
+            </div>
+            <div class="line"></div>
+            <!-- -->
+            <form id="checkInForm" asp-page-handler="DateCheckInUser" method="post">
+                <div class="event-modal-create">
+                    <div class="event-modal-row">
+                        <input id="dateCheckIn" placeholder="Kies een datum.." type="text" required
+                               oninput="validateCheckInDate()" onblur="validateCheckInDate()" asp-for="CheckModel.Date"/>
+                        <span class="error-message" id="dateCheckInError"></span>
+                    </div>
+                    <div class="event-modal-row">
+                        <button id="dateCheckInButton" class="button create-event" type="submit">
+                            <p>CHECK IN OP DATUM</p>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card three">
+        @*Gemaakt door Aryan*@
+        <div class="dashboard-upcoming-events">
+            <h1>Aanstaande evenementen</h1>
+            <div class="line"></div>
+            @foreach (var group in groupedEvents)
+            {
+                <p>@group.Key.ToString("dddd, d MMMM")</p>
+                @foreach (var ev in group.OrderBy(x => x.start_time))
+                {
+                    <div class="event-card" style="max-width: 100%; margin: 0 0 7px;">
+                        <h1>@ev.title</h1>
+                        <p>Locatie: @ev.location</p>
+                        <p>Tijd: @ev.start_time.ToString(@"hh\:mm") - @ev.end_time.ToString(@"hh\:mm")</p>
+                        <div class="event-card-footer" style="flex-direction: row; align-items: center; margin-top: 10px;">
+                            <div class="event-card-attendance" style="margin-right: 15px;">
+                                <img src="img/user-check-icon.png" style="height: 25px; width: 25px;"/>
+                                <p style="font-size: 22px;">@Model.GetEventParticipantsCount(@ev)</p>
+                            </div>
+                            <button class="button edit-event">
+                                <p>INFO</p>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    
+                }
+            }
+        </div>
+    </div>
 </div>
 </body>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+flatpickr("#dateCheckIn", {
+       enableTime: false,
+       dateFormat: "d-m-Y",
+       minDate: "today",
+       disable: [
+           function (date) {
+               // Disable weekends (Saturday and Sunday)
+               return (date.getDay() === 0 || date.getDay() === 6);
+           }
+       ],
+   });
+const dateCheckButton = document.getElementById('dateCheckInButton');
+const form = document.getElementById('checkInForm');
+
+      dateCheckButton.addEventListener('click', function (event) {
+              const dateCheckError = document.getElementById('dateCheckInError');
+              validateCheckInDate(event);
+              if (!form.checkValidity()  || dateCheckError.textContent !== '') {
+                  // Prevent form submission if there are validation errors
+                  event.preventDefault();
+              }
+          });
+});
+
+
+
+function validateCheckInDate(event) {
+    const dateCheckInput = document.getElementById('dateCheckIn');
+    const dateCheckError = document.getElementById('dateCheckInError');
+    if (dateCheckInput.value === ''){
+         if (event !== undefined)
+            event.preventDefault();
+        dateCheckError.textContent = 'U moet eerst een datum invullen.';
+        dateCheckError.style.display = 'inline';
+    }
+    else {
+         $.ajax({
+                    url: '/Dashboard?handler=CheckDate',
+                    data: { 'date': dateCheckInput.value },
+                    success: function(isValid) {
+                        if (isValid) {
+                            dateCheckError.textContent = '';
+                            dateCheckError.style.display = 'none';
+                        } else {
+                            dateCheckError.textContent = 'U bent al ingecheckt op deze dag.';
+                            dateCheckError.style.display = 'inline';
+                            // The date is not valid, show an error message.
+                        }
+                    }
+                });
+    }
+}
+</script>
 </html>

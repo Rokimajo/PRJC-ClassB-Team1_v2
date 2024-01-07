@@ -1,0 +1,182 @@
+﻿@page
+@using System.Globalization
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@inject CaveroAppContext Context
+@model CaveroApp.Pages.Attendance
+
+@{
+    ViewData["Title"] = "Aanwezige";
+    Layout = "Shared/CaveroLayoutResponsive";
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preload" as="style" href="css/eventheader.css">
+    <link rel="stylesheet" href="css/eventheader.css"/>
+    <link rel="stylesheet" href="css/events.css"/>
+    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/attendance.css"/>
+    var userID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+}
+
+@section HeaderContent
+{
+    <div class="wrapper">
+        <form method="post" asp-page="Attendance" asp-page-handler="WeekBackward">
+            <button class="header-text tooltip" style="font-size: 30px;" type="submit">
+                <p><</p>
+                <div class="bottom">
+                    <p>Vorige week</p>
+                    <i></i>
+                </div>
+            </button>
+        </form>
+        <form method="post" asp-page="Attendance" asp-page-handler="WeekForward">
+            <button class="header-text tooltip" style="font-size: 30px;" type="submit">
+                <p>></p>
+                <div class="bottom">
+                    <p>Volgende week</p>
+                    <i></i>
+                </div>
+            </button>
+        </form>
+        <h1 class="header-text" style="text-shadow: 2px 2px 2px var(--collection-1-cavero-blackish-grey);">
+            @($"{@Model.Week.Item1.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)} - " +
+              $"{@Model.Week.Item2.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)}")
+        </h1>
+    </div>
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <style>
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="week-container">
+        @foreach (var evArr in @Model.GetWeekAttendances())
+        {
+            <div class="day-wrapper">
+                <div class="day">
+                    <h1>@evArr.Date.ToString("ddd")</h1>
+                    @if (@evArr.Date.Date.Equals(DateTime.UtcNow.Date))
+                    {
+                        <h2 style="color: var(--collection-1-cavero-paars); text-shadow: 1px 1px 1px grey;">@evArr.Date.Day</h2>
+                    }
+                    else
+                    {
+                        <h2>@evArr.Date.Day</h2>
+                    }
+                </div>
+
+                <div class="item @(evArr.Date.ToString("ddd", CultureInfo.InvariantCulture))" id="@(evArr.Date.ToString("dddd", CultureInfo.InvariantCulture))">
+                    <input type="text" id="mySearchInput-@evArr.Date.Date" Date="@evArr.Date.Date" placeholder="Zoek naar namen.." title="Type in a name">
+                    @if (!@Model.IsAttending(userID, evArr.Date))
+                    {
+                        <form class="form-button" method="post" asp-page="Attendance" asp-page-handler="UserJoin" asp-route-userID="@userID"
+                              asp-route-date="@evArr.Date.Date.ToString("dd-MM-yyyy")">
+                            <button class="button sign-up" style="flex: 1; justify-content: center;" type="submit">
+                                <p>AANWEZIG ZETTEN</p>
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form class="form-button" method="post" asp-page="Attendance" asp-page-handler="UserLeave" asp-route-userID="@userID"
+                              asp-route-date="@evArr.Date.Date.ToString("dd-MM-yyyy")">
+                            <button class="button sign-out" style="flex: 1; justify-content: center;" type="submit">
+                                <p>AFWEZIG ZETTEN</p>
+                            </button>
+                        </form>
+                    }
+                    @foreach (var us in evArr.allUsers.OrderBy(x => x.FirstName))
+                    {
+                        <div class="attendance-card attendance-@evArr.Date.Date">
+                            @if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{@us.Id}.png"))
+                            {
+                                var user = Context.Users.First(x => x.Id == @us.Id);
+                                ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, @us.Id!);
+                            }
+                            <img src="img/profilepictures/avatar@(us.Id).png"/>
+                            <h1>@us.FirstName @us.LastName</h1>
+                            <span class="attendance-user-info" data-attendance-id="@us.Id">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                            </span>
+                            
+                        </div>
+                        
+                        <!-- Modal Content -->
+                        <!-- Has to be loaded here so it gets filled up with the unique information for each card. -->
+                        <div class="event-modal modal-card-@us.Id">
+                            <div class="event-modal-content">
+                                <div class="event-modal-header">
+                                    <img src="img/profilepictures/avatar@(@us.Id).png"/>
+                                    <h1 style="justify-content: flex-start; padding: 10px;">@us.FirstName @us.LastName</h1>
+                                    <span class="close close-@us.Id" style="justify-content: flex-start">&times;</span>
+                                </div>
+                                <div class="line"></div>
+                                <div class="event-modal-row">
+                                    <h1>@us.Email</h1>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+<script>
+var infoSpans = document.querySelectorAll(".attendance-user-info");
+
+infoSpans.forEach(function (spans) {
+    spans.addEventListener("click", function () {
+        // Find the corresponding modal based on data attribute or class.
+        var cardId = spans.getAttribute("data-attendance-id");
+        var modal = document.querySelector(".modal-card-" + cardId);
+        var span = document.getElementsByClassName("close-" + cardId)[0];
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Open the modal.
+        modal.style.display = "flex";
+    });
+});
+
+var allSearchInputs = document.querySelectorAll("input[id^='mySearchInput-']");
+allSearchInputs.forEach(function (inputs) {
+    inputs.addEventListener("keyup", function () {
+          var date = inputs.getAttribute("Date");
+          var filter = inputs.value.toUpperCase();
+          var allUsers = document.getElementsByClassName("attendance-" + date);
+        
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < allUsers.length; i++) {
+            var h1 = allUsers[i].getElementsByTagName("h1")[0];
+            var txtValue = h1.textContent || h1.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              allUsers[i].style.display = "";
+            } else {
+              allUsers[i].style.display = "none";
+            }
+          }
+    });
+});
+
+</script>
+</html>

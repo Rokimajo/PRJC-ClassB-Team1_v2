@@ -1,15 +1,23 @@
 ﻿@using CaveroApp.Areas.Identity.Data
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @inject SignInManager<CaveroAppUser> SignInManager
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>@ViewData["Title"]</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="css/globals.css" />
-        <link rel="stylesheet" href="css/styleguide.css" />
-        <link rel="stylesheet" href="css/layout.css" />
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/styleguide.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    @if (User.IsInRole("Admin"))
+    {
+        <style>
+        .header {background-color: #423A8E !important;}
+        .aside {background-color: #423A8E !important;}
+    </style>
+    }
+</head>    
 <body>
 <div class="grid-container">
     <header class="header" id="header">
@@ -30,13 +38,28 @@
                     <p>Dashboard</p>
                 </li>
             </a>
-            <a class="button-link" asp-area="" asp-page="/Agenda">
-                <li class="aside_list_item">
+            <a class="button-link" asp-area="" asp-page="/Attendance">
+                <li class="aside_list_item">    
                     <img class="list-image" src="img/image-2.png"/>
-                    <p>Agenda</p>
+                    <p>Aanwezigen</p>
                 </li>
             </a>
-            <a class="button-link" asp-area="" asp-page="">
+            <a class="button-link" asp-area="" asp-page="/Events">
+                <li class="aside_list_item">
+                    <img class="list-image" src="img/image-8-3.png"/>
+                    <p>Events</p>
+                </li>
+            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="button-link" asp-area="" asp-page="/adminUserInfo">
+                    <li class="aside_list_item log-out-logo">
+                        <img class="list-image" src="img/image-8-2.png"/>
+                        <p>Userinfo</p>
+                    </li>
+                </a>
+            }
+            <a class="button-link" asp-area="" asp-page="/testpage">
                 <li class="aside_list_item log-out-logo">
                     <img class="list-image" src="img/image-4.png"/>
                     <p>Settings</p>
@@ -48,9 +71,9 @@
                     @*create anti forgery token for logout for CSRF attacks when the form is submitted*@
                     @Html.AntiForgeryToken()
                     <li class="aside_list_item" id="LogoutButton">
-                         <img class="list-image" src="img/logouticon.png"/>
-                         <p>Logout</p>
-                     </li>
+                        <img class="list-image" src="img/logouticon.png"/>
+                        <p>Logout</p>
+                    </li>
                 </form>
             }
         </ul>

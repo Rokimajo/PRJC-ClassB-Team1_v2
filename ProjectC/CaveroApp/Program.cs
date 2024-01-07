@@ -2,24 +2,9 @@ using CaveroApp.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CaveroApp.Data;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using YourNamespace.Services;
-// using SendingEmails;
+using CaveroApp.Seeder;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// builder.Services.AddTransient<SendingEmails.IEmailSender, EmailSender>();
-
-// var emailService = new EmailService();
-// emailService.SendEmail();
-
-EmailService emailService = new EmailService();
-
-string senderEmail = "your_email@gmail.com"; // Replace with your email
-string senderPassword = "your_password"; // Replace with your email password
-string recipientEmail = "recipient@example.com"; // Replace with recipient's email address
-
-emailService.SendEmail(senderEmail, senderPassword, recipientEmail);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
@@ -33,7 +18,24 @@ builder.Services.AddDefaultIdentity<CaveroAppUser>(options => options.SignIn.Req
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CaveroAppContext>();
 builder.Services.AddRazorPages();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Adjust the timeout as needed
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
+
+//seeding optional here
+IServiceProvider serviceProvider = app.Services;
+using (var scope = serviceProvider.CreateScope())
+{
+    // var seeder = new Seeder(scope.ServiceProvider);
+    // seeder.Seed();
+}
+
 
 //Automatically go to login screen on app run
 app.MapGet("/", () =>
@@ -62,6 +64,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.UseSession();
 
 using (var scope = app.Services.CreateScope())
 {

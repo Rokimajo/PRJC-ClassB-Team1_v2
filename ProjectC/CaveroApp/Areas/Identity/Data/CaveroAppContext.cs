@@ -7,19 +7,50 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CaveroApp.Data;
 
+/// <summary>
+/// Represents the application's database context.
+/// </summary>
 public class CaveroAppContext : IdentityDbContext<CaveroAppUser>
 {
+    /// <summary>
+    /// Gets or sets the DbSet of Event entities.
+    /// </summary>
     public DbSet<Event> Events { get; set; }
+
+    /// <summary>
+    /// Gets or sets the DbSet of Info entities.
+    /// </summary>
     public DbSet<Info> News { get; set; }
+
+    /// <summary>
+    /// Gets or sets the DbSet of Attendance entities.
+    /// </summary>
     public DbSet<Attendance> Attendances { get; set; }
+
+    /// <summary>
+    /// Gets or sets the DbSet of EventAttendance entities.
+    /// </summary>
     public DbSet<EventAttendance> EventAttendances { get; set; }
+
+    /// <summary>
+    /// Gets or sets the DbSet of Review entities.
+    /// </summary>
     public DbSet<Review> Reviews { get; set; }
+
+    /// <summary>
+    /// Initializes a new instance of the CaveroAppContext class.
+    /// </summary>
+    /// <param name="options">The options to be used by a DbContext.</param>
     public CaveroAppContext(DbContextOptions<CaveroAppContext> options)
         : base(options)
     {
-        
+
     }
 
+    /// <summary>
+    /// Configures the schema needed for the identity framework.
+    /// </summary>
+    /// <param name="builder">Provides a simple API surface for configuring a Microsoft.EntityFrameworkCore.Metadata.IMutableModel that defines the shape of your entities, the relationships between them, and how they map to the database.</param>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

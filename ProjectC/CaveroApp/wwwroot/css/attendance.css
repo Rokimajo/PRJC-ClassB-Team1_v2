@@ -1,0 +1,44 @@
+﻿.attendance-card {
+    display: flex;
+    margin: 5px;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--collection-1-cavero-blackish-grey);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    transition: 0.3s ease;
+    color: white;
+    background: -moz-linear-gradient(var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
+    background: linear-gradient(var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
+}
+
+.attendance-card > img {
+    height: 36px; 
+    width: 36px;
+    padding: 5px;
+}
+
+.attendance-card > h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.attendance-card ion-icon {
+    font-size: 22px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.attendance-user-info:hover {
+    cursor: pointer;
+    color: thistle;
+}
+
+.attendance-card:hover {
+    transform: translateY(1px);
+    filter: brightness(1.15);
+    box-shadow: 3px 3px 3px #00000040;
+}

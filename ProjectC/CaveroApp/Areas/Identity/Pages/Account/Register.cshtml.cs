@@ -117,12 +117,38 @@ namespace CaveroApp.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
+        /// <summary>
+        /// Handles the user registration process.
+        /// </summary>
+        /// <param name="returnUrl">The URL to redirect to after registration. If null, the user is redirected to the home page.</param>
+        /// <returns>
+        /// An IActionResult that represents the result of the registration process.
+        /// If the registration is successful, the user is redirected to the returnUrl.
+        /// If the registration fails, the registration form is redisplayed with error messages.
+        /// </returns>
+        /// <remarks>
+        /// This method is called when the user submits the registration form.
+        /// It first checks if the ModelState is valid, which means that the form data passed the validation rules.
+        /// If the ModelState is valid, it creates a new user, sets the user's properties from the form data,
+        /// and then calls the UserManager to create the user in the database.
+        /// If the user is created successfully, it generates an email confirmation token and sends a confirmation email to the user.
+        /// If the UserManager is configured to require a confirmed account, it redirects the user to the RegisterConfirmation page.
+        /// Otherwise, it signs in the user and redirects them to the returnUrl.
+        /// If the user creation fails, it adds the errors to the ModelState and redisplay the registration form.
+        /// </remarks>
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                // Check if the email ends with @cavero.
+                // MADE NON FUNCTIONAL BECAUSE PEOPLE NEED TO TEST AND RUN THIS APART FROM CAVERO.
+                // if (!Input.Email.EndsWith("@cavero.nl"))
+                // {
+                //     ModelState.AddModelError(string.Empty, "You can only register with a Cavero email address.");
+                //     return Page();
+                // }
                 var user = CreateUser();
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;

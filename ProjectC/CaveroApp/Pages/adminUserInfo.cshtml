@@ -1,0 +1,125 @@
+﻿@page
+@using System.Security.Claims
+@using CaveroApp.Areas.Identity.Data
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model CaveroApp.Pages.testpage
+@inject SignInManager<CaveroAppUser> SignInManager
+@inject CaveroAppContext Context
+
+@{
+    Layout = "Shared/CaveroLayoutResponsive";
+}
+
+
+@section HeaderContent
+{
+    <h1 style="color: white; font-size: 24px; font-weight:  600; font-family: 'Montserrat', sans-serif;">Kies hier een gebruiker om hun informatie aan te passen.</h1>
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="css/events.css"/>
+    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/eventheader.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title></title>
+    <style>
+        .custom-event-card {
+            max-width: 460px;
+            position: relative;
+        }
+        .custom-button-container {
+            display: inline flex;
+            justify-content: center;
+        }
+        .custom-button-small {
+            max-width: 65px;
+            margin-right: 5px;
+        }
+        .user-edit-list{
+            display: flex;
+            align-items: center;
+            max-height: 88vh;
+            width: fit-content;
+            flex-direction: column;
+            margin-top: 15px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 10px;
+            border: 2px solid darkgray;
+            border-radius: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div style="display: flex; justify-content: center; width: 100%; height: 100%;">
+   <div class="user-edit-list">
+       @foreach (var user in @Model.Users())
+       {
+           <div class="event-card custom-event-card">
+               <p>First Name: @(user.FirstName)</p>
+               <p>Last Name: @(user.LastName)</p>
+               <p>Email: @(user.Email)</p>
+               <div class="custom-button-container">
+                   <button class="button edit custom-button-small" data-user-id="@user.Id" data-firstName="@user.FirstName" data-lastName="@user.LastName" data-email="@user.Email">Edit</button>
+                   <form method="post" asp-page-handler="DeleteUser" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                       <input type="hidden" name="userToDelete.Id" value="@user.Id"/>
+                       <button class="button delete custom-button-small" type="submit">Delete</button>
+                   </form>
+               </div>
+           </div>
+       }
+   </div>
+   <div id="editModal" class="modal">
+       <div class="modal-content">
+           <span class="close" onclick="closeModal()">&times;</span>
+           <form method="post" asp-page-handler="UpdateUser">
+               @*Disabled id for now, because of potential confusion*@
+               @* <label for="editId">ID:</label> *@
+               <input type="text" id="editId" name="Id" style="display: none;" readonly>
+   
+               <label for="editFirstName">First Name:</label>
+               <input type="text" id="editFirstName" name="FirstName">
+   
+               <label for="editLastName">Last Name:</label>
+               <input type="text" id="editLastName" name="LastName">
+   
+               <label for="editEmail">Email:</label>
+               <input type="text" id="editEmail" name="Email">
+   
+               <input type="submit" value="Update">
+           </form>
+       </div>
+   </div> 
+</div>
+
+
+<script>
+        
+        function openModal(userId, firstName, lastName, email) {
+            document.getElementById("editId").value = userId;
+            document.getElementById("editFirstName").value = firstName;
+            document.getElementById("editLastName").value = lastName;
+            document.getElementById("editEmail").value = email;
+            document.getElementById("editModal").style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById("editModal").style.display = "none";
+        }
+        var editButtons = document.getElementsByClassName("button edit custom-button-small");
+        for (var i = 0; i < editButtons.length; i++) {
+            editButtons[i].addEventListener("click", function () {
+                var userId = this.getAttribute("data-user-id");
+                var firstName = this.getAttribute("data-firstName");
+                var lastName = this.getAttribute("data-lastName");
+                var email = this.getAttribute("data-email");
+
+                openModal(userId, firstName, lastName, email);
+            });
+        }
+    </script>
+</body>
+</html>

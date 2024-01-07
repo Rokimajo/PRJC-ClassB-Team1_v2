@@ -14,7 +14,6 @@
 
     <ItemGroup>
         <PackageReference Include="EntityFramework" Version="6.4.4" />
-        <PackageReference Include="MailKit" Version="4.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.2" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.2" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.2" />
@@ -34,20 +33,13 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
         <PackageReference Include="React.Core" Version="5.2.12" />
         <PackageReference Include="React.Web" Version="5.2.12" />
-        <PackageReference Include="SendGrid" Version="9.28.1" />
+        <PackageReference Include="SkiaSharp" Version="2.88.6" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Areas\Identity\Pages\Account\Manage\" />
-      <Folder Include="Database\" />
-      <Folder Include="Data\Migrations\" />
-      <Folder Include="wwwroot\reacttemp\" />
     </ItemGroup>
 
 
