@@ -19,6 +19,8 @@
 
 
 .card {
+    max-width: 100%;
+    max-height: 80%;
 }
 
 .one {
@@ -40,7 +42,7 @@
 }
 
 /*phone layout*/
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 976px) {
     .main-body {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
@@ -48,10 +50,19 @@
         'card1'
         'card2'
         'card3';
+        justify-items: center; /* Horizontally center the cards */
+        align-items: center; /* Vertically center the cards */
     }
 }
 
-/* Dashboard items like cards, buttons, etc.*/
+@media only screen and (max-width: 500px) {
+    .card {
+        width: 100%;
+        max-width: 80%; /* Ensure the card does not fill up the entire grid cell */
+        margin: 0 auto; /* Center the card horizontally */
+    }
+}
+        /* Dashboard items like cards, buttons, etc.*/
 
 .present-box {
     margin: 10px;

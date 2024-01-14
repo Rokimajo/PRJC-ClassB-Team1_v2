@@ -87,117 +87,130 @@
         <div class="dashboard-upcoming-events">
             <h1>Aanstaande evenementen</h1>
             <div class="line"></div>
-            @foreach (var group in groupedEvents)
+            @{ var upcomingEvents = groupedEvents.Where(x => x.Key >= DateTime.UtcNow); }
+            @if (!upcomingEvents.Any())
             {
-                <p>@group.Key.ToString("dddd, d MMMM")</p>
-                @foreach (var ev in group.OrderBy(x => x.start_time))
+                <p>Er zijn nog geen evenementen deze week.</p>
+            }
+            else
+            {
+                @foreach (var group in upcomingEvents)
                 {
-                    <div class="event-card" style="max-width: 100%; margin: 0 0 7px;">
-                        <h1>@ev.title</h1>
-                        <p>Locatie: @ev.location</p>
-                        <p>Tijd: @ev.start_time.ToString(@"hh\:mm") - @ev.end_time.ToString(@"hh\:mm")</p>
-                        <div class="event-card-footer" style="flex-direction: row; align-items: center; margin-top: 10px;">
-                            <div class="event-card-attendance" style="margin-right: 15px;">
-                                <img src="img/user-check-icon.png" style="height: 25px; width: 25px;"/>
-                                <p style="font-size: 22px;">@Model.GetEventParticipantsCount(@ev)</p>
+                    <p>@group.Key.ToString("dddd, d MMMM")</p>
+                    @foreach (var ev in group.OrderBy(x => x.start_time))
+                    {
+                        <div class="event-card" style="max-width: 100%; margin: 0 0 7px;">
+                            <h1>@ev.title</h1>
+                            <p>Locatie: @ev.location</p>
+                            <p>Tijd: @ev.start_time.ToString(@"hh\:mm") - @ev.end_time.ToString(@"hh\:mm")</p>
+                            <div class="event-card-footer" style="flex-direction: row; align-items: center; margin-top: 10px;">
+                                <div class="event-card-attendance" style="margin-right: 15px;">
+                                    <img src="img/user-check-icon.png" style="height: 25px; width: 25px;"/>
+                                    <p style="font-size: 22px;">@Model.GetEventParticipantsCount(@ev)</p>
+                                </div>
+                                <button class="button edit-event" data-card-id="@ev.ID">
+                                    <p>INFO</p>
+                                </button>
                             </div>
-                            <button class="button edit-event" data-card-id="@ev.ID">
-                                <p>INFO</p>
-                            </button>
                         </div>
-                    </div>
 
-                    <!-- Modal Content -->
-                    <!-- Has to be loaded here so it gets filled up with the unique information for each card. -->
-                    <div class="event-modal modal-card-@ev.ID">
-                        <div class="event-modal-content">
-                            <div class="event-modal-header">
-                                <h1 style="justify-content: flex-start">@ev.title</h1>
-                                <span class="close close-@ev.ID" style="justify-content: flex-start">&times;</span>
-                            </div>
-                            <div class="line"></div>
-                            <div class="event-modal-row">
-                                <h1>Beschrijving</h1>
-                                <p>@ev.description</p>
-                            </div>
-                            <div>
-                                <div class="event-modal-row">
-                                    <h1>Overige Informatie</h1>
-                                    <p>
-                                        <strong>Locatie</strong>: @ev.location<br/>
-                                        <strong>Datum</strong>: @ev.date.Date.ToString("dd/MM/yyyy")<br/>
-                                        <strong>Tijd</strong>: @ev.start_time.ToString(@"hh\:mm") - @ev.end_time.ToString(@"hh\:mm")<br/>
-                                    </p>
+                        <!-- Modal Content -->
+                        <!-- Has to be loaded here so it gets filled up with the unique information for each card. -->
+                        <div class="event-modal modal-card-@ev.ID">
+                            <div class="event-modal-content">
+                                <div class="event-modal-header">
+                                    <h1 style="justify-content: flex-start">@ev.title</h1>
+                                    <span class="close close-@ev.ID" style="justify-content: flex-start">&times;</span>
                                 </div>
+                                <div class="line"></div>
                                 <div class="event-modal-row">
-                                    @{ var eventParticipants = @eventService.GetEventParticipants(Context, ev); }
-                                    <h1>Deelnemers (@eventParticipants.Count())</h1>
-                                    @if (@eventParticipants.Count() != 0)
-                                    {
-                                        <ul class="event-modal-attendance">
-                                            @foreach (var participant in @eventParticipants)
-                                            {
-                                                <li>
-                                                    <img src="img/image-8-2.png"/>
-                                                    <p>@participant.FirstName @participant.LastName</p>
-                                                </li>
-                                            }
-                                        </ul>
-                                    }
+                                    <h1>Beschrijving</h1>
+                                    <p>@ev.description</p>
                                 </div>
-                                <div class="event-modal-row">
-                                    @{ var Reviews = eventService.GetEventReviews(Context, ev); }
-                                    @if (Reviews.Count() != 0)
-                                    {
-                                        <h1>Gem. Reviewscore: (@Reviews.Select(x => x.Review.rating).Average().ToString("#.##")/5) </h1>
-                                    }
-                                </div>
-                                <div class="event-modal-row">
-                                    @{ var reviews = eventService.GetEventReviews(Context, ev); }
-                                    <h1>Reviews (@reviews.Count())</h1>
-                                    @if (reviews.Count() != 0)
-                                    {
-                                        <div class="event-reviews">
-                                            @foreach (var us in reviews)
-                                            {
-                                                @if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{@us.User.Id}.png"))
+                                <div>
+                                    <div class="event-modal-row">
+                                        <h1>Overige Informatie</h1>
+                                        <p>
+                                            <strong>Locatie</strong>: @ev.location<br/>
+                                            <strong>Datum</strong>: @ev.date.Date.ToString("dd/MM/yyyy")<br/>
+                                            <strong>Tijd</strong>: @ev.start_time.ToString(@"hh\:mm") - @ev.end_time.ToString(@"hh\:mm")<br/>
+                                        </p>
+                                    </div>
+                                    <div class="event-modal-row">
+                                        @{ var eventParticipants = @eventService.GetEventParticipants(Context, ev); }
+                                        <h1>Deelnemers (@eventParticipants.Count())</h1>
+                                        @if (@eventParticipants.Count() != 0)
+                                        {
+                                            <ul class="event-modal-attendance">
+                                                @foreach (var us in @eventParticipants)
                                                 {
-                                                    var user = Context.Users.First(x => x.Id == @us.User.Id);
-                                                    ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, @us.User.Id!);
+                                                    @if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{@us.Id}.png"))
+                                                    {
+                                                        var user = Context.Users.First(x => x.Id == @us.Id);
+                                                        ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, @us.Id!);
+                                                    }
+                                                    <li>
+                                                        <img src="img/profilepictures/avatar@(us.Id).png"/>
+                                                        <p>@us.FirstName @us.LastName</p>
+                                                    </li>
                                                 }
+                                            </ul>
+                                        }
+                                    </div>
+                                    <div class="event-modal-row">
+                                        @{ var Reviews = eventService.GetEventReviews(Context, ev); }
+                                        @if (Reviews.Count() != 0)
+                                        {
+                                            <h1>Gem. Reviewscore: (@Reviews.Select(x => x.Review.rating).Average().ToString("#.##")/5) </h1>
+                                        }
+                                    </div>
+                                    <div class="event-modal-row">
+                                        @{ var reviews = eventService.GetEventReviews(Context, ev); }
+                                        <h1>Reviews (@reviews.Count())</h1>
+                                        @if (reviews.Count() != 0)
+                                        {
+                                            <div class="event-reviews">
+                                                @foreach (var us in reviews)
+                                                {
+                                                    @if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{@us.User.Id}.png"))
+                                                    {
+                                                        var user = Context.Users.First(x => x.Id == @us.User.Id);
+                                                        ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, @us.User.Id!);
+                                                    }
 
-                                                <div class="event-review-content">
-                                                    <div class="event-review-header">
-                                                        <img src="img/profilepictures/avatar@(@us.User.Id).png"/>
-                                                        <h1>@us.User.FirstName @us.User.LastName</h1>
-                                                        @{ var reviewRating = us.Review.rating; }
-                                                        @for (int i = 0; i < 5; i++)
-                                                        {
-                                                            if (reviewRating > 0)
+                                                    <div class="event-review-content">
+                                                        <div class="event-review-header">
+                                                            <img src="img/profilepictures/avatar@(@us.User.Id).png"/>
+                                                            <h1>@us.User.FirstName @us.User.LastName</h1>
+                                                            @{ var reviewRating = us.Review.rating; }
+                                                            @for (int i = 0; i < 5; i++)
                                                             {
-                                                                <span class="fa fa-star checked"></span>
-                                                                reviewRating--;
+                                                                if (reviewRating > 0)
+                                                                {
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    reviewRating--;
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="fa fa-star unchecked"></span>
+                                                                }
                                                             }
-                                                            else
-                                                            {
-                                                                <span class="fa fa-star unchecked"></span>
-                                                            }
-                                                        }
 
-                                                    </div>
+                                                        </div>
 
-                                                    <div class="line"></div>
-                                                    <div class="event-review-row">
-                                                        <p style="font-weight: 500;">@us.Review.feedback</p>
+                                                        <div class="line"></div>
+                                                        <div class="event-review-row">
+                                                            <p style="font-weight: 500;">@us.Review.feedback</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            }
-                                        </div>
-                                    }
+                                                }
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 }
             }
         </div>

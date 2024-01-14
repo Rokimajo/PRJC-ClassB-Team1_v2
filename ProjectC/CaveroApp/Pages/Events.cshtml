@@ -160,11 +160,16 @@
                                         @if (@eventParticipants.Count() != 0)
                                         {
                                             <ul class="event-modal-attendance">
-                                                @foreach (var participant in @eventParticipants)
+                                                @foreach (var us in @eventParticipants)
                                                 {
+                                                    @if (!System.IO.File.Exists(@$"wwwroot/img/profilepictures/avatar{@us.Id}.png"))
+                                                    {
+                                                        var user = Context.Users.First(x => x.Id == @us.Id);
+                                                        ProfilePictureGenerator.MakePF(user.FirstName, user.LastName, @us.Id!);
+                                                    }
                                                     <li>
-                                                        <img src="img/image-8-2.png"/>
-                                                        <p>@participant.FirstName @participant.LastName</p>
+                                                        <img src="img/profilepictures/avatar@(us.Id).png"/>
+                                                        <p>@us.FirstName @us.LastName</p>
                                                     </li>
                                                 }
                                             </ul>
