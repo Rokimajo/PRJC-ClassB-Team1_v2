@@ -4,6 +4,7 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using Microsoft.EntityFrameworkCore.Query
 @inject CaveroAppContext Context
+@inject Services.EventServices eventService
 @model CaveroApp.Pages.Events
 
 
@@ -154,7 +155,7 @@
                                         </p>
                                     </div>
                                     <div class="event-modal-row">
-                                        @{ var eventParticipants = @Model.GetEventParticipants(ev); }
+                                        @{ var eventParticipants = @eventService.GetEventParticipants(Context, ev); }
                                         <h1>Deelnemers (@eventParticipants.Count())</h1>
                                         @if (@eventParticipants.Count() != 0)
                                         {
@@ -170,14 +171,14 @@
                                         }
                                     </div>
                                     <div class="event-modal-row">
-                                        @{ var Reviews = Model.GetEventReviews(ev); }
+                                        @{ var Reviews = eventService.GetEventReviews(Context, ev); }
                                         @if (Reviews.Count() != 0)
                                         {
                                             <h1>Gem. Reviewscore: (@Reviews.Select(x => x.Review.rating).Average().ToString("#.##")/5) </h1>
                                         }
                                     </div>
                                     <div class="event-modal-row">
-                                        @{ var reviews = Model.GetEventReviews(ev); }
+                                        @{ var reviews = eventService.GetEventReviews(Context, ev); }
                                         <h1>Reviews (@reviews.Count())</h1>
                                         @if (reviews.Count() != 0)
                                         {
@@ -356,41 +357,41 @@
             <form id="createEventForm" asp-page-handler="CreateEvent" method="post">
                 <div class="event-modal-create">
                     <div class="event-modal-row">
-                        <h1>Titel (max 20 karakters)</h1>
-                        <input id="eventTitle" placeholder="..." asp-for="eventModel.Title" required
-                               pattern=".{1,20}" oninput="validateTitle()" onblur="validateTitle()"/>
-                        <span class="error-message" id="titleError"></span>
-                    </div>
-                    <div class="event-modal-row">
-                        <h1>Beschrijving (max 250 karakters)</h1>
-                        <textarea id="eventDescription" rows="6" cols="50" placeholder="..."  asp-for="eventModel.Description" required 
-                           oninput="validateDesc()" onblur="validateDesc()"></textarea>
-                        <span class="error-message" id="descError"></span>
-                    </div>
-                    <div class="event-modal-row">
-                        <h1>Locatie (max 20 karakters)</h1>
-                        <input id="eventLocation" placeholder="..." asp-for="eventModel.Location" required
-                               pattern=".{1,20}" oninput="validateLoc()" onblur="validateLoc()"/>
-                        <span class="error-message" id="locError"></span>
-                    </div>
-                    <div class="event-modal-row">
-                        <h1>Datum</h1>
-                        <input id="eventDate" placeholder="Kies een datum.." type="text" asp-for="eventModel.Date" required
-                               oninput="validateDate()" onblur="validateDate()"/>
-                        <span class="error-message" id="dateError"></span>
-                    </div>
-                    <div class="event-modal-row">
-                        <h1>Starttijd</h1>
-                        <input id="eventStartTime" placeholder="Kies een starttijd.." class="timepicker" type="text" asp-for="eventModel.StartTime" required
-                               oninput="validateStartTime()" onblur="validateStartTime()"/>
-                        <span class="error-message" id="startTimeError"></span>
-                    </div>
-                    <div class="event-modal-row">
-                        <h1>Eindtijd</h1>
-                        <input id="eventEndTime" placeholder="Kies een eindtijd.." class="timepicker" type="text" asp-for="eventModel.EndTime" required
-                               oninput="validateEndTime()" onblur="validateEndTime()"/>
-                        <span class="error-message" id="endTimeError"></span>
-                    </div>
+                                           <h1>Titel (max 20 karakters)</h1>
+                                           <input id="eventTitle" placeholder="..." asp-for="eventModel.Title" required
+                                                  pattern=".{1,20}" oninput="validateTitle('')" onblur="validateTitle('')"/>
+                                           <span class="error-message" id="titleError"></span>
+                                       </div>
+                                       <div class="event-modal-row">
+                                           <h1>Beschrijving (max 250 karakters)</h1>
+                                           <textarea id="eventDescription" rows="6" cols="50" placeholder="..."  asp-for="eventModel.Description" required 
+                                              oninput="validateDesc(undefined, '')" onblur="validateDesc(undefined, '')"></textarea>
+                                           <span class="error-message" id="descError"></span>
+                                       </div>
+                                       <div class="event-modal-row">
+                                           <h1>Locatie (max 20 karakters)</h1>
+                                           <input id="eventLocation" placeholder="..." asp-for="eventModel.Location" required
+                                                  pattern=".{1,20}" oninput="validateLoc('')" onblur="validateLoc('')"/>
+                                           <span class="error-message" id="locError"></span>
+                                       </div>
+                                       <div class="event-modal-row">
+                                           <h1>Datum</h1>
+                                           <input id="eventDate" placeholder="Kies een datum.." type="text" asp-for="eventModel.Date" required
+                                                  oninput="validateDate(undefined, '')" onblur="validateDate(undefined, '')"/>
+                                           <span class="error-message" id="dateError"></span>
+                                       </div>
+                                       <div class="event-modal-row">
+                                           <h1>Starttijd</h1>
+                                           <input id="eventStartTime" placeholder="Kies een starttijd.." class="timepicker" type="text" asp-for="eventModel.StartTime" required
+                                                  oninput="validateStartTime(undefined, '')" onblur="validateStartTime(undefined, '')"/>
+                                           <span class="error-message" id="startTimeError"></span>
+                                       </div>
+                                       <div class="event-modal-row">
+                                           <h1>Eindtijd</h1>
+                                           <input id="eventEndTime" placeholder="Kies een eindtijd.." class="timepicker" type="text" asp-for="eventModel.EndTime" required
+                                                  oninput="validateEndTime(undefined, '')" onblur="validateEndTime(undefined, '')"/>
+                                           <span class="error-message" id="endTimeError"></span>
+                                       </div>
                     <div class="event-modal-row">
                         <button id="createEventButtonModal" class="button create-event" type="submit">
                             <p>CREËER EVENT</p>

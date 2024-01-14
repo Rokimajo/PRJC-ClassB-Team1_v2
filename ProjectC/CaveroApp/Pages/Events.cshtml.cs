@@ -63,9 +63,18 @@ public class Events : PageModel
 
 
     /// <summary>
-    /// This function gets all the events for the current week, based on the dates listed in the Week Tuple.
-    /// It returns a list of WeekInfo objects, which contain the date and all the events for that date.
+    /// Retrieves all the events for the current week.
     /// </summary>
+    /// <returns>
+    /// A list of WeekEvents objects. Each object contains a date and all the events for that date.
+    /// </returns>
+    /// <remarks>
+    /// The method starts from the first day of the week (Monday) and iterates through each day until the end of the week (Friday).
+    /// For each day, it creates a new WeekEvents object with the date and all the events for that date.
+    /// The events are retrieved from the database, where the date of the event equals the current date and the event has been approved by the admin.
+    /// The WeekEvents object is then added to the list of week events.
+    /// The process is repeated until all days of the week have been processed.
+    /// </remarks>
     public List<WeekEvents> GetWeekEvents()
     {
         var week = new List<WeekEvents>();
@@ -102,38 +111,7 @@ public class Events : PageModel
                 where e.Equals(ev)
                 select ea).Count();
     }
-
-    /// <summary>
-    /// Retrieves a list of reviews for a given event.
-    /// </summary>
-    /// <param name="ev">The event for which to retrieve the reviews.</param>
-    /// <returns>A list of UserReviews objects, each containing a user and their corresponding review for the event.</returns>
-    public List<UserReviews> GetEventReviews(CaveroAppContext.Event ev)
-    {
-        return (from r in Context.Reviews 
-            join u in Context.Users on r.user_id equals u.Id
-            where r.event_id == ev.ID 
-            select new UserReviews
-            {
-                User = u,
-                Review = r
-            }).ToList();
-    }
     
-
-    /// <summary>
-    /// Retrieves a list of users who are participants of a given event.
-    /// </summary>
-    /// <param name="ev">The event for which to retrieve the participants.</param>
-    /// <returns>A list of CaveroAppUser objects representing the participants of the event.</returns>
-    public List<CaveroAppUser> GetEventParticipants(CaveroAppContext.Event ev)
-    {
-        return (from ea in Context.EventAttendances
-                join u in Context.Users on ea.user_id equals u.Id
-                where ea.event_id.Equals(ev.ID)
-                select u).ToList();
-    }
-
     /// <summary>
     ///     The Get() function has a bool that checks if the action has already been performed.
     ///     This is used so that we only set ChosenDay once, and not every time the page is refreshed.

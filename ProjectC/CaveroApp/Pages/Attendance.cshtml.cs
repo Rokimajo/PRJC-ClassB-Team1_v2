@@ -100,6 +100,12 @@ public class Attendance : PageModel
         return RedirectToPage();
     }
 
+    /// <summary>
+    /// This method is triggered when a user decides to join an event.
+    /// </summary>
+    /// <param name="userID">The ID of the user who wants to join the event.</param>
+    /// <param name="date">The date of the event the user wants to join, in the format "dd-mm-yyyy".</param>
+    /// <returns>A RedirectToPageResult, which redirects to the same page, without keeping a post form blocking the user from refreshing the page.</returns>
     public IActionResult OnPostUserJoin(string userID, string date)
     {
         var splitDate = date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
@@ -116,6 +122,12 @@ public class Attendance : PageModel
         return RedirectToPage();
     }
     
+    /// <summary>
+    /// This method is triggered when a user decides to leave an event.
+    /// </summary>
+    /// <param name="userID">The ID of the user who wants to leave the event.</param>
+    /// <param name="date">The date of the event the user wants to leave, in the format "dd-mm-yyyy".</param>
+    /// <returns>A RedirectToPageResult, which redirects to the same page, without keeping a post form blocking the user from refreshing the page.</returns>
     public IActionResult OnPostUserLeave(string userID, string date)
     {
         var splitDate = date.Split("-").Select(x => Convert.ToInt32(x)).ToArray();
