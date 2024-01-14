@@ -19,6 +19,10 @@
     var today = DateTime.Now.Date;
     var validEvents = Model.GetAllEvents().Where(e => e.date.Date >= today).OrderBy(e => e.date);
     var groupedEvents = validEvents.GroupBy(e => e.date.Date).OrderBy(g => g.Key);
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    var userAttendance = (from e in Context.Events
+        join ea in Context.EventAttendances on e.ID equals ea.event_id
+        where ea.user_id.Equals(userId) && e.date.Equals(DateTime.UtcNow.AddDays(1).Date) select e);
 }
 
 @section HeaderContent
@@ -125,21 +129,15 @@
     </div>
     <div id="NextDayEvent" style="visibility: hidden">
         @* Dit laat event van de volgende dag zien *@
-        @foreach (var groupp in groupedEvents)
+        @foreach (var user in userAttendance)
         {
-            @foreach (var evv in groupp.OrderBy(x => x.date))
-            {
-                if (evv.date.Date == DateTime.Now.AddDays(1).Date)
-                {
-                    <script>
-                        document.getElementById("bell-icon").src = "img/icons8-notification-50.png"
-                    </script>
-                    <div class="event-card custom-event-card">
-                        <h1>@evv.title</h1>
-                        <p>@groupp.Key.ToString("dddd, d MMMM")</p>
-                    </div>
-                }
-            }
+            <script>
+                document.getElementById("bell-icon").src = "img/icons8-notification-50.png"
+            </script>
+            <div class="event-card custom-event-card">
+                <h1>@user.title</h1>
+                @* <p>@groupp.Key.ToString("dddd, d MMMM")</p> *@
+            </div>
         }
     </div>
 </div>
