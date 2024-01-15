@@ -1,1 +1,110 @@
-﻿.tooltip .bottom,.tooltip .bottom i::after{position:absolute;left:50%;background-color:#eee;box-shadow:0 1px 8px rgba(0,0,0,.5)}.tooltip,.wrapper{display:inline-flex}.header-text,.wrapper button:not(.button){color:#fff;font-weight:500;font-family:Montserrat,sans-serif}#dialogdialog{display:none}.tooltip{text-align:center}.tooltip .bottom{min-width:fit-content;top:40px;transform:translate(-50%,0);padding:10px 20px;color:#444;font-weight:400;font-size:13px;border-radius:8px;z-index:99999999;box-sizing:border-box;visibility:hidden;opacity:0;transition:opacity .2s}.tooltip:hover .bottom{visibility:visible;opacity:1}.tooltip .bottom i{position:absolute;bottom:100%;left:50%;margin-left:-12px;width:24px;height:12px;overflow:hidden}.tooltip .bottom i::after{content:'';width:12px;height:12px;transform:translate(-50%,50%) rotate(45deg)}.wrapper{align-items:center}.wrapper button:not(.button){background-color:transparent;border:none;font-size:30px;transition:.3s}.wrapper button:hover{cursor:pointer;transform:translateY(-1px)}.header-text{margin-top:3px;margin-bottom:3px;font-size:25px}@media only screen and (max-width:900px){.header-text{font-size:20px}}@media only screen and (max-width:700px){.header-text{font-size:18px}}@media only screen and (max-width:500px){.header-text{font-size:28px}}
+﻿#dialogdialog {
+    display: none;
+}
+
+.tooltip {
+    display: inline-flex;
+    text-align: center;
+}
+
+.tooltip .bottom {
+    min-width: fit-content;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 10px 20px;
+    color: #444444;
+    background-color: #EEEEEE;
+    font-weight: normal;
+    font-size: 13px;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 99999999;
+    box-sizing: border-box;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.tooltip:hover .bottom {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip .bottom i {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -12px;
+    width: 24px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.tooltip .bottom i::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    transform: translate(-50%, 50%) rotate(45deg);
+    background-color: #EEEEEE;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.wrapper button:not(.button) {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.3s ease;
+}
+
+.wrapper button:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
+}
+
+.header-text {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-event {
+    background-color: dodgerblue;
+    text-align: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+    .header-text {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .header-text {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .header-text {
+        font-size: 28px;
+    }
+}
+
+/* Info Modal*/
+
