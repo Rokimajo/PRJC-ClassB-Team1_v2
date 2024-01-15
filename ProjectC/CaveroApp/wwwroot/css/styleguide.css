@@ -1,20 +1,20 @@
 :root {
-  --variable-collection-light-grey: rgba(138, 144, 151, 1);
-  --text-16px-regular-font-family: "Inter-Regular", Helvetica;
-  --text-16px-regular-font-weight: 400;
-  --text-16px-regular-font-size: 16px;
-  --text-16px-regular-letter-spacing: 0px;
-  --text-16px-regular-line-height: 26px;
-  --text-16px-regular-font-style: normal;
-  --text-16px-semibold-font-family: "Inter-SemiBold", Helvetica;
-  --text-16px-semibold-font-weight: 600;
-  --text-16px-semibold-font-size: 16px;
-  --text-16px-semibold-letter-spacing: 0px;
-  --text-16px-semibold-line-height: 26px;
-  --text-16px-semibold-font-style: normal;
-  --collection-1-muted-red: rgba(253, 67, 71, 1);
-  --collection-1-cavero-gradient: rgba(78, 15, 86, 1);
-  --collection-1-cavero-lichtpaars: rgba(246, 224, 248, 1);
-  --collection-1-cavero-blackish-grey: rgba(71, 82, 94, 1);
-  --collection-1-cavero-paars: rgba(128, 54, 137, 1);
+    --variable-collection-light-grey: rgba(138, 144, 151, 1);
+    --text-16px-regular-font-family: "Inter-Regular", Helvetica;
+    --text-16px-regular-font-weight: 400;
+    --text-16px-regular-font-size: 16px;
+    --text-16px-regular-letter-spacing: 0px;
+    --text-16px-regular-line-height: 26px;
+    --text-16px-regular-font-style: normal;
+    --text-16px-semibold-font-family: "Inter-SemiBold", Helvetica;
+    --text-16px-semibold-font-weight: 600;
+    --text-16px-semibold-font-size: 16px;
+    --text-16px-semibold-letter-spacing: 0px;
+    --text-16px-semibold-line-height: 26px;
+    --text-16px-semibold-font-style: normal;
+    --collection-1-muted-red: rgba(253, 67, 71, 1);
+    --collection-1-cavero-gradient: rgba(78, 15, 86, 1);
+    --collection-1-cavero-lichtpaars: rgba(246, 224, 248, 1);
+    --collection-1-cavero-blackish-grey: rgba(71, 82, 94, 1);
+    --collection-1-cavero-paars: rgba(128, 54, 137, 1);
 }

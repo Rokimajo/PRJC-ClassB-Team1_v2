@@ -1,4 +1,4 @@
-﻿    * {
+﻿* {
 }
 
 body {
@@ -73,7 +73,7 @@ body {
     padding: 10px 10px;
     color: white;
     transition: 0.3s ease-in;
-    display: flex; 
+    display: flex;
     align-items: center;
     border-radius: 15px;
     user-select: none;
@@ -85,9 +85,9 @@ body {
 }
 
 .aside_list_item .list-image {
-    width: 30px; 
-    height: 30px; 
-    margin-top: 5px; 
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
     margin-right: 5px;
 }
 
@@ -121,12 +121,13 @@ body {
     height: 100px;
     filter: brightness(0) invert(1);
 }
+
 .aside-close-icon {
     display: none;
 }
 
 .aside-logo {
-    width: 100px; 
+    width: 100px;
     height: 100px;
     margin-left: 20%;
     margin-top: 10%;
@@ -134,7 +135,7 @@ body {
 }
 
 .log-out-logo {
-    
+
 }
 
 .main {
@@ -150,14 +151,14 @@ body {
 /*phone layout*/
 @media only screen and (max-width: 500px) {
     .grid-container {
-    /* make page fill the entire screen
-    instead of only filling it up so far as the main grid goes.
-     */
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 75px auto;
-    grid-template-areas:
+        /* make page fill the entire screen
+        instead of only filling it up so far as the main grid goes.
+         */
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 75px auto;
+        grid-template-areas:
         'header'
         'main'
     }
@@ -176,20 +177,20 @@ body {
         transition: 0.35s;
         transform: translateX(-265px);
     }
-    
+
     .aside_list img {
         width: 90px;
         height: 90px;
     }
-    
+
     .aside_list_item:hover {
         background-color: white;
     }
-    
+
     .aside.active {
         transform: translateX(0);
     }
-    
+
     .aside-close-icon {
         position: fixed;
         display: flex;
@@ -204,11 +205,11 @@ body {
         user-select: none;
         transition: 0.4s;
     }
-    
+
     .aside-close-icon:hover {
         color: red;
     }
-    
+
     .hamburger-menu {
         display: flex;
         align-items: center;
@@ -222,7 +223,7 @@ body {
         transition: 0.3s;
         color: white;
     }
-    
+
     .hamburger-menu:hover {
         background-color: white;
         font-weight: 700;

@@ -9,133 +9,137 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CaveroApp
 build_property.RootNamespace = CaveroApp
-build_property.ProjectDir = C:\Users\robin\Desktop\Project_C\ProjectC\CaveroApp\
+build_property.ProjectDir = C:\ProjectC\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\robin\Desktop\Project_C\ProjectC\CaveroApp
+build_property.MSBuildProjectDirectory = C:\ProjectC\PRJC-ClassB-Team1_v2\ProjectC\CaveroApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/EmailTemplate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFbWFpbFRlbXBsYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/Logout.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/adminUserInfo.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/adminUserInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWRtaW5Vc2VySW5mby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Agenda.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWdlbmRhLmNzaHRtbA==
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Attendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXR0ZW5kYW5jZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Dashboard.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Error.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Events.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Events.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZlbnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Index.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/LoginView.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/LoginView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5WaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Privacy.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Shared/CaveroLayout.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/CaveroLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENhdmVyb0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Shared/CaveroLayoutResponsive.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/CaveroLayoutResponsive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENhdmVyb0xheW91dFJlc3BvbnNpdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Shared/_EmptyLayout.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/_EmptyLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9FbXB0eUxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Shared/_LoginPartial.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/SignupView.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/SignupView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbnVwVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/testpage.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/testpage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcdGVzdHBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/_ViewImports.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/_ViewStart.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/robin/Desktop/Project_C/ProjectC/CaveroApp/Pages/Shared/_Layout.cshtml]
+[C:/ProjectC/PRJC-ClassB-Team1_v2/ProjectC/CaveroApp/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0ss0nyapk5

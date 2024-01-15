@@ -7,12 +7,12 @@ infoButtons.forEach(function (button) {
         var modal = document.querySelector(".modal-card-" + cardId);
         var span = document.getElementsByClassName("close-" + cardId)[0];
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
+        span.onclick = function () {
             modal.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
@@ -32,12 +32,12 @@ deleteButton.forEach(function (button) {
         var span = document.querySelector(".close-delete-" + cardId);
 
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
+        span.onclick = function () {
             modal.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
@@ -53,7 +53,7 @@ createButton.addEventListener("click", function () {
     var modal = document.querySelector("#createEventModal");
     var span = document.querySelector("#closeEvent");
 
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
     }
 
@@ -70,12 +70,12 @@ createButton.addEventListener("click", function () {
 
 var editButton = document.querySelectorAll(".button.edit");
 editButton.forEach(function (button) {
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
         var cardId = button.getAttribute("data-card-id");
         var modal = document.querySelector(".modal-card-edit-" + cardId);
         var span = document.querySelector(".close-edit-" + cardId);
-        
-        span.onclick = function() {
+
+        span.onclick = function () {
             modal.style.display = "none";
         }
 
@@ -93,7 +93,7 @@ editButton.forEach(function (button) {
 
 const editEventButton = document.querySelectorAll('.button.edit-event');
 
-editEventButton.forEach(function(button) {
+editEventButton.forEach(function (button) {
     button.addEventListener('click', function (event) {
         const Id = button.getAttribute("event-id-data");
         const editForm = document.getElementById('editEventForm-' + Id);
@@ -116,9 +116,9 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
         }
     });
-    
+
     // FLATPICKR INITIALIZATIONS 
-    
+
     flatpickr("#eventDate", {
         enableTime: false,
         dateFormat: "d-m-Y",
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Admin edit needs a flatpickr for each unique event. This loops over all edit event modals currently on screen
     // And gives them each their unique date pickers based on the event ID.
     const editEventButton = document.querySelectorAll('.button.edit-event');
-    editEventButton.forEach(function(button) {
+    editEventButton.forEach(function (button) {
         const Id = button.getAttribute("event-id-data");
         // date pickers for the admin edit modal
         flatpickr("#eventDateEdit-" + Id, {

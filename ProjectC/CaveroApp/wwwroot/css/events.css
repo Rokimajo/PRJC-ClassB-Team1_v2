@@ -69,7 +69,7 @@
 
 .item::-webkit-scrollbar-thumb {
     border-radius: 15px;
-    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: var(--collection-1-cavero-blackish-grey);
 }
 
@@ -251,7 +251,7 @@ div.event-card > * {
 }
 
 .sign-out {
-    background-color: rgba(252,70,107,1);
+    background-color: rgba(252, 70, 107, 1);
 }
 
 .create-event {
@@ -309,21 +309,21 @@ div.event-card > * {
                 "thursday"
                 "friday";
     }
-    
+
     .day-wrapper {
         height: auto;
         display: flex;
         flex-grow: 1;
         width: 100%;
     }
-    
+
     .day {
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
     }
-    
+
     .item {;
         height: 100%;
         width: 70%;
@@ -366,8 +366,8 @@ strong {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(1px);
     transition: 0.3s ease-in-out;
 }
@@ -387,13 +387,21 @@ strong {
 }
 
 @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)}
-    to {-webkit-transform:scale(1)}
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
 }
 
 @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
 }
 
 .event-modal-header {
@@ -515,7 +523,7 @@ div.event-modal-row br {
 
 .close:hover,
 .close:focus {
-    color: rgba(252,70,107,1);
+    color: rgba(252, 70, 107, 1);
     text-decoration: none;
     cursor: pointer;
 }
@@ -542,6 +550,7 @@ div.event-modal-row br {
 .flatpickr-time ::selection {
     background: lightblue;
 }
+
 /*MODAL CONTENT END*/
 #editModal {
     font-family: 'Montserrat', sans-serif;
@@ -639,8 +648,8 @@ div.event-modal-row br {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(1px);
     transition: 0.3s ease-in-out;
 }
@@ -772,7 +781,7 @@ div.review-modal-row br {
 
 .close:hover,
 .close:focus {
-    color: rgba(252,70,107,1);
+    color: rgba(252, 70, 107, 1);
     text-decoration: none;
     cursor: pointer;
 }

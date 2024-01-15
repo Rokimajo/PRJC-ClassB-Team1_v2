@@ -1,5 +1,4 @@
-﻿
-/*grid body and main card grids for dashboard.*/
+﻿/*grid body and main card grids for dashboard.*/
 .main-overview {
     display: flex;
     flex-direction: column;
@@ -62,7 +61,8 @@
         margin: 0 auto; /* Center the card horizontally */
     }
 }
-        /* Dashboard items like cards, buttons, etc.*/
+
+/* Dashboard items like cards, buttons, etc.*/
 
 .present-box {
     margin: 10px;
@@ -100,7 +100,7 @@
 }
 
 .box-info img {
-    filter: brightness(30%); 
+    filter: brightness(30%);
     width: 60px;
     height: 60px;
 }

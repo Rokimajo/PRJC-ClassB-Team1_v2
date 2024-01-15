@@ -1,12 +1,12 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 * {
-    margin:0;
+    margin: 0;
     box-sizing: border-box;
 }
 
 html, body {
-    height:100%;
+    height: 100%;
     font-family: "Lato", Helvetica, serif;
     background: linear-gradient(var(--collection-1-cavero-paars), var(--collection-1-cavero-gradient));
 
@@ -24,14 +24,14 @@ html, body {
     }
 }
 
-section{
+section {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
-section .air{
+section .air {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -40,82 +40,88 @@ section .air{
     background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
     background-size: 1000px 100px
 }
-section .air.air1{
+
+section .air.air1 {
     animation: wave 30s linear infinite;
     z-index: 3;
     opacity: 1;
     animation-delay: 0s;
     bottom: 0;
 }
-section .air.air2{
+
+section .air.air2 {
     animation: wave2 15s linear infinite;
     z-index: 2;
     opacity: 0.5;
     animation-delay: -5s;
     bottom: 10px;
 }
-section .air.air3{
+
+section .air.air3 {
     animation: wave 30s linear infinite;
     z-index: 1;
     opacity: 0.2;
     animation-delay: -2s;
     bottom: 15px;
 }
-section .air.air4{
+
+section .air.air4 {
     animation: wave2 5s linear infinite;
     z-index: 0;
     opacity: 0.7;
     animation-delay: -5s;
     bottom: 20px;
 }
-@keyframes wave{
-    0%{
+
+@keyframes wave {
+    0% {
         background-position-x: 0px;
     }
-    100%{
+    100% {
         background-position-x: 1000px;
     }
 }
-@keyframes wave2{
-    0%{
+
+@keyframes wave2 {
+    0% {
         background-position-x: 0px;
     }
-    100%{
+    100% {
         background-position-x: -1000px;
     }
 }
 
 #registration-page {
-    height:100%;
-    display:flex;
+    height: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-.signup-form  {
-    flex:1;
+.signup-form {
+    flex: 1;
     z-index: 5;
-    max-width:700px;
+    max-width: 700px;
     border-radius: 10px;
     margin-top: auto;
-    margin-bottom:  auto;
+    margin-bottom: auto;
 }
 
 /* FORM HEADER */
 .form-header {
-    padding:15px 0;
+    padding: 15px 0;
     border-radius: 15px 15px 0 0;
     background-color: var(--collection-1-cavero-gradient);
-    box-shadow: 10px 10px 9px -3px rgba(0,0,0,0.46);
+    box-shadow: 10px 10px 9px -3px rgba(0, 0, 0, 0.46);
 }
 
 .form-header h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 28px;
-    text-align:center;
-    color:#ffffff;
+    text-align: center;
+    color: #ffffff;
 }
 
 .form-header p {
@@ -137,10 +143,10 @@ section .air.air4{
 
 /* FORM BODY */
 .form-body {
-    background:white;
-    padding:5px 10px;
+    background: white;
+    padding: 5px 10px;
     border-radius: 0 0 15px 15px;
-    box-shadow: 10px 10px 9px -3px rgba(0,0,0,0.46);
+    box-shadow: 10px 10px 9px -3px rgba(0, 0, 0, 0.46);
 }
 
 .form-body a {
@@ -156,34 +162,34 @@ section .air.air4{
 
 
 .row {
-    display:flex;
+    display: flex;
 }
 
 .input-group {
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    margin:10px 5px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 5px;
 }
 
 
 /* MOBILE VIEW */
 @media only screen and (max-width: 500px) {
-    .row{
-        flex-direction:column;
+    .row {
+        flex-direction: column;
         transition: 0.3s;
     }
-    
+
     #registration-page {
         flex-direction: column;
         transition: 0.3s;
     }
 
     .btn {
-        flex:1;
+        flex: 1;
     }
-    
-    .signup-form{
+
+    .signup-form {
         justify-content: center;
         align-content: center;
         align-items: center;
@@ -195,10 +201,10 @@ section .air.air4{
 
 /* FORM FOOTER */
 .form-footer {
-    display:flex;
+    display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding:10px;
+    padding: 10px;
 }
 
 .log-in-link {
@@ -209,13 +215,13 @@ section .air.air4{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:10px 20px;
+    padding: 10px 20px;
     background-color: var(--collection-1-cavero-paars);
-    font-size:17px;
-    border:none;
-    border-radius:5px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
     color: white;
-    cursor:pointer;
+    cursor: pointer;
     transition: 0.3s;
     width: 200px;
     font-family: 'Montserrat', sans-serif;
@@ -256,11 +262,11 @@ label {
 }
 
 input[type="text"],
-input[type="email"] ,
+input[type="email"],
 input[type="password"],
 select,
-textarea  {
-    width:100%;
+textarea {
+    width: 100%;
 
     font-size: 18px;
     height: 34px;
@@ -279,5 +285,5 @@ textarea  {
 
 textarea {
     resize: none;
-    height:100px;
+    height: 100px;
 }

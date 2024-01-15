@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eAXsKM1qZaqX+yj+9+o7PIGKCsgDHZDrj4KtfZTf2y2uet7SAUOY4o/uw+byJlSpCocu6BXyXF64xjk6GPVsLw==",
+  "dgSpecHash": "fDblumEu9vhQggBXcVQVa8Fkt1JAeNrvTvYr0AD2vnMLs5Jdi1wO3gJR2H6tKj5AKQOBmEBNJOojSL4U3nCSEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\robin\\Desktop\\Project_C\\ProjectC\\CaveroApp\\CaveroApp.csproj",
+  "projectFilePath": "C:\\ProjectC\\PRJC-ClassB-Team1_v2\\ProjectC\\CaveroApp\\CaveroApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\robin\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\robin\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
@@ -168,6 +168,9 @@
     "C:\\Users\\robin\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\robin\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\robin\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\skiasharp\\2.88.6\\skiasharp.2.88.6.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.6\\skiasharp.nativeassets.macos.2.88.6.nupkg.sha512",
+    "C:\\Users\\robin\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.6\\skiasharp.nativeassets.win32.2.88.6.nupkg.sha512",
     "C:\\Users\\robin\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.2\\sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
     "C:\\Users\\robin\\.nuget\\packages\\sqlitepclraw.core\\2.1.2\\sqlitepclraw.core.2.1.2.nupkg.sha512",
     "C:\\Users\\robin\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.2\\sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
