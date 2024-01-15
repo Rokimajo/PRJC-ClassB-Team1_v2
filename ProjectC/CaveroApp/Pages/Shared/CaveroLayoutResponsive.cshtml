@@ -59,12 +59,6 @@
                     </li>
                 </a>
             }
-            <a class="button-link" asp-area="" asp-page="/testpage">
-                <li class="aside_list_item log-out-logo">
-                    <img class="list-image" src="img/image-4.png"/>
-                    <p>Settings</p>
-                </li>
-            </a>
             @if (SignInManager.IsSignedIn(User))
             {
                 <form class="button-link" id="LogoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
